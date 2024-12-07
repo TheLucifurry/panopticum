@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tauri dev"
+    "dev": "tauri dev",
+    "tauri": "tauri"
   },
   "keywords": [],
   "author": "",
