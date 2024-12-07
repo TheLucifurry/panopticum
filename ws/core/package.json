@@ -1,6 +1,7 @@
 {
-  "name": "core",
-  "version": "1.0.0",
+  "name": "@panopticum/core",
+  "private": true,
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
