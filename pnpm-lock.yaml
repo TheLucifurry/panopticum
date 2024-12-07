@@ -8,6 +8,12 @@ importers:
 
   .: {}
 
+  ws/core:
+    devDependencies:
+      '@tauri-apps/cli':
+        specifier: ^2
+        version: 2.1.0
+
   ws/panopticum:
     dependencies:
       '@tauri-apps/api':
@@ -35,6 +41,52 @@ importers:
       '@tauri-apps/cli':
         specifier: ^2
         version: 2.1.0
+      '@types/node':
+        specifier: ^22.10.1
+        version: 22.10.1
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.5
+        version: 5.2.1(vite@5.4.11(@types/node@22.10.1)(sass@1.81.0))(vue@3.5.13(typescript@5.7.2))
+      sass:
+        specifier: ^1.81.0
+        version: 1.81.0
+      typescript:
+        specifier: ^5.2.2
+        version: 5.7.2
+      unplugin-vue-router:
+        specifier: ^0.10.8
+        version: 0.10.8(rollup@4.28.0)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))
+      vite:
+        specifier: ^5.4.11
+        version: 5.4.11(@types/node@22.10.1)(sass@1.81.0)
+      vue-tsc:
+        specifier: ^2.0.22
+        version: 2.1.10(typescript@5.7.2)
+
+  ws/ui:
+    dependencies:
+      '@tauri-apps/api':
+        specifier: ^2
+        version: 2.1.1
+      '@tauri-apps/plugin-shell':
+        specifier: ^2
+        version: 2.0.1
+      '@vueuse/core':
+        specifier: ^12.0.0
+        version: 12.0.0(typescript@5.7.2)
+      '@webshrine/stdlib':
+        specifier: ^0.0.1
+        version: 0.0.1(typescript@5.7.2)
+      pinia:
+        specifier: ^2.2.8
+        version: 2.2.8(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
+      vue:
+        specifier: ^3.3.4
+        version: 3.5.13(typescript@5.7.2)
+      vue-router:
+        specifier: ^4.5.0
+        version: 4.5.0(vue@3.5.13(typescript@5.7.2))
+    devDependencies:
       '@types/node':
         specifier: ^22.10.1
         version: 22.10.1
