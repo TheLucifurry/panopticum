@@ -6,12 +6,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "tauri dev",
-    "tauri": "tauri"
+    "build": "tauri build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@tauri-apps/cli": "^2"
+    "@tauri-apps/cli": "^2.1.0"
   }
 }
