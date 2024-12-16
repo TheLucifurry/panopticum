@@ -3,7 +3,8 @@ import { createPinia } from 'pinia'
 import App from "./index.vue";
 import { debug } from './debug'
 import Router from '@/pages'
-import './styles/index.scss'
+// import './styles/index.scss'
+import './styles/global.css'
 
 if (import.meta.env.DEV)
   debug()
