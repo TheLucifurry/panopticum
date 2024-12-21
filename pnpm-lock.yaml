@@ -77,9 +77,6 @@ importers:
       '@vueuse/core':
         specifier: ^12.0.0
         version: 12.0.0(typescript@5.7.2)
-      '@webshrine/stdlib':
-        specifier: ^0.0.2
-        version: 0.0.2(typescript@5.7.2)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -107,6 +104,9 @@ importers:
       vue-router:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
+      webshrine:
+        specifier: ^0.0.9
+        version: 0.0.9(typescript@5.7.2)
     devDependencies:
       '@types/node':
         specifier: ^22.10.1
@@ -722,11 +722,17 @@ packages:
   '@vueuse/shared@12.0.0':
     resolution: {integrity: sha512-3i6qtcq2PIio5i/vVYidkkcgvmTjCqrf26u+Fd4LhnbBmIT6FN8y6q/GJERp8lfcB9zVEfjdV0Br0443qZuJpw==}
 
+  '@webshrine/stdfmt@0.0.9':
+    resolution: {integrity: sha512-WkG8JAx3jE60ZcGgy55Md4oPUU3QvjMIz0LXeKt/EGCRCtl9uSNPpJNIohp1jaB7tfhv5D2dl81i9laQvK71Fw==}
+
   '@webshrine/stdlib@0.0.1':
     resolution: {integrity: sha512-gerneeZJY8LRGTrizAsZ/t9f4cpkzps3+VTQYftJ0FMC7QCQ4jimXwC3mYT9behfBs4AQY0aTyVMMF50hWt5xQ==}
 
-  '@webshrine/stdlib@0.0.2':
-    resolution: {integrity: sha512-7y+EnrYqKy7v+0pbfXblRGa6UzVBOrPVcEuXxeoi5qVwteuKZRw/Vil/4V3e6Cy6vD86N5tyiF9cEGRhwhUIQg==}
+  '@webshrine/stdlib@0.0.9':
+    resolution: {integrity: sha512-u/5FsURXMfFlW+LZxHRxu2AolkGAnijT19vDJnKO9abf1K3o5oksu6zI59zNsJQfl9naTaL2aeJItBgB1wl+tA==}
+
+  '@webshrine/stdtyp@0.0.9':
+    resolution: {integrity: sha512-kTvu1sR/2b/56QQn94EcOYGeMwbdmJdw5UIKz3369TBgyoPA67yxRlKakBf83Su1LzTWpG18uo56OyFGafqQsA==}
 
   acorn@8.14.0:
     resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
@@ -1407,6 +1413,9 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
+  webshrine@0.0.9:
+    resolution: {integrity: sha512-HTTQBPKzrm4YF79r9M/l6nxvyqM3G+dMnEQDix5Egip1il3eeRzyiZLKxr+HcOmdjjRelqKKPtStm1797lqgmw==}
+
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
     engines: {node: '>= 8'}
@@ -1921,6 +1930,21 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
+  '@webshrine/stdfmt@0.0.9(typescript@5.7.2)':
+    dependencies:
+      '@types/lodash-es': 4.17.12
+      '@webshrine/stdtyp': link:../stdtyp
+      cope: 1.0.9(typescript@5.7.2)
+      defu: 6.1.4
+      fast-deep-equal: 3.1.3
+      klona: 2.0.6
+      lodash-es: 4.17.21
+      perfect-debounce: 1.0.0
+      throttleit: 2.1.0
+      utility-types: 3.11.0
+    transitivePeerDependencies:
+      - typescript
+
   '@webshrine/stdlib@0.0.1(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
@@ -1935,7 +1959,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdlib@0.0.2(typescript@5.7.2)':
+  '@webshrine/stdlib@0.0.9(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
       '@webshrine/stdtyp': link:../stdtyp
@@ -1949,6 +1973,10 @@ snapshots:
       utility-types: 3.11.0
     transitivePeerDependencies:
       - typescript
+
+  '@webshrine/stdtyp@0.0.9':
+    dependencies:
+      utility-types: 3.11.0
 
   acorn@8.14.0: {}
 
@@ -2606,6 +2634,14 @@ snapshots:
       typescript: 5.7.2
 
   webpack-virtual-modules@0.6.2: {}
+
+  webshrine@0.0.9(typescript@5.7.2):
+    dependencies:
+      '@webshrine/stdfmt': 0.0.9(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.9(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.9
+    transitivePeerDependencies:
+      - typescript
 
   which@2.0.2:
     dependencies:
