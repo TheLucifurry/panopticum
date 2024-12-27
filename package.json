@@ -6,5 +6,9 @@
   "main": "index.js",
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "scripts": {
+    "deps:check_updates": "ncu && ncu -ws && cd ws/core && cargo update --dry-run",
+    "deps:upgrade": "ncu -u && ncu -ws -u && pnpm i && cd ws/core && cargo update"
+  }
 }
