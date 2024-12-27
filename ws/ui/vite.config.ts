@@ -4,12 +4,16 @@ import VueRouter from 'unplugin-vue-router/vite'
 import { URL, fileURLToPath } from 'node:url'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
   plugins: [
+    vueJsx({
+      // options are passed on to @vue/babel-plugin-jsx
+    }),
     VueRouter({
       root: 'src',
       routeBlockLang: 'yaml',
