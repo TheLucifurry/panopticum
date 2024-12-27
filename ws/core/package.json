@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "tauri dev",
-    "build": "tauri build"
+    "build": "tauri build",
+    "generate_icons": "pnpm tauri icon ../ui/public/icon.png"
   },
   "keywords": [],
   "author": "",
