@@ -1,28 +1,40 @@
-<script setup lang="ts">
+<script lang="tsx">
 import { getCurrentWindow } from '@tauri-apps/api/window';
+import { defineComponent, VNode } from 'vue';
+import { cope, Fn } from 'webshrine';
 
-const appWindow = getCurrentWindow()
+const [appWindow] = cope(getCurrentWindow)
+
+export default defineComponent({
+  setup(_, ctx) {
+    const renderButton = (callback: Fn, content: VNode) => (
+      <div class="window-bar__button" onClick={callback}>
+        {content}
+      </div>
+    )
+
+    return () => (
+      <div class="window-bar">
+        <div>
+          {ctx.slots.default?.()}
+        </div>
+        <div data-tauri-drag-region></div>
+        <div>
+          {renderButton(() => appWindow?.minimize(), (
+            <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
+          ))}
+          {renderButton(() => appWindow?.toggleMaximize(), (
+            <img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
+          ))}
+          {renderButton(() => appWindow?.close(), (
+            <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+          ))}
+        </div>
+      </div>
+    )
+  }
+})
 </script>
-
-<template>
-  <div class="window-bar">
-    <div>
-      <slot></slot>
-    </div>
-    <div data-tauri-drag-region></div>
-    <div>
-      <div class="window-bar__button" @click="appWindow.minimize()">
-        <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
-      </div>
-      <div class="window-bar__button" @click="appWindow.toggleMaximize()">
-        <img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
-      </div>
-      <div class="window-bar__button" @click="appWindow.close()">
-        <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
-      </div>
-    </div>
-  </div>
-</template>
 
 <style lang="scss">
 $height: 40px;
@@ -45,11 +57,15 @@ $height: 40px;
     height: $height;
     user-select: none;
     -webkit-user-select: none;
+
+    &:hover {
+      background: #0001;
+    }
+    &:active {
+      background: #0002;
+    }
   }
 
-  &__button:hover {
-    background: #ffffff1c;
-  }
 
   & > div {
     display: flex;
