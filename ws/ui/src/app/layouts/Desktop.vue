@@ -1,12 +1,51 @@
 <script setup lang="ts">
+import Button from '@/shared/components/ui/button/Button.vue';
+import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
 import { WindowBar } from '@/widgets/common';
+import { useToggle } from '@vueuse/core';
+
+const [isOpen, toggleSidebar] = useToggle(true)
 </script>
 
 <template>
-  <WindowBar/>
-  <div>
+  <div class="root">
+    <SidebarProvider :open="isOpen">
+      <div class="layout">
+        <Sidebar>
+          <SidebarHeader>
+            Header
+          </SidebarHeader>
+          <SidebarContent>
+            <SidebarGroup />
+            <SidebarGroup />
+          </SidebarContent>
+          <SidebarFooter>
+            Footer
+          </SidebarFooter>
+        </Sidebar>
+        <div>
+          <WindowBar>
+            <Button size="sm" @click="toggleSidebar()">Open</Button>
+          </WindowBar>
+          <main>
+            Main content
+          </main>
+        </div>
+      </div>
+    </SidebarProvider>
   </div>
 </template>
 
 <style lang="scss">
+.root {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 100% / max-content 1fr;
+}
 </style>

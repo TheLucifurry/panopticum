@@ -5,10 +5,6 @@ import SheetContent from '@/shared/components/ui/sheet/SheetContent.vue'
 import { cn } from '@/shared/utils'
 import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
 
-defineOptions({
-  inheritAttrs: false,
-})
-
 const props = withDefaults(defineProps<{
   side?: 'left' | 'right'
   variant?: 'sidebar' | 'floating' | 'inset'
@@ -49,7 +45,8 @@ const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
   </Sheet>
 
   <div
-    v-else class="group peer hidden md:block"
+    v-else
+    class="group peer hidden md:block"
     :data-state="state"
     :data-collapsible="state === 'collapsed' ? collapsible : ''"
     :data-variant="variant"
