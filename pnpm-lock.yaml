@@ -105,8 +105,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
       webshrine:
-        specifier: ^0.0.9
-        version: 0.0.9(typescript@5.7.2)
+        specifier: ^0.0.13
+        version: 0.0.13(typescript@5.7.2)
     devDependencies:
       '@types/node':
         specifier: ^22.10.1
@@ -722,17 +722,17 @@ packages:
   '@vueuse/shared@12.0.0':
     resolution: {integrity: sha512-3i6qtcq2PIio5i/vVYidkkcgvmTjCqrf26u+Fd4LhnbBmIT6FN8y6q/GJERp8lfcB9zVEfjdV0Br0443qZuJpw==}
 
-  '@webshrine/stdfmt@0.0.9':
-    resolution: {integrity: sha512-WkG8JAx3jE60ZcGgy55Md4oPUU3QvjMIz0LXeKt/EGCRCtl9uSNPpJNIohp1jaB7tfhv5D2dl81i9laQvK71Fw==}
+  '@webshrine/stdfmt@0.0.13':
+    resolution: {integrity: sha512-ume9rcnhYkTH1OOy2qaxjKsJA9LgcVMhH7gZRdYpEwLiHGWHFNGsXXEmYpBZmGkLY98wNIqRX9+pkD4kqYHsvQ==}
 
   '@webshrine/stdlib@0.0.1':
     resolution: {integrity: sha512-gerneeZJY8LRGTrizAsZ/t9f4cpkzps3+VTQYftJ0FMC7QCQ4jimXwC3mYT9behfBs4AQY0aTyVMMF50hWt5xQ==}
 
-  '@webshrine/stdlib@0.0.9':
-    resolution: {integrity: sha512-u/5FsURXMfFlW+LZxHRxu2AolkGAnijT19vDJnKO9abf1K3o5oksu6zI59zNsJQfl9naTaL2aeJItBgB1wl+tA==}
+  '@webshrine/stdlib@0.0.13':
+    resolution: {integrity: sha512-c6IHK4nS2mKhgjvQ1k5DBrallrg9tHWEo0wXiXw8CADRx3xV2QlC/M3tIyZCcnpII30fJI5OrcZOGIN+fnyTzg==}
 
-  '@webshrine/stdtyp@0.0.9':
-    resolution: {integrity: sha512-kTvu1sR/2b/56QQn94EcOYGeMwbdmJdw5UIKz3369TBgyoPA67yxRlKakBf83Su1LzTWpG18uo56OyFGafqQsA==}
+  '@webshrine/stdtyp@0.0.13':
+    resolution: {integrity: sha512-1+rFV/IaGYynbPqY3tBRQicuGBdRwxa2aYTKya78qkME6xSb1HoJECUOhReH/HlFI6+lLRYu2stwP/4I5jBupw==}
 
   acorn@8.14.0:
     resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
@@ -812,6 +812,9 @@ packages:
 
   caniuse-lite@1.0.30001688:
     resolution: {integrity: sha512-Nmqpru91cuABu/DTCXbM2NSRHzM2uVHfPnhJ/1zEAJx/ILBRVmz3pzH4N7DZqbdG0gWClsCC05Oj0mJ/1AWMbA==}
+
+  change-case@5.4.4:
+    resolution: {integrity: sha512-HRQyTk2/YPEkt9TnUPbOpr64Uw3KOicFWPVBb+xiHvd6eBx/qPr9xqfBFDT8P2vWsvvz4jbEkfDe71W3VyNu2w==}
 
   chokidar@3.6.0:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
@@ -1413,8 +1416,8 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
-  webshrine@0.0.9:
-    resolution: {integrity: sha512-HTTQBPKzrm4YF79r9M/l6nxvyqM3G+dMnEQDix5Egip1il3eeRzyiZLKxr+HcOmdjjRelqKKPtStm1797lqgmw==}
+  webshrine@0.0.13:
+    resolution: {integrity: sha512-QFrNgW2qgYvkNYin50wf0Q8nIJHEKAWvwcP9cHNwcP5anZnmRkVjmGR6meHttiP/zEfJduyvdRppG1878DBYrg==}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -1930,10 +1933,11 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdfmt@0.0.9(typescript@5.7.2)':
+  '@webshrine/stdfmt@0.0.13(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
       '@webshrine/stdtyp': link:../stdtyp
+      change-case: 5.4.4
       cope: 1.0.9(typescript@5.7.2)
       defu: 6.1.4
       fast-deep-equal: 3.1.3
@@ -1959,7 +1963,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdlib@0.0.9(typescript@5.7.2)':
+  '@webshrine/stdlib@0.0.13(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
       '@webshrine/stdtyp': link:../stdtyp
@@ -1974,7 +1978,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdtyp@0.0.9':
+  '@webshrine/stdtyp@0.0.13':
     dependencies:
       utility-types: 3.11.0
 
@@ -2047,6 +2051,8 @@ snapshots:
   camelcase-css@2.0.1: {}
 
   caniuse-lite@1.0.30001688: {}
+
+  change-case@5.4.4: {}
 
   chokidar@3.6.0:
     dependencies:
@@ -2635,11 +2641,11 @@ snapshots:
 
   webpack-virtual-modules@0.6.2: {}
 
-  webshrine@0.0.9(typescript@5.7.2):
+  webshrine@0.0.13(typescript@5.7.2):
     dependencies:
-      '@webshrine/stdfmt': 0.0.9(typescript@5.7.2)
-      '@webshrine/stdlib': 0.0.9(typescript@5.7.2)
-      '@webshrine/stdtyp': 0.0.9
+      '@webshrine/stdfmt': 0.0.13(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.13(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.13
     transitivePeerDependencies:
       - typescript
 
