@@ -20,6 +20,7 @@ export default defineComponent({
         </div>
         <div data-tauri-drag-region></div>
         <div>
+          {ctx.slots.extra?.()}
           {renderButton(() => appWindow?.minimize(), (
             <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
           ))}
@@ -40,6 +41,7 @@ export default defineComponent({
 $height: 40px;
 
 .window-bar {
+  background-color: #0001;
   height: $height;
   width: 100%;
   user-select: none;
