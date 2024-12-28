@@ -6,6 +6,7 @@ import DropdownMenuItem from '@/shared/components/ui/dropdown-menu/DropdownMenuI
 import DropdownMenuLabel from '@/shared/components/ui/dropdown-menu/DropdownMenuLabel.vue';
 import DropdownMenuSeparator from '@/shared/components/ui/dropdown-menu/DropdownMenuSeparator.vue';
 import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue';
+import { useUser } from '@/shared/modules';
 import { ComponentObjectPropsOptions, defineComponent } from 'vue'
 
 const props: ComponentObjectPropsOptions = {
@@ -15,11 +16,12 @@ const props: ComponentObjectPropsOptions = {
 export default defineComponent({
   props,
   setup(props) {
+    const user = useUser()
 
     return () => (
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <UserAvatar>L</UserAvatar>
+          <UserAvatar>{user.name.initials}</UserAvatar>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuLabel>My Account</DropdownMenuLabel>

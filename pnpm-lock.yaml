@@ -28,6 +28,9 @@ importers:
       '@vueuse/core':
         specifier: ^12.2.0
         version: 12.2.0(typescript@5.7.2)
+      '@webshrine/vue':
+        specifier: ^0.0.15
+        version: 0.0.15(@vueuse/core@12.2.0(typescript@5.7.2))(@webshrine/stdlib@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2))(@webshrine/stdtyp@0.0.15)(vue@3.5.13(typescript@5.7.2))
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -832,6 +835,14 @@ packages:
 
   '@webshrine/stdtyp@0.0.15':
     resolution: {integrity: sha512-9BWoLPY/OqK1fKnnLNYcmk+v4Hsd8pgRYAg+B/uP5SeRLwIV0YwkfUFF+pt5zj/rw5XBX2N1ZIVmqXY+cGjYEg==}
+
+  '@webshrine/vue@0.0.15':
+    resolution: {integrity: sha512-3CTWUFXzOyo/snoZD9Tt5uQk/aCYDAZYi+ofN3mMc9uZo04AVIwDc39zBqzxIKsOOLII+7lh+XE8NpcHC/MhVQ==}
+    peerDependencies:
+      '@vueuse/core': ^12.0.0
+      '@webshrine/stdlib': 0.0.15
+      '@webshrine/stdtyp': 0.0.15
+      vue: ^3.5.13
 
   acorn@8.14.0:
     resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
@@ -2323,6 +2334,13 @@ snapshots:
   '@webshrine/stdtyp@0.0.15':
     dependencies:
       utility-types: 3.11.0
+
+  '@webshrine/vue@0.0.15(@vueuse/core@12.2.0(typescript@5.7.2))(@webshrine/stdlib@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2))(@webshrine/stdtyp@0.0.15)(vue@3.5.13(typescript@5.7.2))':
+    dependencies:
+      '@vueuse/core': 12.2.0(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.15
+      vue: 3.5.13(typescript@5.7.2)
 
   acorn@8.14.0: {}
 
