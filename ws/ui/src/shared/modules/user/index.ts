@@ -6,7 +6,7 @@ export const useUser = defineComposable({
   setup() {
     return {
       name: {
-        fill: 'Jane Doe',
+        full: 'Jane Doe',
         initials: 'JD'
       },
       avatarSrc: '',
