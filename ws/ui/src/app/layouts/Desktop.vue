@@ -3,7 +3,7 @@ import Button from '@/shared/components/ui/button/Button.vue';
 import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
 import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue';
 import { WindowBar } from '@/widgets/common';
-import { UserMenuButton } from '@/widgets/project';
+import { Controls, UserMenuButton } from '@/widgets/project';
 import { useToggle } from '@vueuse/core';
 
 const [isOpen, toggleSidebar] = useToggle(true)
@@ -25,7 +25,7 @@ const [isOpen, toggleSidebar] = useToggle(true)
             Footer
           </SidebarFooter>
         </Sidebar>
-        <div>
+        <div class="content">
           <WindowBar>
             <Button size="sm" @click="toggleSidebar()">Open</Button>
             <template #extra>
@@ -35,13 +35,14 @@ const [isOpen, toggleSidebar] = useToggle(true)
           <main>
             Main content
           </main>
+          <Controls/>
         </div>
       </div>
     </SidebarProvider>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .root {
   height: 100vh;
   width: 100vw;
@@ -52,5 +53,9 @@ const [isOpen, toggleSidebar] = useToggle(true)
   height: 100%;
   display: grid;
   grid-template: 100% / max-content 1fr;
+}
+.content {
+  display: grid;
+  grid-template: max-content 1fr max-content / 100%;
 }
 </style>
