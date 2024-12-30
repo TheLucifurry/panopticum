@@ -7,15 +7,10 @@ import DropdownMenuLabel from '@/shared/components/ui/dropdown-menu/DropdownMenu
 import DropdownMenuSeparator from '@/shared/components/ui/dropdown-menu/DropdownMenuSeparator.vue';
 import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue';
 import { useUser } from '@/shared/modules';
-import { ComponentObjectPropsOptions, defineComponent } from 'vue'
-
-const props: ComponentObjectPropsOptions = {
-
-}
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  props,
-  setup(props) {
+  setup() {
     const user = useUser()
 
     return () => (
