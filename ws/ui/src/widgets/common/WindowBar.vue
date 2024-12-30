@@ -1,5 +1,6 @@
 <script lang="tsx">
 import { getCurrentWindow } from '@tauri-apps/api/window';
+import { Minus, PanelTop, X } from 'lucide-vue-next';
 import { defineComponent, VNode } from 'vue';
 import { cope, Fn } from 'webshrine';
 
@@ -22,13 +23,13 @@ export default defineComponent({
         <div>
           {ctx.slots.extra?.()}
           {renderButton(() => appWindow?.minimize(), (
-            <img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
+            <Minus/>
           ))}
           {renderButton(() => appWindow?.toggleMaximize(), (
-            <img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
+            <PanelTop/>
           ))}
           {renderButton(() => appWindow?.close(), (
-            <img src="https://api.iconify.design/mdi:close.svg" alt="close" />
+            <X/>
           ))}
         </div>
       </div>
