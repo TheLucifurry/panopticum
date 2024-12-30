@@ -1,41 +1,33 @@
-<script lang="tsx">
+<script setup lang="ts">
 import { Volume } from '@/entities/common/inputs';
+import { MenuButtonSettingsPlayer } from '@/features/player';
 import Progress from '@/shared/components/ui/progress/Progress.vue';
 import { usePlayer } from '@/shared/modules';
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime';
-import {  Maximize, PlayIcon, Settings, SkipForward } from 'lucide-vue-next';
-import { ComponentObjectPropsOptions, defineComponent } from 'vue'
+import {  Maximize, PlayIcon, SkipForward } from 'lucide-vue-next';
 
-const props: ComponentObjectPropsOptions = {
-
-}
-
-export default defineComponent({
-  props,
-  setup(props) {
-    const player = usePlayer()
-
-    return () => (
-      <div class="controls">
-        <Progress modelValue={player.currentTime}/>
-        <div class="panel">
-          <PlayIcon />
-          <SkipForward />
-          <Volume modelValue={player.volume} onUpdate:modelValue={e => player.volume = e} />
-          <div class="">
-            <span>{toDurationStringFromSeconds(player.currentTime)}</span>
-            {' / '}
-            <span>{toDurationStringFromSeconds(player.trackLengthTime)}</span>
-          </div>
-          <div class="panel__spacer"></div>
-          <Settings />
-          <Maximize />
-        </div>
-      </div>
-    )
-  }
-})
+const player = usePlayer()
 </script>
+
+
+<template>
+  <div class="controls">
+    <Progress :modelValue="player.currentTime" />
+    <div class="panel">
+      <PlayIcon />
+      <SkipForward />
+      <Volume :modelValue="player.volume" @update:modelValue="e => player.volume = e" />
+      <div class="">
+        <span>{{toDurationStringFromSeconds(player.currentTime)}}</span>
+        {{' / '}}
+        <span>{{toDurationStringFromSeconds(player.trackLengthTime)}}</span>
+      </div>
+      <div class="panel__spacer"></div>
+      <MenuButtonSettingsPlayer />
+      <Maximize />
+    </div>
+  </div>
+</template>
 
 
 <style lang="scss" scoped>
