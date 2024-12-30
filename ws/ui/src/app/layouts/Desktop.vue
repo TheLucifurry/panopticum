@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { MenuButtonUser } from '@/features/menu-button';
 import Button from '@/shared/components/ui/button/Button.vue';
 import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
 import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue';
 import { WindowBar } from '@/widgets/common';
-import { Controls, UserMenuButton } from '@/widgets/project';
+import { Controls } from '@/widgets/project';
 import { useToggle } from '@vueuse/core';
 
 const [isOpen, toggleSidebar] = useToggle(true)
@@ -29,7 +30,7 @@ const [isOpen, toggleSidebar] = useToggle(true)
           <WindowBar>
             <Button size="sm" @click="toggleSidebar()">Open</Button>
             <template #extra>
-              <UserMenuButton />
+              <MenuButtonUser />
             </template>
           </WindowBar>
           <main>
