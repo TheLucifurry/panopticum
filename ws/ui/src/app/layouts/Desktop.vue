@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { MenuButtonUser } from '@/features/menu-button';
+import { MenuButtonUser } from '@/features/user';
 import Button from '@/shared/components/ui/button/Button.vue';
 import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
 import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue';
