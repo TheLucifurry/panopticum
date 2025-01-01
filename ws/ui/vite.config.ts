@@ -5,12 +5,29 @@ import { URL, fileURLToPath } from 'node:url'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { CSP_DEFAULTS, MetaCSP } from './vite.utils';
+
+// https://github.com/vbenjs/vite-plugin-html
+import { createHtmlPlugin as Html } from 'vite-plugin-html'
 
 const host = process.env.TAURI_DEV_HOST;
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => ({
+export default defineConfig({
   plugins: [
+    Html({
+      inject: {
+        tags: [
+          MetaCSP({
+            ...CSP_DEFAULTS,
+            'img-src': `'self' https://*.ytimg.com`,
+            'connect-src': `'self' ipc.localhost`,
+            // asset: http://asset.localhost
+            'media-src': 'http://asset.localhost',
+          }),
+        ],
+      },
+    }),
     vueJsx({
       // options are passed on to @vue/babel-plugin-jsx
     }),
@@ -56,4 +73,4 @@ export default defineConfig(async () => ({
       }
     }
   }
-}));
+});
