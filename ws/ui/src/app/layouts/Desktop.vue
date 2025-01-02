@@ -4,7 +4,7 @@ import Button from '@/shared/components/ui/button/Button.vue';
 import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
 import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue';
 import { WindowBar } from '@/widgets/common';
-import { Controls } from '@/widgets/project';
+import { Controls, MediaPlayer } from '@/widgets/project';
 import { useToggle } from '@vueuse/core';
 
 const [isOpen, toggleSidebar] = useToggle(true)
@@ -34,7 +34,7 @@ const [isOpen, toggleSidebar] = useToggle(true)
             </template>
           </WindowBar>
           <main>
-            Main content
+            <MediaPlayer />
           </main>
           <Controls/>
         </div>

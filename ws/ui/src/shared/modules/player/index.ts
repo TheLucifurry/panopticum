@@ -11,13 +11,15 @@ export const usePlayer = defineComposable({
   setup() {
     const volume = shallowRef(DEFAULT_VOLUME)
     const playbackSpeed = shallowRef(DEFAULT_PLAYBACK_SPEED)
+    const isPlaying = shallowRef(false)
     const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
 
     return {
       volume,
       playbackSpeed,
+      isPlaying,
       isAutoplay,
-      currentTime: 25,
+      currentTime: 0,
       trackLengthTime: 500,
     }
   }
