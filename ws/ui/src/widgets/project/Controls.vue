@@ -20,7 +20,7 @@ const player = usePlayer()
           <PauseIcon v-else />
         </div>
         <SkipForward />
-        <Volume :modelValue="player.volume" @update:modelValue="e => player.volume = e" />
+        <Volume v-model="player.volume" />
         <div class="tw:text-sm">
           <span>{{toDurationStringFromSeconds(player.currentTime)}}</span>
           {{' / '}}
