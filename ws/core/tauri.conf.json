@@ -20,7 +20,11 @@
       }
     ],
     "security": {
-      "csp": null
+      "csp": "default-src 'self' ipc: http://ipc.localhost;script-src 'self';style-src 'self' 'unsafe-inline';img-src 'self' https://*.ytimg.com asset: http://asset.localhost;connect-src ipc 'self' http://ipc.localhost;media-src 'self' http://asset.localhost",
+      "assetProtocol": {
+        "enable": true,
+        "scope": ["$AUDIO/*", "$VIDEO/*"]
+      }
     }
   },
   "bundle": {
