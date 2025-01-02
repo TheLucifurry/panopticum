@@ -5,7 +5,7 @@ import { URL, fileURLToPath } from 'node:url'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import { CSP_DEFAULTS, MetaCSP } from './vite.utils';
+import { MetaCSP, SELF } from './vite.utils';
 
 // https://github.com/vbenjs/vite-plugin-html
 import { createHtmlPlugin as Html } from 'vite-plugin-html'
@@ -19,11 +19,12 @@ export default defineConfig({
       inject: {
         tags: [
           MetaCSP({
-            ...CSP_DEFAULTS,
-            'img-src': `'self' https://*.ytimg.com`,
-            'connect-src': `'self' ipc.localhost`,
-            // asset: http://asset.localhost
-            'media-src': 'http://asset.localhost',
+            'default-src': `${SELF} ipc: http://ipc.localhost`,
+            'script-src': SELF,
+            'style-src': `${SELF} 'unsafe-inline'`,
+            'img-src': `${SELF} https://*.ytimg.com asset: http://asset.localhost`,
+            'connect-src ipc': `${SELF} http://ipc.localhost`,
+            'media-src': `${SELF} http://asset.localhost`,
           }),
         ],
       },

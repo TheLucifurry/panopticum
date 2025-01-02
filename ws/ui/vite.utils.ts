@@ -1,13 +1,9 @@
 import type { HtmlTagDescriptor } from 'vite'
 
-type TCspOptions = Partial<Record<TCspKeys, string>>
-export const CSP_DEFAULTS: TCspOptions = {
-  'default-src': `'self'`,
-  'script-src': `'self'`,
-  'style-src': `'self' 'unsafe-inline'`,
-}
-
 type TCspKeys = 'default-src' | 'script-src' | 'style-src' | 'img-src' | 'font-src' | 'connect-src' | 'media-src' | 'object-src' | 'manifest-src' | 'frame-src' | 'child-src'
+
+type TCspOptions = Partial<Record<TCspKeys | (string & {}), string>>
+export const SELF = `'self'`
 
 function createCSPString(cspOptions: TCspOptions): string {
   return Object.entries(cspOptions)
