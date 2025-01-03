@@ -6,7 +6,7 @@ import { Minus, PanelTop, X } from 'lucide-vue-next'
 import { defineComponent } from 'vue'
 import { cope } from 'webshrine'
 
-const [appWindow] = cope(getCurrentWindow)
+const [win] = cope(getCurrentWindow)
 
 export default defineComponent({
   setup(_, ctx) {
@@ -16,6 +16,10 @@ export default defineComponent({
       </div>
     )
 
+    const minimize = () => win?.minimize()
+    const toggleMaximize = () => win?.toggleMaximize()
+    const close = () => win?.close()
+
     return () => (
       <div class="window-bar">
         <div>
@@ -24,9 +28,9 @@ export default defineComponent({
         <div data-tauri-drag-region></div>
         <div>
           {ctx.slots.extra?.()}
-          {renderButton(() => appWindow?.minimize(), (<Minus />))}
-          {renderButton(() => appWindow?.toggleMaximize(), (<PanelTop />))}
-          {renderButton(() => appWindow?.close(), (<X />))}
+          {renderButton(minimize, (<Minus />))}
+          {renderButton(toggleMaximize, (<PanelTop />))}
+          {renderButton(close, (<X />))}
         </div>
       </div>
     )
