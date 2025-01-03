@@ -3,10 +3,11 @@ import { Volume } from '@/entities/common/inputs'
 import { MenuButtonSettingsPlayer } from '@/features/player'
 import { Group } from '@/shared/components/custom'
 import Progress from '@/shared/components/ui/progress/Progress.vue'
-import { usePlayer } from '@/shared/modules'
+import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
-import { Maximize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
+import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
 
+const uis = useUiState()
 const player = usePlayer()
 </script>
 
@@ -30,7 +31,10 @@ const player = usePlayer()
       <div class="panel__spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
-        <Maximize />
+        <div @click="uis.toggleFullscreen()">
+          <Minimize v-if="uis.isFullscreen" />
+          <Maximize v-else />
+        </div>
       </Group>
     </div>
   </div>
