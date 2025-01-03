@@ -1,16 +1,17 @@
-import { defineConfig } from "vite";
-import Vue from "@vitejs/plugin-vue";
-import VueRouter from 'unplugin-vue-router/vite'
-import { URL, fileURLToPath } from 'node:url'
+import process from 'node:process'
+import { fileURLToPath, URL } from 'node:url'
+import Vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import { MetaCSP, SELF } from './vite.utils';
-
+import VueRouter from 'unplugin-vue-router/vite'
+import { defineConfig } from 'vite'
 // https://github.com/vbenjs/vite-plugin-html
 import { createHtmlPlugin as Html } from 'vite-plugin-html'
 
-const host = process.env.TAURI_DEV_HOST;
+import { MetaCSP, SELF } from './vite.utils'
+
+const host = process.env.TAURI_DEV_HOST
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -58,10 +59,10 @@ export default defineConfig({
     host: host || false,
     hmr: host
       ? {
-        protocol: "ws",
-        host,
-        port: 1421,
-      }
+          protocol: 'ws',
+          host,
+          port: 1421,
+        }
       : undefined,
   },
   css: {
@@ -70,8 +71,8 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler'
-      }
-    }
-  }
-});
+        api: 'modern-compiler',
+      },
+    },
+  },
+})

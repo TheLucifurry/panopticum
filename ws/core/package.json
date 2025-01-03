@@ -1,17 +1,17 @@
 {
   "name": "@panopticum/core",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "dev": "tauri dev",
     "build": "tauri build",
     "generate_icons": "pnpm tauri icon ../ui/public/icon.png"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@tauri-apps/cli": "^2.2.0"
   }
