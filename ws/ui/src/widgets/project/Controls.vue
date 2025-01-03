@@ -5,7 +5,7 @@ import { Group } from '@/shared/components/custom';
 import Progress from '@/shared/components/ui/progress/Progress.vue';
 import { usePlayer } from '@/shared/modules';
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime';
-import {  Maximize, PlayIcon, PauseIcon, SkipForward } from 'lucide-vue-next';
+import { Maximize, PlayIcon, PauseIcon, SkipForward } from 'lucide-vue-next';
 
 const player = usePlayer()
 </script>

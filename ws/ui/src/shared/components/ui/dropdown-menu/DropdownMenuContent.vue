@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import {
   DropdownMenuContent,
   type DropdownMenuContentEmits,
@@ -17,11 +17,7 @@ const props = withDefaults(
 )
 const emits = defineEmits<DropdownMenuContentEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

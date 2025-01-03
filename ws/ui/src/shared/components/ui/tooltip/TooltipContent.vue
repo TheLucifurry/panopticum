@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import { TooltipContent, type TooltipContentEmits, type TooltipContentProps, TooltipPortal, useForwardPropsEmits } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 
@@ -13,11 +13,7 @@ const props = withDefaults(defineProps<TooltipContentProps & { class?: HTMLAttri
 
 const emits = defineEmits<TooltipContentEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

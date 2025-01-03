@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import { DialogTitle, type DialogTitleProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 </script>
 
 <template>

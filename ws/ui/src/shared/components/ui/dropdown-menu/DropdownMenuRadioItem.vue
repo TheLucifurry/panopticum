@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import { DotFilledIcon } from '@radix-icons/vue'
 import {
   DropdownMenuItemIndicator,
@@ -14,11 +14,7 @@ const props = defineProps<DropdownMenuRadioItemProps & { class?: HTMLAttributes[
 
 const emits = defineEmits<DropdownMenuRadioItemEmits>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>

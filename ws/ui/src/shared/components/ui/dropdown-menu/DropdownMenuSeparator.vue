@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import {
   DropdownMenuSeparator,
   type DropdownMenuSeparatorProps,
@@ -10,11 +10,7 @@ const props = defineProps<DropdownMenuSeparatorProps & {
   class?: HTMLAttributes['class']
 }>()
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 </script>
 
 <template>

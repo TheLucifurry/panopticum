@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils'
 import {
   ProgressIndicator,
   ProgressRoot,
@@ -16,11 +16,7 @@ const props = withDefaults(
 
 const progressPercent = computed(() => (props?.modelValue || 0) /  (props?.max || 1))
 
-const delegatedProps = computed(() => {
-  const { class: _, ...delegated } = props
-
-  return delegated
-})
+const delegatedProps = useDelegatedProps(() => props)
 </script>
 
 <template>
