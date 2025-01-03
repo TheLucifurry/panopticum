@@ -1,5 +1,8 @@
 {
   "cSpell.words": [
     "panopticum"
-  ]
+  ],
+  "rust-analyzer.linkedProjects": [
+    "ws/core/Cargo.toml"
+  ],
 }
