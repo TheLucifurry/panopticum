@@ -11,8 +11,8 @@ importers:
   ws/core:
     devDependencies:
       '@tauri-apps/cli':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.2.0
+        version: 2.2.0
 
   ws/ui:
     dependencies:
@@ -29,11 +29,11 @@ importers:
         specifier: ^2
         version: 2.0.1
       '@vueuse/core':
-        specifier: ^12.2.0
-        version: 12.2.0(typescript@5.7.2)
+        specifier: ^12.3.0
+        version: 12.3.0(typescript@5.7.2)
       '@webshrine/vue':
-        specifier: ^0.0.15
-        version: 0.0.15(@vueuse/core@12.2.0(typescript@5.7.2))(@webshrine/stdlib@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2))(@webshrine/stdtyp@0.0.15)(vue@3.5.13(typescript@5.7.2))
+        specifier: ^0.0.16
+        version: 0.0.16(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2))(@webshrine/stdtyp@0.0.16)(vue@3.5.13(typescript@5.7.2))
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -47,8 +47,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0(typescript@5.7.2)(vue@3.5.13(typescript@5.7.2))
       radix-vue:
-        specifier: ^1.9.11
-        version: 1.9.11(vue@3.5.13(typescript@5.7.2))
+        specifier: ^1.9.12
+        version: 1.9.12(vue@3.5.13(typescript@5.7.2))
       tailwind-merge:
         specifier: ^2.6.0
         version: 2.6.0
@@ -62,18 +62,18 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
       webshrine:
-        specifier: ^0.0.15
-        version: 0.0.15(typescript@5.7.2)
+        specifier: ^0.0.16
+        version: 0.0.16(typescript@5.7.2)
     devDependencies:
       '@types/node':
-        specifier: ^22.10.2
-        version: 22.10.2
+        specifier: ^22.10.4
+        version: 22.10.4
       '@vitejs/plugin-vue':
         specifier: ^5.2.1
-        version: 5.2.1(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
+        version: 5.2.1(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
       '@vitejs/plugin-vue-jsx':
         specifier: ^4.1.1
-        version: 4.1.1(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
+        version: 4.1.1(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.49)
@@ -90,11 +90,11 @@ importers:
         specifier: ^0.10.9
         version: 0.10.9(rollup@4.28.0)(vue-router@4.5.0(vue@3.5.13(typescript@5.7.2)))(vue@3.5.13(typescript@5.7.2))
       vite:
-        specifier: ^6.0.6
-        version: 6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+        specifier: ^6.0.7
+        version: 6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
       vite-plugin-html:
         specifier: ^3.2.2
-        version: 3.2.2(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
+        version: 3.2.2(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
       vue-tsc:
         specifier: ^2.2.0
         version: 2.2.0(typescript@5.7.2)
@@ -644,68 +644,68 @@ packages:
   '@tauri-apps/api@2.1.1':
     resolution: {integrity: sha512-fzUfFFKo4lknXGJq8qrCidkUcKcH2UHhfaaCNt4GzgzGaW2iS26uFOg4tS3H4P8D6ZEeUxtiD5z0nwFF0UN30A==}
 
-  '@tauri-apps/cli-darwin-arm64@2.1.0':
-    resolution: {integrity: sha512-ESc6J6CE8hl1yKH2vJ+ALF+thq4Be+DM1mvmTyUCQObvezNCNhzfS6abIUd3ou4x5RGH51ouiANeT3wekU6dCw==}
+  '@tauri-apps/cli-darwin-arm64@2.2.0':
+    resolution: {integrity: sha512-Paxq9JUj1uxV/CDr8hNnr88GcjXLmmX1yBcclQldeUoAoSgsXN1eLLS4e0CHXIzYATmcsSbcl6Zgquo4wW4e9w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@tauri-apps/cli-darwin-x64@2.1.0':
-    resolution: {integrity: sha512-TasHS442DFs8cSH2eUQzuDBXUST4ECjCd0yyP+zZzvAruiB0Bg+c8A+I/EnqCvBQ2G2yvWLYG8q/LI7c87A5UA==}
+  '@tauri-apps/cli-darwin-x64@2.2.0':
+    resolution: {integrity: sha512-BpIQxYQmg+vyS4Z4hxnAcrR95Kn2cnQbkA37NZDW0x7nnx+IFTNremU0cxATJQ3vk1PPVi3PQgrnAX5HE5aXKA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@tauri-apps/cli-linux-arm-gnueabihf@2.1.0':
-    resolution: {integrity: sha512-aP7ZBGNL4ny07Cbb6kKpUOSrmhcIK2KhjviTzYlh+pPhAptxnC78xQGD3zKQkTi2WliJLPmBYbOHWWQa57lQ9w==}
+  '@tauri-apps/cli-linux-arm-gnueabihf@2.2.0':
+    resolution: {integrity: sha512-JDYwiELRKKOStSA2QKpGiOZL4si+9ZZcwYCh7DRxnk0csM42vIv0bgcG+ucK5A/gltyDyavZgHNToxFGXaLKXA==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@tauri-apps/cli-linux-arm64-gnu@2.1.0':
-    resolution: {integrity: sha512-ZTdgD5gLeMCzndMT2f358EkoYkZ5T+Qy6zPzU+l5vv5M7dHVN9ZmblNAYYXmoOuw7y+BY4X/rZvHV9pcGrcanQ==}
+  '@tauri-apps/cli-linux-arm64-gnu@2.2.0':
+    resolution: {integrity: sha512-ITpT44YDMrg3l0ZQMTeFjj+mRzjCZAGyD3GuJ414aL5X1GWO2CHMdAHYQT9gYtH2OHlixaWq9nRJXDL7W9998w==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@tauri-apps/cli-linux-arm64-musl@2.1.0':
-    resolution: {integrity: sha512-NzwqjUCilhnhJzusz3d/0i0F1GFrwCQbkwR6yAHUxItESbsGYkZRJk0yMEWkg3PzFnyK4cWTlQJMEU52TjhEzA==}
+  '@tauri-apps/cli-linux-arm64-musl@2.2.0':
+    resolution: {integrity: sha512-sj/NR2O99XeatAh4UgM4MltNipoi4A8ZbMhTb1/FaGEvs/ZVrushIX69hFIyxcHu8Nbe/OkZb5b+N80A/V30jA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
 
-  '@tauri-apps/cli-linux-x64-gnu@2.1.0':
-    resolution: {integrity: sha512-TyiIpMEtZxNOQmuFyfJwaaYbg3movSthpBJLIdPlKxSAB2BW0VWLY3/ZfIxm/G2YGHyREkjJvimzYE0i37PnMA==}
+  '@tauri-apps/cli-linux-x64-gnu@2.2.0':
+    resolution: {integrity: sha512-mwX7EzQLKbHZ/VzSksiOLS0uqJUVDqY58cqCj2puiGaPVgCE7bxbKcO6P3PmqYX9P8XWR2K8t922k7K44dScqA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@tauri-apps/cli-linux-x64-musl@2.1.0':
-    resolution: {integrity: sha512-/dQd0TlaxBdJACrR72DhynWftzHDaX32eBtS5WBrNJ+nnNb+znM3gON6nJ9tSE9jgDa6n1v2BkI/oIDtypfUXw==}
+  '@tauri-apps/cli-linux-x64-musl@2.2.0':
+    resolution: {integrity: sha512-9C8lVjVJPEjMZaOQdKA5SZV1NpjLP690Y9GodRMum5cIDE3T1AVrp9w6vjrsciQN42agTsO8UaREppF6OjxYnA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
 
-  '@tauri-apps/cli-win32-arm64-msvc@2.1.0':
-    resolution: {integrity: sha512-NdQJO7SmdYqOcE+JPU7bwg7+odfZMWO6g8xF9SXYCMdUzvM2Gv/AQfikNXz5yS7ralRhNFuW32i5dcHlxh4pDg==}
+  '@tauri-apps/cli-win32-arm64-msvc@2.2.0':
+    resolution: {integrity: sha512-lbXYsLlvyanx1S/VSiylc6fMsDh1wnBpBid4VxscSfSPyyIOPC/p9uJvcEFWR5Caaet6vUwyJ3iKUaT5yqfsUA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@tauri-apps/cli-win32-ia32-msvc@2.1.0':
-    resolution: {integrity: sha512-f5h8gKT/cB8s1ticFRUpNmHqkmaLutT62oFDB7N//2YTXnxst7EpMIn1w+QimxTvTk2gcx6EcW6bEk/y2hZGzg==}
+  '@tauri-apps/cli-win32-ia32-msvc@2.2.0':
+    resolution: {integrity: sha512-nlQ2iRFJTuZw5YelO2HNIsrkcZdqlt7HxdMkHJtCQkFReclpSupjbn6CrupIXHYO8NO6LcoDXiteOYhdWh0fJg==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
 
-  '@tauri-apps/cli-win32-x64-msvc@2.1.0':
-    resolution: {integrity: sha512-P/+LrdSSb5Xbho1LRP4haBjFHdyPdjWvGgeopL96OVtrFpYnfC+RctB45z2V2XxqFk3HweDDxk266btjttfjGw==}
+  '@tauri-apps/cli-win32-x64-msvc@2.2.0':
+    resolution: {integrity: sha512-MupuZwaJqJv3YsNCGD0H/98S+7106E6HChGoobuPmN87eCniSL/mSsOaa0cVmxdIAwVcSi0fuDzDBRMt8wOhHw==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
 
-  '@tauri-apps/cli@2.1.0':
-    resolution: {integrity: sha512-K2VhcKqBhAeS5pNOVdnR/xQRU6jwpgmkSL2ejHXcl0m+kaTggT0WRDQnFtPq6NljA7aE03cvwsbCAoFG7vtkJw==}
+  '@tauri-apps/cli@2.2.0':
+    resolution: {integrity: sha512-8sA4LBU4kA73SZcL/mLjXvrpJjDqLFLQymg39FDlf3SVWyzbQxCyHBrokCLhUXLenG4qWVCl91oAImC/s47vzA==}
     engines: {node: '>= 10'}
     hasBin: true
 
@@ -724,8 +724,8 @@ packages:
   '@types/lodash@4.17.13':
     resolution: {integrity: sha512-lfx+dftrEZcdBPczf9d0Qv0x+j/rfNCMuC6OcfXmO8gkfeNAY88PgKUbvG56whcN23gc27yenwF6oJZXGFpYxg==}
 
-  '@types/node@22.10.2':
-    resolution: {integrity: sha512-Xxr6BBRCAOQixvonOye19wnzyDiUtTeqldOOmj3CkeblonbccA12PFwlufvRdrpjXxqnmUaeiU5EOA+7s5diUQ==}
+  '@types/node@22.10.4':
+    resolution: {integrity: sha512-99l6wv4HEzBQhvaU/UGoeBoCK61SCROQaCCGyQSgX2tEQ3rKkNZ2S7CEWnS/4s1LV+8ODdK21UeyR1fHP2mXug==}
 
   '@types/web-bluetooth@0.0.20':
     resolution: {integrity: sha512-g9gZnnXVq7gM7v3tJCWV/qw7w+KeOlSHAhgF9RytFyifW6AF61hdT2ucrYhPq9hLs5JIryeupHV3qGk95dH9ow==}
@@ -824,40 +824,40 @@ packages:
   '@vueuse/core@10.11.1':
     resolution: {integrity: sha512-guoy26JQktXPcz+0n3GukWIy/JDNKti9v6VEMu6kV2sYBsWuGiTU8OWdg+ADfUbHg3/3DlqySDe7JmdHrktiww==}
 
-  '@vueuse/core@12.2.0':
-    resolution: {integrity: sha512-jksyNu+5EGwggNkRWd6xX+8qBkYbmrwdFQMgCABsz+wq8bKF6w3soPFLB8vocFp3wFIzn0OYkSPM9JP+AFKwsg==}
+  '@vueuse/core@12.3.0':
+    resolution: {integrity: sha512-cnV8QDKZrsyKC7tWjPbeEUz2cD9sa9faxF2YkR8QqNwfofgbOhmfIgvSYmkp+ttSvfOw4E6hLcQx15mRPr0yBA==}
 
   '@vueuse/metadata@10.11.1':
     resolution: {integrity: sha512-IGa5FXd003Ug1qAZmyE8wF3sJ81xGLSqTqtQ6jaVfkeZ4i5kS2mwQF61yhVqojRnenVew5PldLyRgvdl4YYuSw==}
 
-  '@vueuse/metadata@12.2.0':
-    resolution: {integrity: sha512-x6zynZtTh1l52m0y8d/EgzpshnMjg8cNZ2KWoncJ62Z5qPSGoc4FUunmMVrrRM/I/5542rTEY89CGftngZvrkQ==}
+  '@vueuse/metadata@12.3.0':
+    resolution: {integrity: sha512-M/iQHHjMffOv2npsw2ihlUx1CTiBwPEgb7DzByLq7zpg1+Ke8r7s9p5ybUWc5OIeGewtpY4Xy0R2cKqFqM8hFg==}
 
   '@vueuse/shared@10.11.1':
     resolution: {integrity: sha512-LHpC8711VFZlDaYUXEBbFBCQ7GS3dVU9mjOhhMhXP6txTV4EhYQg/KGnQuvt/sPAtoUKq7VVUnL6mVtFoL42sA==}
 
-  '@vueuse/shared@12.2.0':
-    resolution: {integrity: sha512-SRr4AZwv/giS+EmyA1ZIzn3/iALjjnWAGaBNmoDTMEob9JwQaevAocuaMDnPAvU7Z35Y5g3CFRusCWgp1gVJ3Q==}
+  '@vueuse/shared@12.3.0':
+    resolution: {integrity: sha512-X3YD35GUeW0d5Gajcwv9jdLAJTV2Jdb/Ll6Ii2JIYcKLYZqv5wxyLeKtiQkqWmHg3v0J0ZWjDUMVOw2E7RCXfA==}
 
-  '@webshrine/stdfmt@0.0.15':
-    resolution: {integrity: sha512-F9cz6kfqQCiggamXQCNakwFerKTBQeJgWqmar36S/dYFNkXeIY6a+kMUXMlPLx5qCzTeBFPI+QDLn3j/tBNcsA==}
+  '@webshrine/stdfmt@0.0.16':
+    resolution: {integrity: sha512-C7qa6FDmJ4T0lUO1rciT3wZSPP0cY5xqjD/d7zjQaCfsqD3IPDaTLNi4dkl5jdNvJYRdHKpUQ6XPllKReHGUPQ==}
     peerDependencies:
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdtyp': 0.0.16
 
-  '@webshrine/stdlib@0.0.15':
-    resolution: {integrity: sha512-kN/AS5yv1FG012HQgWnFW2dOuJSZX/GxsKC5i0PChF+8QXjbVKEukm36gJrzir24OedZgsPS+gYgg+TowtPvHg==}
+  '@webshrine/stdlib@0.0.16':
+    resolution: {integrity: sha512-Rte/KJy168h+Gi22DolTU8bE53Khh2FIPZEw8lfk97/zH+TFGr+IbIavUuqWCllA7TUEaVuDZT2toU7WycvHIA==}
     peerDependencies:
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdtyp': 0.0.16
 
-  '@webshrine/stdtyp@0.0.15':
-    resolution: {integrity: sha512-9BWoLPY/OqK1fKnnLNYcmk+v4Hsd8pgRYAg+B/uP5SeRLwIV0YwkfUFF+pt5zj/rw5XBX2N1ZIVmqXY+cGjYEg==}
+  '@webshrine/stdtyp@0.0.16':
+    resolution: {integrity: sha512-kuxI+37KaAwGVORmIVJP3lH2y+cx25iYcQwvyfCUCvY6trI99igI37Cn8NbYKV1IuyOtayvFesRnTF0KZ8aMlg==}
 
-  '@webshrine/vue@0.0.15':
-    resolution: {integrity: sha512-3CTWUFXzOyo/snoZD9Tt5uQk/aCYDAZYi+ofN3mMc9uZo04AVIwDc39zBqzxIKsOOLII+7lh+XE8NpcHC/MhVQ==}
+  '@webshrine/vue@0.0.16':
+    resolution: {integrity: sha512-e9PoqxalQTmHKxLd+PtkSPxT4+SjIonuvHtlXue/FmQ4czG7Mbxy+YupgRNl3QvUDIZe10oN4r5hJXwuD9mo8w==}
     peerDependencies:
       '@vueuse/core': ^12.0.0
-      '@webshrine/stdlib': 0.0.15
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdlib': 0.0.16
+      '@webshrine/stdtyp': 0.0.16
       vue: ^3.5.13
 
   acorn@8.14.0:
@@ -1487,8 +1487,8 @@ packages:
   queue-microtask@1.2.3:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
 
-  radix-vue@1.9.11:
-    resolution: {integrity: sha512-C+MtJ66jf8J28DO5bKgNwhGCi6WQYuEosD/tY/Orry9BTDcuF/Mps4HlFd2Tq4YlXF44BEPLQ2Paz89Mz70ZgA==}
+  radix-vue@1.9.12:
+    resolution: {integrity: sha512-zkr66Jqxbej4+oR6O/pZRzyM/VZi66ndbyIBZQjJKAXa1lIoYReZJse6W1EEDZKXknD7rXhpS+jM9Sr23lIqfg==}
     peerDependencies:
       vue: '>= 3.2.0'
 
@@ -1674,8 +1674,8 @@ packages:
     peerDependencies:
       vite: '>=2.0.0'
 
-  vite@6.0.6:
-    resolution: {integrity: sha512-NSjmUuckPmDU18bHz7QZ+bTYhRR0iA72cs2QAxCqDpafJ0S6qetco0LB3WW2OxlMHS0JmAv+yZ/R3uPmMyGTjQ==}
+  vite@6.0.7:
+    resolution: {integrity: sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -1750,8 +1750,8 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
-  webshrine@0.0.15:
-    resolution: {integrity: sha512-32UId3+PgsXGN/Xi+0n4SD7R+xX2w35q2LKtgUy7B2K1NlF/882IiEHFZ8vd+CfOGaAOFWkhkoSme6aYB54iYw==}
+  webshrine@0.0.16:
+    resolution: {integrity: sha512-g1ItfDBvO+NfYCesZi5/61zZLfNxcsfM+kvc7u/3Fk2EIoAsJiJZzsw8/L9FWn8TU7v8WLdqImR5clfJcyKERA==}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -2251,48 +2251,48 @@ snapshots:
 
   '@tauri-apps/api@2.1.1': {}
 
-  '@tauri-apps/cli-darwin-arm64@2.1.0':
+  '@tauri-apps/cli-darwin-arm64@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-darwin-x64@2.1.0':
+  '@tauri-apps/cli-darwin-x64@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-linux-arm-gnueabihf@2.1.0':
+  '@tauri-apps/cli-linux-arm-gnueabihf@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-linux-arm64-gnu@2.1.0':
+  '@tauri-apps/cli-linux-arm64-gnu@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-linux-arm64-musl@2.1.0':
+  '@tauri-apps/cli-linux-arm64-musl@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-linux-x64-gnu@2.1.0':
+  '@tauri-apps/cli-linux-x64-gnu@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-linux-x64-musl@2.1.0':
+  '@tauri-apps/cli-linux-x64-musl@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-win32-arm64-msvc@2.1.0':
+  '@tauri-apps/cli-win32-arm64-msvc@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-win32-ia32-msvc@2.1.0':
+  '@tauri-apps/cli-win32-ia32-msvc@2.2.0':
     optional: true
 
-  '@tauri-apps/cli-win32-x64-msvc@2.1.0':
+  '@tauri-apps/cli-win32-x64-msvc@2.2.0':
     optional: true
 
-  '@tauri-apps/cli@2.1.0':
+  '@tauri-apps/cli@2.2.0':
     optionalDependencies:
-      '@tauri-apps/cli-darwin-arm64': 2.1.0
-      '@tauri-apps/cli-darwin-x64': 2.1.0
-      '@tauri-apps/cli-linux-arm-gnueabihf': 2.1.0
-      '@tauri-apps/cli-linux-arm64-gnu': 2.1.0
-      '@tauri-apps/cli-linux-arm64-musl': 2.1.0
-      '@tauri-apps/cli-linux-x64-gnu': 2.1.0
-      '@tauri-apps/cli-linux-x64-musl': 2.1.0
-      '@tauri-apps/cli-win32-arm64-msvc': 2.1.0
-      '@tauri-apps/cli-win32-ia32-msvc': 2.1.0
-      '@tauri-apps/cli-win32-x64-msvc': 2.1.0
+      '@tauri-apps/cli-darwin-arm64': 2.2.0
+      '@tauri-apps/cli-darwin-x64': 2.2.0
+      '@tauri-apps/cli-linux-arm-gnueabihf': 2.2.0
+      '@tauri-apps/cli-linux-arm64-gnu': 2.2.0
+      '@tauri-apps/cli-linux-arm64-musl': 2.2.0
+      '@tauri-apps/cli-linux-x64-gnu': 2.2.0
+      '@tauri-apps/cli-linux-x64-musl': 2.2.0
+      '@tauri-apps/cli-win32-arm64-msvc': 2.2.0
+      '@tauri-apps/cli-win32-ia32-msvc': 2.2.0
+      '@tauri-apps/cli-win32-x64-msvc': 2.2.0
 
   '@tauri-apps/plugin-fs@2.2.0':
     dependencies:
@@ -2310,25 +2310,25 @@ snapshots:
 
   '@types/lodash@4.17.13': {}
 
-  '@types/node@22.10.2':
+  '@types/node@22.10.4':
     dependencies:
       undici-types: 6.20.0
 
   '@types/web-bluetooth@0.0.20': {}
 
-  '@vitejs/plugin-vue-jsx@4.1.1(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
+  '@vitejs/plugin-vue-jsx@4.1.1(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@babel/core': 7.26.0
       '@babel/plugin-transform-typescript': 7.26.3(@babel/core@7.26.0)
       '@vue/babel-plugin-jsx': 1.2.5(@babel/core@7.26.0)
-      vite: 6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vite: 6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
       vue: 3.5.13(typescript@5.7.2)
     transitivePeerDependencies:
       - supports-color
 
-  '@vitejs/plugin-vue@5.2.1(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
+  '@vitejs/plugin-vue@5.2.1(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))(vue@3.5.13(typescript@5.7.2))':
     dependencies:
-      vite: 6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vite: 6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
       vue: 3.5.13(typescript@5.7.2)
 
   '@volar/language-core@2.4.11':
@@ -2470,18 +2470,18 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/core@12.2.0(typescript@5.7.2)':
+  '@vueuse/core@12.3.0(typescript@5.7.2)':
     dependencies:
       '@types/web-bluetooth': 0.0.20
-      '@vueuse/metadata': 12.2.0
-      '@vueuse/shared': 12.2.0(typescript@5.7.2)
+      '@vueuse/metadata': 12.3.0
+      '@vueuse/shared': 12.3.0(typescript@5.7.2)
       vue: 3.5.13(typescript@5.7.2)
     transitivePeerDependencies:
       - typescript
 
   '@vueuse/metadata@10.11.1': {}
 
-  '@vueuse/metadata@12.2.0': {}
+  '@vueuse/metadata@12.3.0': {}
 
   '@vueuse/shared@10.11.1(vue@3.5.13(typescript@5.7.2))':
     dependencies:
@@ -2490,16 +2490,16 @@ snapshots:
       - '@vue/composition-api'
       - vue
 
-  '@vueuse/shared@12.2.0(typescript@5.7.2)':
+  '@vueuse/shared@12.3.0(typescript@5.7.2)':
     dependencies:
       vue: 3.5.13(typescript@5.7.2)
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdfmt@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)':
+  '@webshrine/stdfmt@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdtyp': 0.0.16
       change-case: 5.4.4
       cope: 1.0.9(typescript@5.7.2)
       defu: 6.1.4
@@ -2512,10 +2512,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdlib@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)':
+  '@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdtyp': 0.0.16
       cope: 1.0.9(typescript@5.7.2)
       defu: 6.1.4
       fast-deep-equal: 3.1.3
@@ -2527,15 +2527,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdtyp@0.0.15':
+  '@webshrine/stdtyp@0.0.16':
     dependencies:
       utility-types: 3.11.0
 
-  '@webshrine/vue@0.0.15(@vueuse/core@12.2.0(typescript@5.7.2))(@webshrine/stdlib@0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2))(@webshrine/stdtyp@0.0.15)(vue@3.5.13(typescript@5.7.2))':
+  '@webshrine/vue@0.0.16(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2))(@webshrine/stdtyp@0.0.16)(vue@3.5.13(typescript@5.7.2))':
     dependencies:
-      '@vueuse/core': 12.2.0(typescript@5.7.2)
-      '@webshrine/stdlib': 0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)
-      '@webshrine/stdtyp': 0.0.15
+      '@vueuse/core': 12.3.0(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.16
       vue: 3.5.13(typescript@5.7.2)
 
   acorn@8.14.0: {}
@@ -3125,7 +3125,7 @@ snapshots:
 
   queue-microtask@1.2.3: {}
 
-  radix-vue@1.9.11(vue@3.5.13(typescript@5.7.2)):
+  radix-vue@1.9.12(vue@3.5.13(typescript@5.7.2)):
     dependencies:
       '@floating-ui/dom': 1.6.12
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.7.2))
@@ -3360,7 +3360,7 @@ snapshots:
 
   utility-types@3.11.0: {}
 
-  vite-plugin-html@3.2.2(vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)):
+  vite-plugin-html@3.2.2(vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)):
     dependencies:
       '@rollup/pluginutils': 4.2.1
       colorette: 2.0.20
@@ -3374,15 +3374,15 @@ snapshots:
       html-minifier-terser: 6.1.0
       node-html-parser: 5.4.2
       pathe: 0.2.0
-      vite: 6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
+      vite: 6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1)
 
-  vite@6.0.6(@types/node@22.10.2)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1):
+  vite@6.0.7(@types/node@22.10.4)(jiti@1.21.6)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1):
     dependencies:
       esbuild: 0.24.2
       postcss: 8.4.49
       rollup: 4.28.0
     optionalDependencies:
-      '@types/node': 22.10.2
+      '@types/node': 22.10.4
       fsevents: 2.3.3
       jiti: 1.21.6
       sass: 1.83.0
@@ -3418,11 +3418,11 @@ snapshots:
 
   webpack-virtual-modules@0.6.2: {}
 
-  webshrine@0.0.15(typescript@5.7.2):
+  webshrine@0.0.16(typescript@5.7.2):
     dependencies:
-      '@webshrine/stdfmt': 0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)
-      '@webshrine/stdlib': 0.0.15(@webshrine/stdtyp@0.0.15)(typescript@5.7.2)
-      '@webshrine/stdtyp': 0.0.15
+      '@webshrine/stdfmt': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.16
     transitivePeerDependencies:
       - typescript
 
