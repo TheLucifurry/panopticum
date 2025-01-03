@@ -10,6 +10,7 @@ pub enum MediaType {
 // 010 - audio/no-audio
 // 100 - short/long
 
+// #[derive(Serialize)]
 pub struct FileMeta {
     pub path: String,
     pub media_type: u8,

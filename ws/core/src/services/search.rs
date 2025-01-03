@@ -4,13 +4,13 @@ use rust_search::SearchBuilder;
 use tauri::{self, Manager, Runtime};
 use tauri::{command, AppHandle};
 
-use crate::consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
+use crate::consts::{ConstVecString, ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
 use crate::models::{FileMeta, MediaType};
 
 fn search_files(
     path: PathBuf,
     search_input: String,
-    exts: &'static [&'static str],
+    exts: ConstVecString,
     media_type: MediaType,
 ) -> Result<Vec<FileMeta>, String> {
     let dir_path = &path.to_path_buf().to_owned();
