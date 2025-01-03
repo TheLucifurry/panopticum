@@ -1,14 +1,21 @@
 {
   "name": "panopticum",
-  "private": true,
+  "type": "module",
   "version": "0.0.1",
+  "private": true,
   "description": "",
-  "main": "index.js",
-  "keywords": [],
   "author": "",
   "license": "ISC",
+  "keywords": [],
+  "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "deps:check_updates": "ncu && ncu -ws && cd ws/core && cargo update --dry-run",
     "deps:upgrade": "ncu -u && ncu -ws -u && pnpm i && cd ws/core && cargo update"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.12.1",
+    "eslint": "^9.17.0"
   }
 }
