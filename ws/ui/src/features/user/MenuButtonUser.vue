@@ -1,12 +1,12 @@
 <script lang="tsx">
-import {UserAvatar} from '@/entities/user';
-import DropdownMenu from '@/shared/components/ui/dropdown-menu/DropdownMenu.vue';
-import DropdownMenuContent from '@/shared/components/ui/dropdown-menu/DropdownMenuContent.vue';
-import DropdownMenuItem from '@/shared/components/ui/dropdown-menu/DropdownMenuItem.vue';
-import DropdownMenuLabel from '@/shared/components/ui/dropdown-menu/DropdownMenuLabel.vue';
-import DropdownMenuSeparator from '@/shared/components/ui/dropdown-menu/DropdownMenuSeparator.vue';
-import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue';
-import { useUser } from '@/shared/modules';
+import { UserAvatar } from '@/entities/user'
+import DropdownMenu from '@/shared/components/ui/dropdown-menu/DropdownMenu.vue'
+import DropdownMenuContent from '@/shared/components/ui/dropdown-menu/DropdownMenuContent.vue'
+import DropdownMenuItem from '@/shared/components/ui/dropdown-menu/DropdownMenuItem.vue'
+import DropdownMenuLabel from '@/shared/components/ui/dropdown-menu/DropdownMenuLabel.vue'
+import DropdownMenuSeparator from '@/shared/components/ui/dropdown-menu/DropdownMenuSeparator.vue'
+import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
+import { useUser } from '@/shared/modules'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -28,7 +28,6 @@ export default defineComponent({
         </DropdownMenuContent>
       </DropdownMenu>
     )
-  }
+  },
 })
 </script>
-

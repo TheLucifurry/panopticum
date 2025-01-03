@@ -1,8 +1,8 @@
-import { createApp } from "vue";
-import { createPinia } from 'pinia'
-import App from "./index.vue";
-import { debug } from './debug'
 import Router from '@/pages'
+import { createPinia } from 'pinia'
+import { createApp } from 'vue'
+import { debug } from './debug'
+import App from './index.vue'
 // import './styles/index.scss'
 import './styles/global.css'
 
@@ -14,4 +14,4 @@ const Pinia = createPinia()
 createApp(App)
   .use(Router)
   .use(Pinia)
-  .mount("#root")
+  .mount('#root')

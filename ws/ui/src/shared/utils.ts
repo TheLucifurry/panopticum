@@ -1,7 +1,8 @@
+import type { AnyObject } from 'webshrine'
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
-import { AnyObject, omit } from 'webshrine'
+import { omit } from 'webshrine'
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))

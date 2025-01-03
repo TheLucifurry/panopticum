@@ -14,7 +14,7 @@ const props = withDefaults(
   },
 )
 
-const progressPercent = computed(() => (props?.modelValue || 0) /  (props?.max || 1))
+const progressPercent = computed(() => (props?.modelValue || 0) / (props?.max || 1))
 
 const delegatedProps = useDelegatedProps(() => props)
 </script>

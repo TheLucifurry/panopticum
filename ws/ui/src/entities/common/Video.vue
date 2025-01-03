@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { shallowRef } from 'vue';
-
-const videoElement = shallowRef<HTMLVideoElement | null>(null)
+import { shallowRef } from 'vue'
 
 const {
   poster = '',
   isLoop = false,
 } = defineProps<{
-  poster?: string;
-  isLoop?: boolean;
+  poster?: string
+  isLoop?: boolean
 }>()
+
+const videoElement = shallowRef<HTMLVideoElement | null>(null)
 
 defineExpose({ videoElement })
 </script>

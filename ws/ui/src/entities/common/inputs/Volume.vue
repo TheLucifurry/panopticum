@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import Slider from '@/shared/components/ui/slider/Slider.vue';
-import { VolumeOff, Volume1, Volume2 } from 'lucide-vue-next';
+import Slider from '@/shared/components/ui/slider/Slider.vue'
+import { Volume1, Volume2, VolumeOff } from 'lucide-vue-next'
 
 const model = defineModel<number>({
-  default: 0
+  default: 0,
 })
 </script>
 
 <template>
   <div class="volume">
-    <VolumeOff v-if="model === 0"/>
-    <Volume1 v-else-if="model < 0.5"/>
-    <Volume2 v-else/>
+    <VolumeOff v-if="model === 0" />
+    <Volume1 v-else-if="model < 0.5" />
+    <Volume2 v-else />
     <Slider
       :max="1"
       :step="0.05"

@@ -1,6 +1,6 @@
 <template>
   <div class="z-group">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

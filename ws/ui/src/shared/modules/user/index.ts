@@ -7,9 +7,9 @@ export const useUser = defineComposable({
     return {
       name: {
         full: 'Jane Doe',
-        initials: 'JD'
+        initials: 'JD',
       },
       avatarSrc: '',
     }
-  }
+  },
 })

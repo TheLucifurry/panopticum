@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { MenuButtonUser } from '@/features/user';
-import Button from '@/shared/components/ui/button/Button.vue';
-import { SidebarHeader, Sidebar, SidebarContent, SidebarFooter, SidebarProvider } from '@/shared/components/ui/sidebar';
-import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue';
-import { WindowBar } from '@/widgets/common';
-import { Controls, MediaPlayer } from '@/widgets/project';
-import { useToggle } from '@vueuse/core';
+import { MenuButtonUser } from '@/features/user'
+import Button from '@/shared/components/ui/button/Button.vue'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarProvider } from '@/shared/components/ui/sidebar'
+import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue'
+import { WindowBar } from '@/widgets/common'
+import { Controls, MediaPlayer } from '@/widgets/project'
+import { useToggle } from '@vueuse/core'
 
 const [isOpen, toggleSidebar] = useToggle(true)
 </script>
@@ -28,7 +28,9 @@ const [isOpen, toggleSidebar] = useToggle(true)
         </Sidebar>
         <div class="content">
           <WindowBar>
-            <Button size="sm" @click="toggleSidebar()">Open</Button>
+            <Button size="sm" @click="toggleSidebar()">
+              Open
+            </Button>
             <template #extra>
               <MenuButtonUser />
             </template>
@@ -36,7 +38,7 @@ const [isOpen, toggleSidebar] = useToggle(true)
           <main>
             <MediaPlayer />
           </main>
-          <Controls/>
+          <Controls />
         </div>
       </div>
     </SidebarProvider>

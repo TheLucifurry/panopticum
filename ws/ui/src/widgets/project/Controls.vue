@@ -1,18 +1,18 @@
 <script setup lang="ts">
-import { Volume } from '@/entities/common/inputs';
-import { MenuButtonSettingsPlayer } from '@/features/player';
-import { Group } from '@/shared/components/custom';
-import Progress from '@/shared/components/ui/progress/Progress.vue';
-import { usePlayer } from '@/shared/modules';
-import { toDurationStringFromSeconds } from '@/widgets/utils/datetime';
-import { Maximize, PlayIcon, PauseIcon, SkipForward } from 'lucide-vue-next';
+import { Volume } from '@/entities/common/inputs'
+import { MenuButtonSettingsPlayer } from '@/features/player'
+import { Group } from '@/shared/components/custom'
+import Progress from '@/shared/components/ui/progress/Progress.vue'
+import { usePlayer } from '@/shared/modules'
+import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
+import { Maximize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
 
 const player = usePlayer()
 </script>
 
 <template>
   <div class="controls">
-    <Progress :modelValue="player.currentTime" :max="player.trackLengthTime" />
+    <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
     <div class="panel">
       <Group>
         <div @click="player.isPlaying = !player.isPlaying">
@@ -22,12 +22,12 @@ const player = usePlayer()
         <SkipForward />
         <Volume v-model="player.volume" />
         <div class="tw:text-sm">
-          <span>{{toDurationStringFromSeconds(player.currentTime)}}</span>
-          {{' / '}}
-          <span>{{toDurationStringFromSeconds(player.trackLengthTime)}}</span>
+          <span>{{ toDurationStringFromSeconds(player.currentTime) }}</span>
+          {{ ' / ' }}
+          <span>{{ toDurationStringFromSeconds(player.trackLengthTime) }}</span>
         </div>
       </Group>
-      <div class="panel__spacer"></div>
+      <div class="panel__spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
         <Maximize />
@@ -35,7 +35,6 @@ const player = usePlayer()
     </div>
   </div>
 </template>
-
 
 <style lang="scss" scoped>
 .controls {

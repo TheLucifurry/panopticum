@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { cn, useDelegatedProps } from '@/shared/utils'
 import { ChevronRightIcon } from '@radix-icons/vue'
 import {
@@ -6,7 +7,6 @@ import {
   type DropdownMenuSubTriggerProps,
   useForwardProps,
 } from 'radix-vue'
-import { computed, type HTMLAttributes } from 'vue'
 
 const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes['class'] }>()
 

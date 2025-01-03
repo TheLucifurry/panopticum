@@ -22,5 +22,5 @@ export const usePlayer = defineComposable({
       currentTime: 0,
       trackLengthTime: 500,
     }
-  }
+  },
 })

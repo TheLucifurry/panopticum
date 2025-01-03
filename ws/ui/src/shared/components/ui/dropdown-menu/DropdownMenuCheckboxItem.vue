@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { HTMLAttributes } from 'vue'
 import { cn, useDelegatedProps } from '@/shared/utils'
 import { CheckIcon } from '@radix-icons/vue'
 import {
@@ -8,7 +9,6 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits,
 } from 'radix-vue'
-import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<DropdownMenuCheckboxItemProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<DropdownMenuCheckboxItemEmits>()

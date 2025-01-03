@@ -1,8 +1,10 @@
 <script lang="tsx">
-import { getCurrentWindow } from '@tauri-apps/api/window';
-import { Minus, PanelTop, X } from 'lucide-vue-next';
-import { defineComponent, VNode } from 'vue';
-import { cope, Fn } from 'webshrine';
+import type { VNode } from 'vue'
+import type { Fn } from 'webshrine'
+import { getCurrentWindow } from '@tauri-apps/api/window'
+import { Minus, PanelTop, X } from 'lucide-vue-next'
+import { defineComponent } from 'vue'
+import { cope } from 'webshrine'
 
 const [appWindow] = cope(getCurrentWindow)
 
@@ -22,19 +24,13 @@ export default defineComponent({
         <div data-tauri-drag-region></div>
         <div>
           {ctx.slots.extra?.()}
-          {renderButton(() => appWindow?.minimize(), (
-            <Minus/>
-          ))}
-          {renderButton(() => appWindow?.toggleMaximize(), (
-            <PanelTop/>
-          ))}
-          {renderButton(() => appWindow?.close(), (
-            <X/>
-          ))}
+          {renderButton(() => appWindow?.minimize(), (<Minus />))}
+          {renderButton(() => appWindow?.toggleMaximize(), (<PanelTop />))}
+          {renderButton(() => appWindow?.close(), (<X />))}
         </div>
       </div>
     )
-  }
+  },
 })
 </script>
 
@@ -68,7 +64,6 @@ $height: 40px;
       background: #0002;
     }
   }
-
 
   & > div {
     display: flex;

@@ -3,7 +3,7 @@ import Desktop from '@/app/layouts/Desktop.vue'
 </script>
 
 <template>
-  <Desktop/>
+  <Desktop />
 </template>
 
 <style>
