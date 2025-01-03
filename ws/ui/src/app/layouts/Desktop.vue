@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import { MenuButtonUser } from '@/features/user'
-import Button from '@/shared/components/ui/button/Button.vue'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarProvider } from '@/shared/components/ui/sidebar'
-import SidebarGroup from '@/shared/components/ui/sidebar/SidebarGroup.vue'
+import { Button } from '@/shared/components/ui/button'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarProvider } from '@/shared/components/ui/sidebar'
+import { useUiState } from '@/shared/modules'
 import { WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
 import { useToggle } from '@vueuse/core'
+import { watch } from 'vue'
 
-const [isOpen, toggleSidebar] = useToggle(true)
+const uis = useUiState()
+
+const [isOpen, toggleSidebar] = useToggle(uis.isSidebarExpanded)
+
+watch(isOpen, v => uis.isSidebarExpanded = v)
 </script>
 
 <template>
