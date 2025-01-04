@@ -1,6 +1,7 @@
 {
   // CUSTOM
   "cSpell.words": [
+    "keyboardjs",
     "panopticum"
   ],
   "rust-analyzer.linkedProjects": [

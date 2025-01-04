@@ -6,9 +6,21 @@ import Progress from '@/shared/components/ui/progress/Progress.vue'
 import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
+import { useKeyboard } from '../../shared/modules'
 
+const kb = useKeyboard()
 const uis = useUiState()
 const player = usePlayer()
+
+const togglePlay = () => player.isPlaying = !player.isPlaying
+const toggleFullscreen = uis.toggleFullscreen
+
+kb.bind('f', toggleFullscreen)
+kb.bind('space', togglePlay)
+kb.bind('up', () => player.volumeInc())
+kb.bind('down', () => player.volumeInc(-1))
+kb.bind('shift > .', () => player.playbackSpeedInc())
+kb.bind('shift > ,', () => player.playbackSpeedInc(-1))
 </script>
 
 <template>
@@ -16,7 +28,7 @@ const player = usePlayer()
     <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
     <div class="panel">
       <Group>
-        <div @click="player.isPlaying = !player.isPlaying">
+        <div @click="togglePlay">
           <PlayIcon v-if="!player.isPlaying" />
           <PauseIcon v-else />
         </div>
@@ -31,7 +43,7 @@ const player = usePlayer()
       <div class="panel__spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
-        <div @click="uis.toggleFullscreen()">
+        <div @click="toggleFullscreen">
           <Minimize v-if="uis.isFullscreen" />
           <Maximize v-else />
         </div>

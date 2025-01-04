@@ -2,6 +2,9 @@
 import Desktop from '@/app/layouts/Desktop.vue'
 import { useUiState } from '@/shared/modules'
 import { defineAsyncComponent, defineComponent, h } from 'vue'
+import { useKeyboard } from '../shared/modules/keyboard'
+
+useKeyboard().init()
 
 const Fullscreen = defineAsyncComponent(() => import('@/app/layouts/Fullscreen.vue'))
 

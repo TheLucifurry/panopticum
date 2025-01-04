@@ -8,12 +8,10 @@ import DropdownMenuSubContent from '@/shared/components/ui/dropdown-menu/Dropdow
 import DropdownMenuSubTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuSubTrigger.vue'
 import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
 import { Slider } from '@/shared/components/ui/slider'
-import { usePlayer } from '@/shared/modules'
+import { usePlayer, DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE } from '@/shared/modules'
 import { Settings } from 'lucide-vue-next'
 import { DropdownMenuPortal } from 'radix-vue'
 import { defineComponent } from 'vue'
-
-const PLAYBACK_SPEED_PRESET = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2]
 
 export default defineComponent({
   setup() {
@@ -37,13 +35,13 @@ export default defineComponent({
               <Slider
                 step={0.05}
                 modelValue={[player.playbackSpeed]}
-                min={0.1}
-                max={3}
+                min={DEFAULT_PLAYBACK_SPEED_RANGE[0]}
+                max={DEFAULT_PLAYBACK_SPEED_RANGE[1]}
                 onUpdate:modelValue={value => value && handlerChangePlaybackSpeed(value[0])}
               />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            {PLAYBACK_SPEED_PRESET.map(speed => (
+            {DEFAULT_PLAYBACK_SPEED_OPTIONS.map(speed => (
               <DropdownMenuItem key={speed} onClick={() => handlerChangePlaybackSpeed(speed)}>
                 {speed}
               </DropdownMenuItem>
