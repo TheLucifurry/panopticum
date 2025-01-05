@@ -42,8 +42,8 @@ importers:
         specifier: ^12.3.0
         version: 12.3.0(typescript@5.7.2)
       '@webshrine/vue':
-        specifier: ^0.0.16
-        version: 0.0.16(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2))(@webshrine/stdtyp@0.0.16)(vue@3.5.13(typescript@5.7.2))
+        specifier: ^0.0.17
+        version: 0.0.17(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2))(@webshrine/stdtyp@0.0.17)(vue@3.5.13(typescript@5.7.2))
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -72,8 +72,8 @@ importers:
         specifier: ^4.5.0
         version: 4.5.0(vue@3.5.13(typescript@5.7.2))
       webshrine:
-        specifier: ^0.0.16
-        version: 0.0.16(typescript@5.7.2)
+        specifier: ^0.0.17
+        version: 0.0.17(typescript@5.7.2)
     devDependencies:
       '@types/node':
         specifier: ^22.10.4
@@ -1078,25 +1078,25 @@ packages:
   '@vueuse/shared@12.3.0':
     resolution: {integrity: sha512-X3YD35GUeW0d5Gajcwv9jdLAJTV2Jdb/Ll6Ii2JIYcKLYZqv5wxyLeKtiQkqWmHg3v0J0ZWjDUMVOw2E7RCXfA==}
 
-  '@webshrine/stdfmt@0.0.16':
-    resolution: {integrity: sha512-C7qa6FDmJ4T0lUO1rciT3wZSPP0cY5xqjD/d7zjQaCfsqD3IPDaTLNi4dkl5jdNvJYRdHKpUQ6XPllKReHGUPQ==}
+  '@webshrine/stdfmt@0.0.17':
+    resolution: {integrity: sha512-9WHuaN2DlNEFf09+Slw/QyWpVQlR0apVtD/DJsiZ3OJ2tj4Xp33PL0KJ7XWKNhqznfClR3BRcxAHd/RvyqYpUQ==}
     peerDependencies:
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdtyp': 0.0.17
 
-  '@webshrine/stdlib@0.0.16':
-    resolution: {integrity: sha512-Rte/KJy168h+Gi22DolTU8bE53Khh2FIPZEw8lfk97/zH+TFGr+IbIavUuqWCllA7TUEaVuDZT2toU7WycvHIA==}
+  '@webshrine/stdlib@0.0.17':
+    resolution: {integrity: sha512-Do/HqmvgYHftczLTcj4eFOH/WfSFVdeGWmzbwb7vCyI0Pb6kxi8EacwN+sT71TgkT1ei8qNMsLB1xXdfB1fE8g==}
     peerDependencies:
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdtyp': 0.0.17
 
-  '@webshrine/stdtyp@0.0.16':
-    resolution: {integrity: sha512-kuxI+37KaAwGVORmIVJP3lH2y+cx25iYcQwvyfCUCvY6trI99igI37Cn8NbYKV1IuyOtayvFesRnTF0KZ8aMlg==}
+  '@webshrine/stdtyp@0.0.17':
+    resolution: {integrity: sha512-/9hCT0E2TnaIf0RKCPP6Nm/Drm0P5GtYbApBP3fmyHJZNMPWBL1t1LkP4KY4vVlYVZCDAZDmrNaS3BwPaj4z2g==}
 
-  '@webshrine/vue@0.0.16':
-    resolution: {integrity: sha512-e9PoqxalQTmHKxLd+PtkSPxT4+SjIonuvHtlXue/FmQ4czG7Mbxy+YupgRNl3QvUDIZe10oN4r5hJXwuD9mo8w==}
+  '@webshrine/vue@0.0.17':
+    resolution: {integrity: sha512-JoLzXjZC+TdkpO75uIq/4NUQj7gV7rDRc5P2SQlkYYRUOhg/EH3+agtzpbcBmiEXn7v/Uo6jgmfBYGPVvSYoDA==}
     peerDependencies:
       '@vueuse/core': ^12.0.0
-      '@webshrine/stdlib': 0.0.16
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdlib': 0.0.17
+      '@webshrine/stdtyp': 0.0.17
       vue: ^3.5.13
 
   acorn-jsx@5.3.2:
@@ -2729,8 +2729,8 @@ packages:
   webpack-virtual-modules@0.6.2:
     resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
-  webshrine@0.0.16:
-    resolution: {integrity: sha512-g1ItfDBvO+NfYCesZi5/61zZLfNxcsfM+kvc7u/3Fk2EIoAsJiJZzsw8/L9FWn8TU7v8WLdqImR5clfJcyKERA==}
+  webshrine@0.0.17:
+    resolution: {integrity: sha512-A/2EyThWbw8q7g36ZUs+WIQL3ez02DnhSYIu9+gwScdOV5rPmUL6CAlc8kY12yxY1tJwbRyn8xiUt2xczrGA3Q==}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -3767,10 +3767,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdfmt@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)':
+  '@webshrine/stdfmt@0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdtyp': 0.0.17
       change-case: 5.4.4
       cope: 1.0.9(typescript@5.7.2)
       defu: 6.1.4
@@ -3783,10 +3783,10 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)':
+  '@webshrine/stdlib@0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2)':
     dependencies:
       '@types/lodash-es': 4.17.12
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdtyp': 0.0.17
       cope: 1.0.9(typescript@5.7.2)
       defu: 6.1.4
       fast-deep-equal: 3.1.3
@@ -3798,15 +3798,15 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@webshrine/stdtyp@0.0.16':
+  '@webshrine/stdtyp@0.0.17':
     dependencies:
       utility-types: 3.11.0
 
-  '@webshrine/vue@0.0.16(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2))(@webshrine/stdtyp@0.0.16)(vue@3.5.13(typescript@5.7.2))':
+  '@webshrine/vue@0.0.17(@vueuse/core@12.3.0(typescript@5.7.2))(@webshrine/stdlib@0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2))(@webshrine/stdtyp@0.0.17)(vue@3.5.13(typescript@5.7.2))':
     dependencies:
       '@vueuse/core': 12.3.0(typescript@5.7.2)
-      '@webshrine/stdlib': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdlib': 0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.17
       vue: 3.5.13(typescript@5.7.2)
 
   acorn-jsx@5.3.2(acorn@8.14.0):
@@ -5663,11 +5663,11 @@ snapshots:
 
   webpack-virtual-modules@0.6.2: {}
 
-  webshrine@0.0.16(typescript@5.7.2):
+  webshrine@0.0.17(typescript@5.7.2):
     dependencies:
-      '@webshrine/stdfmt': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
-      '@webshrine/stdlib': 0.0.16(@webshrine/stdtyp@0.0.16)(typescript@5.7.2)
-      '@webshrine/stdtyp': 0.0.16
+      '@webshrine/stdfmt': 0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2)
+      '@webshrine/stdlib': 0.0.17(@webshrine/stdtyp@0.0.17)(typescript@5.7.2)
+      '@webshrine/stdtyp': 0.0.17
     transitivePeerDependencies:
       - typescript
 
