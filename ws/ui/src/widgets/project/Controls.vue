@@ -17,10 +17,10 @@ const toggleFullscreen = uis.toggleFullscreen
 
 kb.bind('f', toggleFullscreen)
 kb.bind('space', togglePlay)
-kb.bind('up', () => player.volumeInc())
-kb.bind('down', () => player.volumeInc(-1))
-kb.bind('shift > .', () => player.playbackSpeedInc())
-kb.bind('shift > ,', () => player.playbackSpeedInc(-1))
+kb.bind('up', () => player.volumeChange.inc())
+kb.bind('down', () => player.volumeChange.dec())
+kb.bind('shift > .', () => player.rateChange.inc())
+kb.bind('shift > ,', () => player.rateChange.dec())
 </script>
 
 <template>
