@@ -7,20 +7,49 @@ import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
 import { useKeyboard } from '../../shared/modules'
+import { timesMap } from 'webshrine'
 
-const kb = useKeyboard()
+const keyboard = useKeyboard()
 const uis = useUiState()
 const player = usePlayer()
 
 const togglePlay = () => player.isPlaying = !player.isPlaying
 const toggleFullscreen = uis.toggleFullscreen
 
-kb.bind('f', toggleFullscreen)
-kb.bind('space', togglePlay)
-kb.bind('up', () => player.volumeChange.inc())
-kb.bind('down', () => player.volumeChange.dec())
-kb.bind('shift > .', () => player.rateChange.inc())
-kb.bind('shift > ,', () => player.rateChange.dec())
+const volumeChangeBezel = () => `${Math.ceil(player.volume * 100)}%`
+const rateChangeBezel = () => `${player.rate}x`
+
+keyboard.binds({
+  'f': toggleFullscreen,
+  'space': togglePlay,
+  'up': {
+    pressed: () => player.volumeChange.inc(),
+    bezel: volumeChangeBezel,
+  },
+  'down': {
+    pressed: () => player.volumeChange.dec(),
+    bezel: volumeChangeBezel,
+  },
+  'left': {
+    pressed: () => player.currentTimeChange.dec(),
+    bezel: () => `<< ${player.currentTimeChange.step} sec`,
+  },
+  'right': {
+    pressed: () => player.currentTimeChange.inc(),
+    bezel: () => `${player.currentTimeChange.step} sec >>`,
+  },
+  'shift > .': {
+    pressed: () => player.rateChange.inc(),
+    bezel: rateChangeBezel,
+  },
+  'shift > ,': {
+    pressed: () => player.rateChange.dec(),
+    bezel: rateChangeBezel,
+  },
+  ...Object.fromEntries(
+    timesMap(10, (_, i) => [`${i}`, () => player.currentTimeSetByPercent(i / 10)])
+  ),
+})
 </script>
 
 <template>
