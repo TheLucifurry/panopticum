@@ -10,21 +10,31 @@ const videoPath = computed(() => convertFileSrc('______'))
 const player = usePlayer()
 const videoRef = shallowRef<InstanceType<typeof Video> | null>(null)
 const videoEl = computed(() => videoRef.value?.videoElement || null)
-
 const mediaControls = useMediaControls(videoEl, { src: videoPath })
 
+// Income bind
 syncRefs(() => player.volume, mediaControls.volume)
 syncRefs(() => player.isPlaying, mediaControls.playing)
+syncRefs(() => player.rate, mediaControls.rate)
+useEventListener(videoEl, 'canplay', () => {
+  mediaControls.currentTime.value = player.currentTime
+  mediaControls.playing.value = player.isPlaying
+})
+
+// Outcome bind
 watch(mediaControls.currentTime, v => player.currentTime = v)
 
-useEventListener(videoEl, 'loadedmetadata', () => {
+function onLoadedMetaData() {
   player.trackLengthTime = videoEl.value?.duration ?? player.trackLengthTime
-})
+}
 </script>
 
 <template>
   <div class="media-player">
-    <Video ref="videoRef" />
+    <Video
+      ref="videoRef"
+      @loadedmetadata="onLoadedMetaData"
+    />
   </div>
 </template>
 
