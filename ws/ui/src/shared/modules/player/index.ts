@@ -21,6 +21,14 @@ export const usePlayer = defineModule(() => {
     max: DEFAULT_PLAYBACK_SPEED_RANGE[1],
   })
 
+  const trackLengthTime = shallowRef(500)
+  const currentTime = shallowRef(DEFAULT_PLAYBACK_SPEED)
+  const currentTimeChange = useIncrementable(currentTime, {
+    step: 5,
+    min: 0,
+    max: trackLengthTime.value,
+  })
+
   const isPlaying = shallowRef(false)
   const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
 
@@ -31,7 +39,8 @@ export const usePlayer = defineModule(() => {
     rateChange,
     isPlaying,
     isAutoplay,
-    currentTime: 0,
-    trackLengthTime: 500,
+    currentTime,
+    currentTimeChange,
+    trackLengthTime,
   }
 })

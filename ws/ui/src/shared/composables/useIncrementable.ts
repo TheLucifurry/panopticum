@@ -15,7 +15,10 @@ export function useIncrementable<T extends number = number>(targetTef: Ref<T, T>
   }
 
   return {
+    step,
+    max,
+    min,
     inc,
     dec: (stepMultiplier = -1) => inc(stepMultiplier),
-  }
+  } as const
 }
