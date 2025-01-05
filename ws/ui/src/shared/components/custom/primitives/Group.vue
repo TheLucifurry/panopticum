@@ -4,7 +4,7 @@
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .z-group {
   display: flex;
   gap: 8px;

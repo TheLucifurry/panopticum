@@ -32,6 +32,10 @@ export const usePlayer = defineModule(() => {
   const isPlaying = shallowRef(false)
   const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
 
+  const currentTimeSetByPercent = (percent: number) => {
+    currentTime.value = Math.round(trackLengthTime.value * percent)
+  }
+
   return {
     volume,
     volumeChange,
@@ -41,6 +45,7 @@ export const usePlayer = defineModule(() => {
     isAutoplay,
     currentTime,
     currentTimeChange,
+    currentTimeSetByPercent,
     trackLengthTime,
   }
 })
