@@ -1,5 +1,5 @@
 import { useIncrementable } from '@/shared/composables'
-import { defineComposable } from '@webshrine/vue'
+import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
 
 export const DEFAULT_VOLUME = 0.5
@@ -10,32 +10,28 @@ export const DEFAULT_PLAYBACK_SPEED_OPTIONS = [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.
 export const DEFAULT_PLAYBACK_SPEED_RANGE = [0.25, 3] as const
 export const DEFAULT_AUTOPLAY = false
 
-export const usePlayer = defineComposable({
-  singleton: true,
-  flat: true,
-  setup() {
-    const volume = shallowRef(DEFAULT_VOLUME)
-    const volumeChange = useIncrementable(volume, { step: DEFAULT_VOLUME_INC_STEP, min: 0, max: 1 })
+export const usePlayer = defineModule(() => {
+  const volume = shallowRef(DEFAULT_VOLUME)
+  const volumeChange = useIncrementable(volume, { step: DEFAULT_VOLUME_INC_STEP, min: 0, max: 1 })
 
-    const rate = shallowRef(DEFAULT_PLAYBACK_SPEED)
-    const rateChange = useIncrementable(rate, {
-      step: DEFAULT_PLAYBACK_SPEED_STEP,
-      min: DEFAULT_PLAYBACK_SPEED_RANGE[0],
-      max: DEFAULT_PLAYBACK_SPEED_RANGE[1],
-    })
+  const rate = shallowRef(DEFAULT_PLAYBACK_SPEED)
+  const rateChange = useIncrementable(rate, {
+    step: DEFAULT_PLAYBACK_SPEED_STEP,
+    min: DEFAULT_PLAYBACK_SPEED_RANGE[0],
+    max: DEFAULT_PLAYBACK_SPEED_RANGE[1],
+  })
 
-    const isPlaying = shallowRef(false)
-    const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
+  const isPlaying = shallowRef(false)
+  const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
 
-    return {
-      volume,
-      volumeChange,
-      rate,
-      rateChange,
-      isPlaying,
-      isAutoplay,
-      currentTime: 0,
-      trackLengthTime: 500,
-    }
-  },
+  return {
+    volume,
+    volumeChange,
+    rate,
+    rateChange,
+    isPlaying,
+    isAutoplay,
+    currentTime: 0,
+    trackLengthTime: 500,
+  }
 })
