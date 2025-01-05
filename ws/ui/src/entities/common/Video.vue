@@ -9,7 +9,10 @@ const {
   isLoop?: boolean
 }>()
 
-const emit = defineEmits<{ (e: 'loadedmetadata', payload: Event): void }>()
+const emit = defineEmits<{
+  (e: 'loadedmetadata', payload: Event): void
+  (e: 'timeupdate', payload: Event): void
+}>()
 
 const videoElement = shallowRef<HTMLVideoElement | null>(null)
 const isVertical = shallowRef(false)
@@ -35,6 +38,7 @@ defineExpose({ videoElement })
       :poster="poster"
       :loop="isLoop"
       @loadedmetadata="onLoadedMetaData"
+      @timeupdate="emit('timeupdate', $event)"
     />
   </div>
 </template>
