@@ -13,20 +13,16 @@ const keyboard = useKeyboard()
 const uis = useUiState()
 const player = usePlayer()
 
-const togglePlay = () => player.isPlaying = !player.isPlaying
-const toggleMute = () => player.isMuted = !player.isMuted
-const toggleFullscreen = uis.toggleFullscreen
-
 const volumeChangeBezel = () => `${Math.ceil(player.volume * 100)}%`
 const rateChangeBezel = () => `${player.rate}x`
 
 keyboard.binds({
-  'f': toggleFullscreen,
+  'f': uis.toggleFullscreen,
   'm': {
-    pressed: toggleMute,
+    pressed: player.toggleMuted,
     bezel: () => player.isMuted ? 'Muted' : 'Unmuted'
   },
-  'space': togglePlay,
+  'space': player.togglePlaying,
   'up': {
     pressed: () => player.volumeChange.inc(),
     bezel: volumeChangeBezel,
@@ -62,7 +58,7 @@ keyboard.binds({
     <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
     <div class="panel">
       <Group>
-        <div @click="togglePlay">
+        <div @click="player.togglePlaying">
           <PlayIcon v-if="!player.isPlaying" />
           <PauseIcon v-else />
         </div>
@@ -80,7 +76,7 @@ keyboard.binds({
       <div class="panel__spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
-        <div @click="toggleFullscreen">
+        <div @click="uis.toggleFullscreen">
           <Minimize v-if="uis.isFullscreen" />
           <Maximize v-else />
         </div>

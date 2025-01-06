@@ -56,6 +56,7 @@ i10.bezel.connect(bezelProvider)
       src=""
       @loadedmetadata="onLoadedMetaData"
       @timeupdate="onTimeupdate"
+      @click="player.togglePlaying"
     />
     <BezelProvider ref="bezelProvider" />
   </div>
