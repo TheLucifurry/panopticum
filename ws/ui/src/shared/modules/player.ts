@@ -1,3 +1,4 @@
+import { registerPlayerKeybindings } from '@/features/player'
 import { useIncrementable } from '@/shared/composables'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
@@ -54,3 +55,6 @@ export const usePlayer = defineModule(() => {
     trackLengthTime,
   }
 })
+
+// TODO: implement plugin system for defineModule
+registerPlayerKeybindings(usePlayer())

@@ -6,51 +6,9 @@ import Progress from '@/shared/components/ui/progress/Progress.vue'
 import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
-import { timesMap } from 'webshrine'
-import { useKeyboard } from '../../shared/modules'
 
-const keyboard = useKeyboard()
 const uis = useUiState()
 const player = usePlayer()
-
-const volumeChangeBezel = () => `${Math.ceil(player.volume * 100)}%`
-const rateChangeBezel = () => `${player.rate}x`
-
-keyboard.binds({
-  'f': uis.toggleFullscreen,
-  'm': {
-    pressed: player.toggleMuted,
-    bezel: () => player.isMuted ? 'Muted' : 'Unmuted'
-  },
-  'space': player.togglePlaying,
-  'up': {
-    pressed: () => player.volumeChange.inc(),
-    bezel: volumeChangeBezel,
-  },
-  'down': {
-    pressed: () => player.volumeChange.dec(),
-    bezel: volumeChangeBezel,
-  },
-  'left': {
-    pressed: () => player.currentTimeChange.dec(),
-    bezel: () => `<< ${player.currentTimeChange.step} sec`,
-  },
-  'right': {
-    pressed: () => player.currentTimeChange.inc(),
-    bezel: () => `${player.currentTimeChange.step} sec >>`,
-  },
-  'shift > .': {
-    pressed: () => player.rateChange.inc(),
-    bezel: rateChangeBezel,
-  },
-  'shift > ,': {
-    pressed: () => player.rateChange.dec(),
-    bezel: rateChangeBezel,
-  },
-  ...Object.fromEntries(
-    timesMap(10, (_, i) => [i, () => player.currentTimeSetByPercent(i / 10)]),
-  ),
-})
 </script>
 
 <template>
