@@ -12,18 +12,19 @@ pub enum MediaType {
 
 // #[derive(Serialize)]
 pub struct FileMeta {
+    pub name: String,
     pub path: String,
     pub media_type: u8,
     pub is_local: bool,
     // media_type: MediaType,
-    // name: String,
     // size: u64,
 }
 
 impl Serialize for FileMeta {
     fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
     where S: Serializer, {
-        let mut s = serializer.serialize_struct("FileMeta", 3)?;
+        let mut s = serializer.serialize_struct("FileMeta", 4)?;
+        s.serialize_field("name", &self.name)?;
         s.serialize_field("path", &self.path)?;
         s.serialize_field("media_type", &self.media_type)?;
         s.serialize_field("is_local", &self.is_local)?;
