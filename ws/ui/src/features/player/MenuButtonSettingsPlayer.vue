@@ -8,7 +8,7 @@ import DropdownMenuSubContent from '@/shared/components/ui/dropdown-menu/Dropdow
 import DropdownMenuSubTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuSubTrigger.vue'
 import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
 import { Slider } from '@/shared/components/ui/slider'
-import { DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE, usePlayer } from '@/shared/modules'
+import { DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE, usePlayer } from '@/shared/modules/player'
 import { Settings } from 'lucide-vue-next'
 import { DropdownMenuPortal } from 'radix-vue'
 import { defineComponent } from 'vue'

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Video } from '@/entities/common'
 import { BezelProvider } from '@/shared/components/custom'
-import { usePlayer } from '@/shared/modules'
 import { useInteraction } from '@/shared/modules/interaction'
+import { usePlayer } from '@/shared/modules/player'
 import { useEventListener, watchIgnorable } from '@vueuse/core'
 import { computed, shallowRef, watch } from 'vue'
 
@@ -27,13 +27,11 @@ watch(() => player.rate, refreshRate)
 watch(() => player.isMuted, refreshMute)
 const ignoringWatchExternal = watchIgnorable(() => player.currentTime, refreshCurrentTime).ignoreUpdates
 useEventListener(videoEl, 'canplay', () => {
-  if (videoEl.value) {
-    refreshVolume()
-    refreshIsPlaying()
-    refreshRate()
-    refreshMute()
-    refreshCurrentTime()
-  }
+  refreshVolume()
+  refreshIsPlaying()
+  refreshRate()
+  refreshMute()
+  refreshCurrentTime()
 }, { once: true })
 
 // Outcome bind
