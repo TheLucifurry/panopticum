@@ -17,6 +17,9 @@
       ]
     },
     "resolveJsonModule": true,
+    "types": [
+      "unplugin-vue-router/client"
+    ],
     "allowImportingTsExtensions": true,
     /* Linting */
     "strict": true,
