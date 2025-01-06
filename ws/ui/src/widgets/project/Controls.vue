@@ -5,7 +5,7 @@ import { Group } from '@/shared/components/custom'
 import Progress from '@/shared/components/ui/progress/Progress.vue'
 import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
-import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
+import { Maximize, Minimize, PauseIcon, PlayIcon } from 'lucide-vue-next'
 
 const uis = useUiState()
 const player = usePlayer()
@@ -16,11 +16,12 @@ const player = usePlayer()
     <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
     <div class="panel">
       <Group>
+        <!-- <SkipBack /> -->
         <div @click="player.togglePlaying">
           <PlayIcon v-if="!player.isPlaying" />
           <PauseIcon v-else />
         </div>
-        <SkipForward />
+        <!-- <SkipForward /> -->
         <Volume
           v-model="player.volume"
           v-model:mute="player.isMuted"

@@ -7,7 +7,7 @@ import { cope, debounce } from 'webshrine'
 
 export const useUiState = defineModule(() => {
   const [appWindow] = cope(getCurrentWindow)
-  const [isSidebarExpanded, toggleSidebar] = useToggle(true)
+  const [isSidebarExpanded, toggleSidebar] = useToggle()
   const isFullscreen = shallowRef(false)
 
   const syncIsFullscreen = () => appWindow?.isFullscreen().then(v => isFullscreen.value = v)
@@ -18,7 +18,6 @@ export const useUiState = defineModule(() => {
   appWindow?.onResized(debounce(() => {
     syncIsFullscreen()
   }, 16))
-
 
   return {
     appWindow,
