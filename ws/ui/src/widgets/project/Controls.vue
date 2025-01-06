@@ -6,14 +6,15 @@ import Progress from '@/shared/components/ui/progress/Progress.vue'
 import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { Maximize, Minimize, PauseIcon, PlayIcon, SkipForward } from 'lucide-vue-next'
-import { useKeyboard } from '../../shared/modules'
 import { timesMap } from 'webshrine'
+import { useKeyboard } from '../../shared/modules'
 
 const keyboard = useKeyboard()
 const uis = useUiState()
 const player = usePlayer()
 
 const togglePlay = () => player.isPlaying = !player.isPlaying
+const toggleMute = () => player.isMuted = !player.isMuted
 const toggleFullscreen = uis.toggleFullscreen
 
 const volumeChangeBezel = () => `${Math.ceil(player.volume * 100)}%`
@@ -21,6 +22,10 @@ const rateChangeBezel = () => `${player.rate}x`
 
 keyboard.binds({
   'f': toggleFullscreen,
+  'm': {
+    pressed: toggleMute,
+    bezel: () => player.isMuted ? 'Muted' : 'Unmuted'
+  },
   'space': togglePlay,
   'up': {
     pressed: () => player.volumeChange.inc(),
@@ -47,7 +52,7 @@ keyboard.binds({
     bezel: rateChangeBezel,
   },
   ...Object.fromEntries(
-    timesMap(10, (_, i) => [`${i}`, () => player.currentTimeSetByPercent(i / 10)])
+    timesMap(10, (_, i) => [i, () => player.currentTimeSetByPercent(i / 10)]),
   ),
 })
 </script>
@@ -62,7 +67,10 @@ keyboard.binds({
           <PauseIcon v-else />
         </div>
         <SkipForward />
-        <Volume v-model="player.volume" />
+        <Volume
+          v-model="player.volume"
+          v-model:mute="player.isMuted"
+        />
         <div class="tw:text-sm">
           <span>{{ toDurationStringFromSeconds(player.currentTime) }}</span>
           {{ ' / ' }}
