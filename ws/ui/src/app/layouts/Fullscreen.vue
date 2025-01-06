@@ -3,7 +3,7 @@ import { MenuButtonUser } from '@/features/user'
 import { Panel } from '@/shared/components/custom'
 import { WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 const asd = ref(true)
 </script>
@@ -29,6 +29,5 @@ const asd = ref(true)
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  color: #fff;
 }
 </style>
