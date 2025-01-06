@@ -1,74 +1,48 @@
 <script setup lang="ts">
 import { MenuButtonUser } from '@/features/user'
-import { Button } from '@/shared/components/ui/button'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarProvider } from '@/shared/components/ui/sidebar'
-import { useKeyboard, useUiState } from '@/shared/modules'
-import { WindowBar } from '@/widgets/common'
+import { SidebarProvider } from '@/shared/components/ui/sidebar'
+import { useUiState } from '@/shared/modules'
+import { AppSidebar, WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
-import { useToggle } from '@vueuse/core'
-import { watch } from 'vue'
 
 const uis = useUiState()
-const keyboard = useKeyboard()
-
-const [isOpen, toggleSidebar] = useToggle(uis.isSidebarExpanded)
-
-watch(isOpen, v => uis.isSidebarExpanded = v)
-
-keyboard.binds({
-  'ctrl > b': () => toggleSidebar(),
-})
 </script>
 
 <template>
-  <div class="root">
-    <SidebarProvider :open="isOpen">
-      <div class="layout">
-        <Sidebar>
-          <SidebarHeader>
-            Header
-          </SidebarHeader>
-          <SidebarContent>
-            <SidebarGroup />
-            <SidebarGroup />
-          </SidebarContent>
-          <SidebarFooter>
-            Footer
-          </SidebarFooter>
-        </Sidebar>
-        <div class="content">
-          <WindowBar>
-            <Button size="sm" @click="toggleSidebar()">
-              Open
-            </Button>
-            <template #extra>
-              <MenuButtonUser />
-            </template>
-          </WindowBar>
-          <main>
-            <MediaPlayer />
-          </main>
-          <Controls />
-        </div>
+  <div class="desktop">
+    <SidebarProvider v-model:open="uis.isSidebarExpanded" class="desktop__layout">
+      <AppSidebar />
+      <div class="desktop__content">
+        <WindowBar>
+          <template #extra>
+            <MenuButtonUser />
+          </template>
+        </WindowBar>
+        <main>
+          <MediaPlayer />
+        </main>
+        <Controls />
       </div>
     </SidebarProvider>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.root {
+<style lang="scss">
+.desktop {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-}
-.layout {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template: 100% / max-content 1fr;
-}
-.content {
-  display: grid;
-  grid-template: max-content 1fr max-content / 100%;
+
+  &__layout {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template: 100% / max-content 1fr;
+  }
+
+  &__content {
+    display: grid;
+    grid-template: max-content 1fr max-content / 100%;
+  }
 }
 </style>
