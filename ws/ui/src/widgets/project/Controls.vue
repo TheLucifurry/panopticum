@@ -12,7 +12,10 @@ const player = usePlayer()
 </script>
 
 <template>
-  <div class="controls">
+  <div
+    class="controls"
+    @focus.capture="(el: FocusEvent) => (el.target as HTMLElement | null)?.blur()"
+  >
     <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
     <div class="panel">
       <Group>
