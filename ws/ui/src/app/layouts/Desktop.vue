@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { SidebarProvider } from '@/shared/components/ui/sidebar'
-import { usePlayer, useUiState } from '@/shared/modules'
+import { useInteraction, useUiState } from '@/shared/modules'
 import { AppSidebar, WindowBar } from '@/widgets/common'
 import { Controls } from '@/widgets/project'
 
-const player = usePlayer()
 const uis = useUiState()
+const i10 = useInteraction()
 </script>
 
 <template>
@@ -14,8 +14,8 @@ const uis = useUiState()
       <AppSidebar />
       <div class="desktop__content">
         <WindowBar>
-          <h4 class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
-            {{ player.currentMedia?.name }}
+          <h4 v-if="i10.page.title" class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
+            {{ i10.page.title }}
           </h4>
         </WindowBar>
         <main>
