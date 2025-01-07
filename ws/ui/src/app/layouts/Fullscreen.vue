@@ -23,7 +23,9 @@ const isInactive = computed(() => idle.idle.value && !isTopPanelHovered.value &&
     <MediaPlayer />
     <Panel ref="topPanelRef" :model-value="!isInactive">
       <WindowBar>
-        {{ player.currentMedia?.name }}
+        <h4 class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
+          {{ player.currentMedia?.name }}
+        </h4>
       </WindowBar>
     </Panel>
     <Panel ref="bottomPanelRef" :model-value="!isInactive" side="bottom">

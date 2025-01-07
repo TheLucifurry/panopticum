@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { MenuButtonUser } from '@/features/user'
 import { SidebarProvider } from '@/shared/components/ui/sidebar'
-import { useUiState } from '@/shared/modules'
+import { usePlayer, useUiState } from '@/shared/modules'
 import { AppSidebar, WindowBar } from '@/widgets/common'
-import { Controls, MediaPlayer } from '@/widgets/project'
+import { Controls } from '@/widgets/project'
 
+const player = usePlayer()
 const uis = useUiState()
 </script>
 
@@ -14,9 +14,9 @@ const uis = useUiState()
       <AppSidebar />
       <div class="desktop__content">
         <WindowBar>
-          <template #extra>
-            <MenuButtonUser />
-          </template>
+          <h4 class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
+            {{ player.currentMedia?.name }}
+          </h4>
         </WindowBar>
         <main>
           <router-view />
