@@ -4,9 +4,11 @@ import { shallowRef } from 'vue'
 const {
   poster = '',
   isLoop = false,
+  src,
 } = defineProps<{
   poster?: string
   isLoop?: boolean
+  src: string
 }>()
 
 const emit = defineEmits<{
@@ -30,6 +32,7 @@ defineExpose({ videoElement })
   <div class="video__wrapper">
     <video
       ref="videoElement"
+      :src="src"
       class="video"
       :class="{
         'video--vertical': isVertical,

@@ -51,7 +51,7 @@ i10.bezel.connect(bezelProvider)
   <div class="media-player">
     <Video
       ref="videoRef"
-      src=""
+      :src="videoPath"
       @loadedmetadata="onLoadedMetaData"
       @timeupdate="onTimeupdate"
       @click="player.togglePlaying"
