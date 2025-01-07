@@ -1,7 +1,7 @@
 import { useInteraction } from '@/shared/modules/interaction'
+import { tryOnScopeDispose } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import keyboardJS from 'keyboardjs'
-import { onScopeDispose } from 'vue'
 import { noop, pipe } from 'webshrine'
 
 type KeyCombo = string
@@ -35,7 +35,7 @@ export const useKeyboard = defineModule(() => {
         unbindList.push([keyCombo, onPress, onRelease])
       }
 
-      onScopeDispose(() => unbindList.forEach(args => keyboardJS.unbind(...args)))
+      tryOnScopeDispose(() => unbindList.forEach(args => keyboardJS.unbind(...args)))
     },
   }
 })
