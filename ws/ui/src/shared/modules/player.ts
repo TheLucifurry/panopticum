@@ -1,3 +1,4 @@
+import type { IMedia } from '@/shared/repositories'
 import { registerPlayerKeybindings } from '@/features/player'
 import { useIncrementable } from '@/shared/composables'
 import { defineModule } from '@webshrine/vue'
@@ -12,6 +13,8 @@ export const DEFAULT_PLAYBACK_SPEED_RANGE = [0.25, 3] as const
 export const DEFAULT_AUTOPLAY = false
 
 export const usePlayer = defineModule(() => {
+  const currentMedia = shallowRef<IMedia | null>(null)
+
   const volume = shallowRef(DEFAULT_VOLUME)
   const volumeChange = useIncrementable(volume, { step: DEFAULT_VOLUME_INC_STEP, min: 0, max: 1 })
 
@@ -38,7 +41,14 @@ export const usePlayer = defineModule(() => {
     currentTime.value = Math.round(trackLengthTime.value * percent)
   }
 
+  const setCurrentMedia = (media: IMedia) => {
+    currentTime.value = 0
+    currentMedia.value = media
+  }
+
   return {
+    currentMedia,
+    setCurrentMedia,
     volume,
     volumeChange,
     rate,

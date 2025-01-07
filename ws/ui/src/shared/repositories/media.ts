@@ -2,7 +2,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { defineModule } from '@webshrine/vue'
 import { useAsync } from '@webshrine/vue/src/composables/useAsync'
 
-interface IMedia {
+export interface IMedia {
   name: string
   path: string
   mediaType: number

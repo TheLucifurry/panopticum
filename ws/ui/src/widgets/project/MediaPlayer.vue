@@ -3,10 +3,9 @@ import { Video } from '@/entities/common'
 import { BezelProvider } from '@/shared/components/custom'
 import { useInteraction } from '@/shared/modules/interaction'
 import { usePlayer } from '@/shared/modules/player'
+import { convertFileSrc } from '@tauri-apps/api/core'
 import { useEventListener, watchIgnorable } from '@vueuse/core'
 import { computed, shallowRef, watch } from 'vue'
-
-const videoPath = computed(() => convertFileSrc('______'))
 
 const player = usePlayer()
 const i10 = useInteraction()
@@ -15,12 +14,12 @@ const videoRef = shallowRef<InstanceType<typeof Video> | null>(null)
 const videoEl = computed(() => videoRef.value?.videoElement || null)
 
 // Income bind
+const videoPath = computed(() => player.currentMedia ? convertFileSrc(player.currentMedia.path) : '')
 const refreshVolume = (v = player.volume) => videoEl.value && (videoEl.value.volume = v)
 const refreshIsPlaying = (v = player.isPlaying) => v ? videoEl.value?.play() : videoEl.value?.pause()
 const refreshRate = (v = player.rate) => videoEl.value && (videoEl.value.playbackRate = v)
 const refreshCurrentTime = (v = player.currentTime) => videoEl.value && (videoEl.value.currentTime = v)
 const refreshMute = (v = player.isMuted) => videoEl.value && (videoEl.value.muted = v)
-watch(videoPath, v => videoEl.value && (videoEl.value.src = v))
 watch(() => player.volume, refreshVolume)
 watch(() => player.isPlaying, refreshIsPlaying)
 watch(() => player.rate, refreshRate)
