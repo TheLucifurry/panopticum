@@ -5,6 +5,6 @@ const SECS_IN_HOUR = 60 * 60
 
 export function toDurationStringFromSeconds(seconds: number | undefined): string {
   return seconds != null
-    ? `${seconds < SECS_IN_HOUR ? '' : `${ceil(seconds / 3600)}:`}${toTwoDigitMin(ceil(seconds / 60))}:${toTwoDigitMin(ceil(seconds % 60))}`
+    ? `${seconds < SECS_IN_HOUR ? '' : `${ceil(seconds / 3600)}:`}${toTwoDigitMin(ceil(seconds / 60) % 60)}:${toTwoDigitMin(ceil(seconds % 60))}`
     : '--:--'
 }
