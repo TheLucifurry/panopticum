@@ -1,24 +1,34 @@
 <script setup lang="ts">
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader } from '@/shared/components/ui/sidebar'
-import { useMediaRepository } from '@/shared/repositories'
+import { MenuButtonUser } from '@/features/user'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/components/ui/sidebar'
+import { HomeIcon } from 'lucide-vue-next'
+import { useRouter } from 'vue-router'
 
-const mediaRepo = useMediaRepository()
+const router = useRouter()
 </script>
 
 <template>
   <Sidebar collapsible="icon">
-    <SidebarHeader>
-      Header
-    </SidebarHeader>
+    <SidebarHeader />
     <SidebarContent>
-      <div v-for="(media, index) in mediaRepo.allMedia.value" :key="index">
-        {{ media.name }}
-      </div>
-      <SidebarGroup />
+      <SidebarGroup>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton @click="router.push({ name: 'home' })">
+              <HomeIcon />
+              <span>Home</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
       <SidebarGroup />
     </SidebarContent>
     <SidebarFooter>
-      Footer
+      <SidebarMenu>
+        <SidebarMenuItem>
+          <MenuButtonUser />
+        </SidebarMenuItem>
+      </SidebarMenu>
     </SidebarFooter>
   </Sidebar>
 </template>
