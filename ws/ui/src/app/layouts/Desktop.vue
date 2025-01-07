@@ -19,7 +19,7 @@ const uis = useUiState()
           </template>
         </WindowBar>
         <main>
-          <MediaPlayer />
+          <router-view />
         </main>
         <Controls />
       </div>
