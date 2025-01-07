@@ -5,10 +5,6 @@ pub enum MediaType {
     Video = 0,
     Audio = 1,
 }
-// MediaMap
-// 001 - video/no-video
-// 010 - audio/no-audio
-// 100 - short/long
 
 // #[derive(Serialize)]
 pub struct FileMeta {
