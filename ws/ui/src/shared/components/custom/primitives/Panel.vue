@@ -30,13 +30,15 @@ const model = defineModel<boolean>({ default: true })
 
   height: max-content;
   width: 100%;
+  transition: opacity .3s ease-out;
+
   &--vertical {
     height: 100%;
     width: max-content;
   }
 
-  &--open {
-
+  &:not(&--open) {
+    opacity: 0;
   }
 }
 </style>

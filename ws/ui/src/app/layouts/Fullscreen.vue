@@ -1,24 +1,32 @@
 <script setup lang="ts">
-import { MenuButtonUser } from '@/features/user'
 import { Panel } from '@/shared/components/custom'
+import { usePlayer } from '@/shared/modules'
 import { WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
-import { ref } from 'vue';
+import { useElementHover, useIdle } from '@vueuse/core'
+import { computed, shallowRef } from 'vue'
 
-const asd = ref(true)
+const PLAYER_USER_IDLE_TIMEOUT = 3000
+
+const topPanelRef = shallowRef()
+const isTopPanelHovered = useElementHover(topPanelRef)
+const bottomPanelRef = shallowRef()
+const isBottomPanelHovered = useElementHover(bottomPanelRef)
+
+const player = usePlayer()
+const idle = useIdle(PLAYER_USER_IDLE_TIMEOUT)
+const isInactive = computed(() => idle.idle.value && !isTopPanelHovered.value && !isBottomPanelHovered.value)
 </script>
 
 <template>
   <div class="root">
     <MediaPlayer />
-    <Panel :model-value="asd">
+    <Panel ref="topPanelRef" :model-value="!isInactive">
       <WindowBar>
-        <template #extra>
-          <MenuButtonUser />
-        </template>
+        {{ player.currentMedia?.name }}
       </WindowBar>
     </Panel>
-    <Panel side="bottom" :open="asd">
+    <Panel ref="bottomPanelRef" :model-value="!isInactive" side="bottom">
       <Controls />
     </Panel>
   </div>
