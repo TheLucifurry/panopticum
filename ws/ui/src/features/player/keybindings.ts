@@ -10,10 +10,10 @@ export function registerPlayerKeybindings(player: ReturnType<typeof usePlayer>) 
 
   keyboard.binds({
     'm': {
-      pressed: player.toggleMuted,
+      pressed: () => player.toggleMuted(),
       bezel: () => player.isMuted ? 'Muted' : 'Unmuted',
     },
-    'space': player.togglePlaying,
+    'space': () => player.togglePlaying(),
     'up': {
       pressed: () => player.volumeChange.inc(),
       bezel: volumeChangeBezel,

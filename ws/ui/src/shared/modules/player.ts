@@ -1,6 +1,7 @@
 import type { IMedia } from '@/shared/repositories'
 import { registerPlayerKeybindings } from '@/features/player'
 import { useIncrementable } from '@/shared/composables'
+import { useToggle } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
 
@@ -33,9 +34,9 @@ export const usePlayer = defineModule(() => {
     max: trackLengthTime.value,
   })
 
-  const isPlaying = shallowRef(false)
-  const isAutoplay = shallowRef(DEFAULT_AUTOPLAY)
-  const isMuted = shallowRef(false)
+  const [isPlaying, togglePlaying] = useToggle()
+  const [isAutoplay, toggleAutoplay] = useToggle(DEFAULT_AUTOPLAY)
+  const [isMuted, toggleMuted] = useToggle()
 
   const currentTimeSetByPercent = (percent: number) => {
     currentTime.value = Math.round(trackLengthTime.value * percent)
@@ -54,11 +55,11 @@ export const usePlayer = defineModule(() => {
     rate,
     rateChange,
     isPlaying,
-    togglePlaying: () => isPlaying.value = !isPlaying.value,
+    togglePlaying,
     isAutoplay,
-    toggleAutoplay: () => isAutoplay.value = !isAutoplay.value,
+    toggleAutoplay,
     isMuted,
-    toggleMuted: () => isMuted.value = !isMuted.value,
+    toggleMuted,
     currentTime,
     currentTimeChange,
     currentTimeSetByPercent,

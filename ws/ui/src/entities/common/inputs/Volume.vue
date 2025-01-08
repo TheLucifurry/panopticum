@@ -20,7 +20,7 @@ const isMuted = defineModel<boolean>('mute', {
     </div>
     <Slider
       :max="1"
-      :step="0.05"
+      :step="0.01"
       :model-value="[value]"
       @update:model-value="v => value = v?.[0] || 0"
     />
@@ -30,7 +30,7 @@ const isMuted = defineModel<boolean>('mute', {
 <style lang="scss">
 .volume {
   display: grid;
-  grid-template-columns: max-content 64px;
+  grid-template-columns: max-content 100px;
   gap: 8px;
   padding: 0 4px;
 }

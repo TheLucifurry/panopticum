@@ -20,7 +20,7 @@ const player = usePlayer()
     <div class="panel">
       <Group>
         <!-- <SkipBack /> -->
-        <div @click="player.togglePlaying">
+        <div @click="player.togglePlaying()">
           <PlayIcon v-if="!player.isPlaying" />
           <PauseIcon v-else />
         </div>
