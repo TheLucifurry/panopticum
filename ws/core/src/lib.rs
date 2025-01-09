@@ -2,6 +2,7 @@ mod services;
 
 pub mod consts;
 pub mod models;
+pub mod utils;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {

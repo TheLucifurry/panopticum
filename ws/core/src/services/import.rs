@@ -1,39 +1,27 @@
-use rust_search::SearchBuilder;
-use tauri::{self, Manager, Runtime};
-use tauri::{command, AppHandle};
+use tauri::{command, AppHandle, Manager, Runtime};
+use walkdir::WalkDir;
 
-use crate::consts::ACCEPTABLE_AUDIO_FORMATS;
+use crate::{models::{FileMeta, MediaType}, utils::fs::{extract_file_name_from_path, path_to_string}};
 
 #[command]
-pub fn import_scan_audio_files<R: Runtime>(app: AppHandle<R>) -> Result<Vec<String>, String> {
-    // let file_dialog_result = app.dialog().file().blocking_pick_folder();
-    // if file_dialog_result.is_none() {
-    //     return Err("Directory wasn't chosen".into());
-    // }
-    // let dir_path = file_dialog_result.unwrap();
-    let dir_path = &app
-        .app_handle()
-        .path()
-        .video_dir()
-        .unwrap()
-        .to_path_buf()
-        .to_owned();
-    dbg!(&dir_path);
-
-    let file_paths: Vec<String> = ACCEPTABLE_AUDIO_FORMATS
+pub fn import_get_all<R: Runtime>(app: AppHandle<R>) -> Result<Vec<FileMeta>, String> {
+    let media_type = MediaType::Video;
+    let dir_path = &app.app_handle().path().video_dir().expect("Failed to list files in directory");
+    let file_paths = WalkDir::new(dir_path)
         .into_iter()
-        .map(|ext| -> Vec<String> {
-            SearchBuilder::default()
-                .location(dir_path)
-                .ext(ext.to_owned())
-                .depth(16) // TODO: Research for
-                .hidden()
-                .build()
-                .collect()
+        .filter_map(Result::ok) // Ignore entries with errors
+        // .filter(|entry| entry.file_type().is_file()) // Only return files
+        .map(|dir| path_to_string(&dir.into_path()))
+        .map(|path| FileMeta {
+            name: extract_file_name_from_path(&path.to_owned()),
+            path,
+            is_local: true,
+            media_type: match media_type {
+                MediaType::Video => 0,
+                MediaType::Audio => 1,
+            },
         })
-        .flat_map(|paths| paths)
         .collect();
-    // TODO: filter by unique paths
 
     Ok(file_paths)
 }

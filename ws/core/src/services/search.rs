@@ -1,4 +1,4 @@
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 
 use rust_search::SearchBuilder;
 use tauri::{self, Manager, Runtime};
@@ -6,14 +6,7 @@ use tauri::{command, AppHandle};
 
 use crate::consts::{ConstVecString, ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
 use crate::models::{FileMeta, MediaType};
-
-fn extract_file_name_from_path(path: &String) -> String {
-    Path::new(&path)
-        .file_stem() // Extract the file name
-        .and_then(|os_str| os_str.to_str()) // Convert it to a string slice
-        .unwrap_or("") // Fallback to an empty string if not found
-        .to_string() // Convert to String
-}
+use crate::utils::fs::extract_file_name_from_path;
 
 fn search_files(
     path: PathBuf,
