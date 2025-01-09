@@ -6,7 +6,7 @@ use tauri::{command, AppHandle};
 
 use crate::consts::{ConstVecString, ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
 use crate::models::{FileMeta, MediaType};
-use crate::utils::fs::extract_file_name_from_path;
+use crate::utils::fs::extract_file_name;
 
 fn search_files(
     path: PathBuf,
@@ -29,8 +29,9 @@ fn search_files(
         })
         .flat_map(|paths| paths)
         .map(|path| FileMeta {
-            name: extract_file_name_from_path(&path),
+            name: extract_file_name(&path),
             path,
+            created_at: String::from(""),
             is_local: true,
             media_type: match media_type {
                 MediaType::Video => 0,

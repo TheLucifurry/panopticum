@@ -1,29 +1,18 @@
-use serde::{ser::SerializeStruct, Serialize, Serializer};
+use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize, Clone)]
+#[derive(Clone)]
+#[repr(u8)]
 pub enum MediaType {
     Video = 0,
     Audio = 1,
 }
 
-// #[derive(Serialize)]
+#[derive(Serialize, Deserialize)]
 pub struct FileMeta {
     pub name: String,
     pub path: String,
     pub media_type: u8,
+    pub created_at: String,
     pub is_local: bool,
-    // media_type: MediaType,
     // size: u64,
-}
-
-impl Serialize for FileMeta {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where S: Serializer, {
-        let mut s = serializer.serialize_struct("FileMeta", 4)?;
-        s.serialize_field("name", &self.name)?;
-        s.serialize_field("path", &self.path)?;
-        s.serialize_field("media_type", &self.media_type)?;
-        s.serialize_field("is_local", &self.is_local)?;
-        s.end()
-    }
 }
