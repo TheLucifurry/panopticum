@@ -1,23 +1,18 @@
 import { invoke } from '@tauri-apps/api/core'
 import { defineModule } from '@webshrine/vue'
-import { useAsync } from '@webshrine/vue/src/composables/useAsync'
 
 export interface IMedia {
   name: string
   path: string
   mediaType: number
   isLocal: boolean
+  createdAt: string
 }
 
 export const useMediaRepository = defineModule(() => {
-  const allMedia = useAsync(() => invoke<IMedia[]>('search_video_files', { searchInput: '' }), [])
-
   return {
-    allMedia,
-    async getAll(): Promise<IMedia[]> {
-      if (!allMedia.isPending)
-        await allMedia.execute()
-      return allMedia.value
+    async getAllMediaLocal(): Promise<IMedia[]> {
+      return invoke<IMedia[]>('import_get_all')
     },
   }
 })
