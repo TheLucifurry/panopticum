@@ -32,6 +32,7 @@ fn search_files(
             name: extract_file_name(&path),
             path,
             size: None,
+            thumbnail_path: Some(String::from("")),
             created_at: String::from(""),
             is_local: true,
             media_type: match media_type {

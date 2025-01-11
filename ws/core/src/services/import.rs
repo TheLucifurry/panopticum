@@ -1,10 +1,10 @@
-use std::{path::PathBuf, time::SystemTime};
+use std::{path::{Path, PathBuf}, time::SystemTime};
 
 use chrono::{DateTime, Utc};
 use tauri::{command, AppHandle, Manager, Runtime};
 use walkdir::WalkDir;
 
-use crate::{models::FileMeta, utils::fs::{extract_file_extension, extract_file_name, get_media_type_by_ext, path_to_string}};
+use crate::{models::{FileMeta, MediaType}, utils::fs::{change_file_name_in_path, check_file_exists, extract_file_extension, extract_file_name, generate_thumbnail, get_media_type_by_ext, path_to_string}};
 
 fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
     WalkDir::new(dir_path)
@@ -20,25 +20,42 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 return None;
             }
 
+            let file_path = &dir.path();
             let metadata = dir.metadata().unwrap();
             let created_at = <SystemTime as Into<DateTime<Utc>>>::into(metadata.created().unwrap().clone()).format("%+").to_string();
             let size = metadata.len();
-            let path = path_to_string(&dir.path());
+            let path = path_to_string(file_path);
             let name = extract_file_name(&path.to_owned());
+            let thumbnail_path = change_file_name_in_path(file_path, &format!("{}{}", name, "_thumbnail.png"));
             let ext = extract_file_extension(&path.to_owned());
 
-            let media_type = get_media_type_by_ext(&ext);
-            if media_type.is_none() {
+            let maybe_media_type = get_media_type_by_ext(&ext);
+            if maybe_media_type.is_none() {
                 log::warn!("Detected unhandled media type by path: {}", &dir.clone().path().display());
                 return None;
+            }
+            let media_type = maybe_media_type.unwrap();
+
+            match media_type {
+                MediaType::Video => {
+                    let thumbnail_path_string = thumbnail_path.clone().unwrap();
+                    if !check_file_exists(&thumbnail_path_string) {
+                        let result = generate_thumbnail(&dir.path(), Path::new(&thumbnail_path_string));
+                        if result.is_err() {
+                            log::error!("{:?}", result.err());
+                        }
+                    }
+                },
+                _ => {},
             }
 
             return Some(FileMeta {
                 name,
                 path,
+                thumbnail_path,
                 created_at,
                 is_local: true,
-                media_type: media_type.unwrap() as u8,
+                media_type: media_type as u8,
                 size: Some(size),
             });
         })

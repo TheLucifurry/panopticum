@@ -3,6 +3,7 @@ import type { IMedia } from '@/shared/repositories'
 import VideoCard from '@/entities/common/VideoCard.vue'
 import { useInteraction, usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
+import { convertFileSrc } from '@tauri-apps/api/core'
 import { useAsync } from '@webshrine/vue/src/composables/useAsync'
 import { useRouter } from 'vue-router'
 
@@ -34,7 +35,7 @@ const medias = useAsync(mediaRepo.getAllMediaLocal, [])
         v-for="(media, index) in medias.value"
         :key="index"
         :media="media"
-        thumbnail="https://via.placeholder.com/320x180"
+        :thumbnail="media.thumbnailPath ? convertFileSrc(media.thumbnailPath) : ''"
         :title="media.name"
         channel-name="Channel Name"
         channel-avatar="https://via.placeholder.com/40"

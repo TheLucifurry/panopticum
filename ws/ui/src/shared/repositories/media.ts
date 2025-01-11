@@ -4,6 +4,7 @@ import { defineModule } from '@webshrine/vue'
 export interface IMedia {
   name: string
   path: string
+  thumbnailPath: string | null
   size: number | null
   mediaType: number
   isLocal: boolean
