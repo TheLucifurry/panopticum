@@ -15,5 +15,5 @@ pub struct FileMeta {
     pub media_type: u8,
     pub created_at: String,
     pub is_local: bool,
-    // size: u64,
+    pub size: Option<u64>,
 }

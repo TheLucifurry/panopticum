@@ -31,6 +31,7 @@ fn search_files(
         .map(|path| FileMeta {
             name: extract_file_name(&path),
             path,
+            size: None,
             created_at: String::from(""),
             is_local: true,
             media_type: match media_type {

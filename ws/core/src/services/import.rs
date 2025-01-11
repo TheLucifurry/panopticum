@@ -20,7 +20,9 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 return None;
             }
 
-            let created_at = <SystemTime as Into<DateTime<Utc>>>::into(dir.metadata().unwrap().created().unwrap().clone()).format("%+").to_string();
+            let metadata = dir.metadata().unwrap();
+            let created_at = <SystemTime as Into<DateTime<Utc>>>::into(metadata.created().unwrap().clone()).format("%+").to_string();
+            let size = metadata.len();
             let path = path_to_string(&dir.path());
             let name = extract_file_name(&path.to_owned());
             let ext = extract_file_extension(&path.to_owned());
@@ -37,6 +39,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 created_at,
                 is_local: true,
                 media_type: media_type.unwrap() as u8,
+                size: Some(size),
             });
         })
         .collect()
