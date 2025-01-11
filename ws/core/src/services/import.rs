@@ -1,4 +1,4 @@
-use std::{fmt::Debug, path::PathBuf, time::SystemTime};
+use std::{path::PathBuf, time::SystemTime};
 
 use chrono::{DateTime, Utc};
 use tauri::{command, AppHandle, Manager, Runtime};
@@ -11,6 +11,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
         .into_iter()
         .filter_map(|entry| {
             if entry.is_err() {
+                log::warn!("Failed to get file by path: {}", entry.unwrap().path().display());
                 return None;
             }
 
@@ -20,12 +21,13 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
             }
 
             let created_at = <SystemTime as Into<DateTime<Utc>>>::into(dir.metadata().unwrap().created().unwrap().clone()).format("%+").to_string();
-            let path = path_to_string(&dir.into_path());
+            let path = path_to_string(&dir.path());
             let name = extract_file_name(&path.to_owned());
             let ext = extract_file_extension(&path.to_owned());
 
             let media_type = get_media_type_by_ext(&ext);
             if media_type.is_none() {
+                log::warn!("Detected unhandled media type by path: {}", &dir.clone().path().display());
                 return None;
             }
 
