@@ -8,6 +8,7 @@ pub enum MediaType {
 }
 
 #[derive(Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct FileMeta {
     pub name: String,
     pub path: String,
