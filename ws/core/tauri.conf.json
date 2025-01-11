@@ -15,8 +15,8 @@
         "title": "Panopticum",
         "width": 1280,
         "height": 800,
-        "decorations": false,
-        "backgroundColor": "#000"
+        "center": true,
+        "decorations": false
       }
     ],
     "security": {
