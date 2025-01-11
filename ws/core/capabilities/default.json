@@ -9,6 +9,7 @@
     "core:window:default",
     "core:window:allow-close",
     "core:window:allow-minimize",
+    "core:window:allow-maximize",
     "core:window:allow-start-dragging",
     "core:window:allow-toggle-maximize",
     "core:window:allow-internal-toggle-maximize",
@@ -17,6 +18,18 @@
     "fs:scope",
     "fs:read-all",
     "fs:allow-audio-read-recursive",
-    "fs:allow-video-read-recursive"
+    "fs:allow-audio-write-recursive",
+    "fs:allow-video-read-recursive",
+    "fs:allow-video-write-recursive",
+    {
+      "identifier": "shell:allow-execute",
+      "allow": [
+        {
+          "name": "ffmpeg",
+          "cmd": "sh",
+          "args":true
+        }
+      ]
+    }
   ]
 }
