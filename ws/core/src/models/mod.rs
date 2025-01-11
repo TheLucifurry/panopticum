@@ -12,6 +12,7 @@ pub enum MediaType {
 pub struct FileMeta {
     pub name: String,
     pub path: String,
+    pub duration: f64,
     pub thumbnail_path: Option<String>,
     pub media_type: u8,
     pub created_at: String,

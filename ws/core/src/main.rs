@@ -9,6 +9,7 @@ fn main() {
 
     log::info!("Is available yt-dlp: {}", is_command_available("yt-dlp", "--version"));
     log::info!("Is available ffmpeg: {}", is_command_available("ffmpeg", "-version"));
+    log::info!("Is available ffprobe: {}", is_command_available("ffprobe", "-version"));
 
     panopticum_lib::run()
 }

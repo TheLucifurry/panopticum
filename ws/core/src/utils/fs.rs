@@ -19,6 +19,36 @@ pub fn path_to_string(path: &Path) -> String {
       .to_string()
 }
 
+pub fn extract_file_media_time_length(file_path: &String) -> Result<f64, String> {
+  let output = Command::new("ffprobe")
+      .args([
+          "-i",
+          &file_path,
+          "-show_entries",
+          "format=duration",
+          "-v",
+          "quiet",
+          "-of",
+          "csv=p=0",
+      ])
+      .output()
+      .map_err(|e| format!("Failed to execute ffprobe: {}", e))?;
+
+  if !output.status.success() {
+      return Err(format!(
+          "ffprobe error: {}",
+          String::from_utf8_lossy(&output.stderr)
+      ));
+  }
+
+  let duration = String::from_utf8_lossy(&output.stdout)
+      .trim()
+      .parse::<f64>()
+      .map_err(|e| format!("Failed to parse duration: {}", e))?;
+
+  Ok(duration)
+}
+
 pub fn extract_file_name(path: &String) -> String {
   Path::new(&path)
       .file_stem()

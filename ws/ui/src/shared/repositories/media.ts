@@ -8,6 +8,7 @@ export interface IMedia {
   size: number | null
   mediaType: number
   isLocal: boolean
+  duration: number
   createdAt: string
 }
 
