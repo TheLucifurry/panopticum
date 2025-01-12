@@ -6,3 +6,4 @@ __*
 .env
 .logs
 .cache
+/target/
