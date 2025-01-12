@@ -21,7 +21,7 @@ pub fn path_to_string(path: &Path) -> String {
         .to_string()
 }
 
-pub fn extract_file_media_time_length(file_path: &String) -> Result<f64, String> {
+pub fn extract_file_media_time_length(file_path: &String) -> Result<u32, String> {
     let output = Command::new("ffprobe")
         .args([
             "-i",
@@ -48,7 +48,7 @@ pub fn extract_file_media_time_length(file_path: &String) -> Result<f64, String>
         .parse::<f64>()
         .map_err(|e| format!("Failed to parse duration: {}", e))?;
 
-    Ok(duration)
+    Ok(duration as u32)
 }
 
 pub fn extract_file_name(path: &String) -> String {

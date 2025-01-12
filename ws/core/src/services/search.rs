@@ -32,7 +32,7 @@ fn search_files(
             name: extract_file_name(&path),
             path,
             size: None,
-            duration: 0.0,
+            duration: 0,
             thumbnail_path: Some(String::from("")),
             created_at: String::from(""),
             is_local: true,

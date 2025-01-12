@@ -37,7 +37,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 <SystemTime as Into<DateTime<Utc>>>::into(metadata.created().unwrap().clone())
                     .format("%+")
                     .to_string();
-            let size = metadata.len();
+            let size = metadata.len().to_string();
             let name = extract_file_name(&path.to_owned());
             let thumbnail_path =
                 change_file_name_in_path(file_path, &format!("{}{}", name, "_thumbnail.png"));
@@ -49,7 +49,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 return None;
             }
             let media_type = maybe_media_type.unwrap();
-            let mut duration: f64 = 0.0;
+            let mut duration: u32 = 0;
 
             match media_type {
                 MediaType::Video => {
