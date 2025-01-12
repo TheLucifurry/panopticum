@@ -1,16 +1,23 @@
 import type { BezelProvider } from '@/shared/components/custom'
+import type { MaybeRef, Ref } from 'vue'
 import { whenever } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
-import { onScopeDispose, type Ref, shallowRef } from 'vue'
+import { isRef, onBeforeUnmount, onScopeDispose, shallowRef, toValue, watch } from 'vue'
+import { noop } from 'webshrine'
 
 function usePage() {
   const title = shallowRef('')
 
   return {
     title,
-    defineTitle(caption: string) {
-      title.value = caption
-      onScopeDispose(() => title.value = '')
+    defineTitle(caption: MaybeRef<string>) {
+      const unwatch = isRef(caption) ? watch(caption, v => title.value = v) : noop
+      title.value = toValue(caption)
+
+      onBeforeUnmount(() => {
+        title.value = ''
+        unwatch()
+      })
     },
   }
 }
