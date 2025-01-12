@@ -1,0 +1,9 @@
+{
+  "name": "@panopticum/schemas",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "main": "./dist/index.ts"
+}
