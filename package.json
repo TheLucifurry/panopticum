@@ -9,6 +9,7 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
+    "dev": "pnpm -r dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "deps:check_updates": "ncu && ncu -ws && cd ws/core && cargo update --dry-run",

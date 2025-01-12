@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev:web": "vite",
+    "build:web": "vite build",
     "_fixme_build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },

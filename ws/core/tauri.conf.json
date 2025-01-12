@@ -4,8 +4,8 @@
   "version": "0.1.0",
   "identifier": "com.panopticum.app",
   "build": {
-    "beforeDevCommand": "cd ../ui && pnpm dev",
-    "beforeBuildCommand": "cd ../ui && pnpm build",
+    "beforeDevCommand": "cd ../ui && pnpm dev:web",
+    "beforeBuildCommand": "cd ../ui && pnpm build:web",
     "devUrl": "http://localhost:1420",
     "frontendDist": "../ui/dist"
   },
