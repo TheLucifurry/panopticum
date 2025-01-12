@@ -5,7 +5,7 @@ use tauri::{self, Manager, Runtime};
 use tauri::{command, AppHandle};
 
 use crate::consts::{ConstVecString, ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
-use crate::models::{FileMeta, MediaType};
+use panopticum_schemas::{FileMeta, MediaType};
 use crate::utils::fs::extract_file_name;
 
 fn search_files(

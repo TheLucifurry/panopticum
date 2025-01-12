@@ -1,6 +1,8 @@
 use std::{path::Path, process::Command};
 
-use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, models::MediaType};
+use panopticum_schemas::MediaType;
+
+use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}};
 
 pub fn check_file_exists(file_path: &String) -> bool {
   Path::new(&file_path).exists()

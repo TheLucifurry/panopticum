@@ -3,8 +3,8 @@ use std::{path::{Path, PathBuf}, time::SystemTime};
 use chrono::{DateTime, Utc};
 use tauri::{command, AppHandle, Manager, Runtime};
 use walkdir::WalkDir;
-
-use crate::{models::{FileMeta, MediaType}, utils::fs::{change_file_name_in_path, check_file_exists, extract_file_extension, extract_file_media_time_length, extract_file_name, generate_thumbnail, get_media_type_by_ext, path_to_string}};
+use panopticum_schemas::{FileMeta, MediaType};
+use crate::{utils::fs::{change_file_name_in_path, check_file_exists, extract_file_extension, extract_file_media_time_length, extract_file_name, generate_thumbnail, get_media_type_by_ext, path_to_string}};
 
 fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
     WalkDir::new(dir_path)

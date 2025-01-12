@@ -28,9 +28,10 @@ opt-level = 0
 tauri-build = { version = "2", features = [] }
 
 [dependencies]
+panopticum_schemas = { path = "../schemas" }
 walkdir = "2"
 chrono = "0.4.39"
-log = "0.4.24"
+log = "0.4.22"
 colog = "1.3.0"
 tauri = { version = "2", features = [ "protocol-asset" ] }
 tauri-plugin-shell = "2"
