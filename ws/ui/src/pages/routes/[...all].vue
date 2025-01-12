@@ -1,9 +1,7 @@
-<route lang="yaml">
-name: 404
-</route>
-
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
+
+definePage({ name: '404' })
 
 const router = useRouter()
 </script>
