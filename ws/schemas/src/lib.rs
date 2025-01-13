@@ -11,6 +11,13 @@ pub enum MediaType {
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct IContentProvider {
+    pub key: String,
+    pub name: String,
+}
+
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
 pub struct IContentMedia {
     pub name: String,
@@ -21,13 +28,6 @@ pub struct IContentMedia {
     pub created_at: String,
     pub is_local: bool,
     pub size: Option<String>,
-}
-
-#[typeshare]
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct IContentProvider {
-    pub key: String,
-    pub name: String,
 }
 
 #[typeshare]
