@@ -1,18 +1,18 @@
 <script lang="tsx">
-import type { VNode } from 'vue'
+import type { FunctionalComponent } from 'vue'
 import type { Fn } from 'webshrine'
 import { getCurrentWindow } from '@tauri-apps/api/window'
-import { Minus, PanelTop, X } from 'lucide-vue-next'
-import { defineComponent } from 'vue'
+import { MinusIcon, PanelTopIcon, XIcon } from 'lucide-vue-next'
+import { defineComponent, h } from 'vue'
 import { cope } from 'webshrine'
 
 const [win] = cope(getCurrentWindow)
 
 export default defineComponent({
   setup(_, ctx) {
-    const renderButton = (callback: Fn, content: VNode) => (
+    const renderButton = (callback: Fn, content: FunctionalComponent) => (
       <div class="window-bar__button" onClick={callback}>
-        {content}
+        {h(content, {size: 16})}
       </div>
     )
 
@@ -28,9 +28,9 @@ export default defineComponent({
         <div data-tauri-drag-region></div>
         <div>
           {ctx.slots.extra?.()}
-          {renderButton(minimize, (<Minus />))}
-          {renderButton(toggleMaximize, (<PanelTop />))}
-          {renderButton(close, (<X />))}
+          {renderButton(minimize, MinusIcon)}
+          {renderButton(toggleMaximize, PanelTopIcon)}
+          {renderButton(close, XIcon)}
         </div>
       </div>
     )
