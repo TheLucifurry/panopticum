@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { IMedia } from '@/shared/repositories'
+import type { IContentMedia } from '@panopticum/schemas'
 import VideoCard from '@/entities/common/VideoCard.vue'
 import { usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
@@ -11,7 +11,7 @@ const player = usePlayer()
 const router = useRouter()
 const mediaRepo = useMediaRepository()
 
-function onMediaClick(media: IMedia) {
+function onMediaClick(media: IContentMedia) {
   player.setCurrentMedia(media)
   router.push({ name: 'player' })
   player.togglePlaying(true)
@@ -28,13 +28,8 @@ const medias = useAsync(mediaRepo.getAllMediaLocal, [])
         v-for="(media, index) in medias.value"
         :key="index"
         :media="media"
-        :thumbnail="media.thumbnailPath ? convertFileSrc(media.thumbnailPath) : ''"
         :title="media.name"
-        channel-name="Channel Name"
-        channel-avatar="https://via.placeholder.com/40"
-        views="1.2M views"
-        uploaded="2 days ago"
-        duration="12:34"
+        :thumbnail="media.thumbnailPath ? convertFileSrc(media.thumbnailPath) : ''"
         @click="onMediaClick(media)"
       />
       <!-- Add more VideoCard instances as needed -->

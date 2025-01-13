@@ -81,6 +81,9 @@ importers:
         specifier: ^0.0.18
         version: 0.0.18(typescript@5.7.3)
     devDependencies:
+      '@panopticum/schemas':
+        specifier: link:..\schemas
+        version: link:../schemas
       '@types/node':
         specifier: ^22.10.5
         version: 22.10.5

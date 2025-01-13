@@ -5,7 +5,7 @@ use tauri::{self, Manager, Runtime};
 use tauri::{command, AppHandle};
 
 use crate::consts::{ConstVecString, ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
-use panopticum_schemas::{FileMeta, MediaType};
+use panopticum_schemas::{IContentMedia, MediaType};
 use crate::utils::fs::extract_file_name;
 
 fn search_files(
@@ -13,9 +13,9 @@ fn search_files(
     search_input: String,
     exts: ConstVecString,
     media_type: MediaType,
-) -> Result<Vec<FileMeta>, String> {
+) -> Result<Vec<IContentMedia>, String> {
     let dir_path = &path.to_path_buf().to_owned();
-    let file_paths: Vec<FileMeta> = exts
+    let file_paths: Vec<IContentMedia> = exts
         .into_iter()
         .map(|ext| -> Vec<String> {
             SearchBuilder::default()
@@ -28,7 +28,7 @@ fn search_files(
                 .collect()
         })
         .flat_map(|paths| paths)
-        .map(|path| FileMeta {
+        .map(|path| IContentMedia {
             name: extract_file_name(&path),
             path,
             size: None,
@@ -48,14 +48,14 @@ fn search_files(
 }
 
 #[command]
-pub fn search_audio_files<R: Runtime>(app: AppHandle<R>, search_input: String) -> Result<Vec<FileMeta>, String> {
+pub fn search_audio_files<R: Runtime>(app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
     let dir_path = app.app_handle().path().audio_dir().expect("Failed to get audio directory");
 
     return search_files(dir_path, search_input, ACCEPTABLE_AUDIO_FORMATS, MediaType::Audio);
 }
 
 #[command]
-pub fn search_video_files<R: Runtime>(app: AppHandle<R>, search_input: String) -> Result<Vec<FileMeta>, String> {
+pub fn search_video_files<R: Runtime>(app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
     let dir_path = app.app_handle().path().video_dir().expect("Failed to get video directory");
 
     return search_files(dir_path, search_input, ACCEPTABLE_VIDEO_FORMATS, MediaType::Video);

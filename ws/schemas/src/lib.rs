@@ -10,9 +10,9 @@ pub enum MediaType {
 }
 
 #[typeshare]
-#[derive(Serialize, Deserialize)]
+#[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(rename_all = "camelCase")]
-pub struct FileMeta {
+pub struct IContentMedia {
     pub name: String,
     pub path: String,
     pub duration: u32,
@@ -23,3 +23,34 @@ pub struct FileMeta {
     pub size: Option<String>,
 }
 
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct IContentProvider {
+    pub key: String,
+    pub name: String,
+}
+
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(rename_all = "camelCase")]
+pub enum NodeType {
+    Media,
+    List,
+}
+
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct IContentList {
+    pub id: String,
+    pub title: String,
+    pub description: Option<String>,
+    pub items: Vec<IContentNode>,
+}
+
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+#[serde(tag = "type", content = "body", rename_all = "camelCase")]
+pub enum IContentNode {
+    Media(IContentMedia),
+    List(IContentList),
+}

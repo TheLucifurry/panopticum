@@ -9,11 +9,11 @@ use crate::utils::fs::{
     path_to_string,
 };
 use chrono::{DateTime, Utc};
-use panopticum_schemas::{FileMeta, MediaType};
+use panopticum_schemas::{IContentMedia, MediaType};
 use tauri::{command, AppHandle, Manager, Runtime};
 use walkdir::WalkDir;
 
-fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
+fn get_all(dir_path: &PathBuf) -> Vec<IContentMedia> {
     WalkDir::new(dir_path)
         .into_iter()
         .filter_map(|entry| {
@@ -69,7 +69,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
                 _ => {}
             }
 
-            return Some(FileMeta {
+            return Some(IContentMedia {
                 name,
                 path,
                 duration,
@@ -84,7 +84,7 @@ fn get_all(dir_path: &PathBuf) -> Vec<FileMeta> {
 }
 
 #[command]
-pub fn import_get_all<R: Runtime>(app: AppHandle<R>) -> Result<Vec<FileMeta>, String> {
+pub fn import_get_all<R: Runtime>(app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
     let path_module = &app.app_handle().path();
     let file_paths = vec![
         get_all(
