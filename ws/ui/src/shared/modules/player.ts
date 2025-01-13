@@ -5,7 +5,7 @@ import { useToggle } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
 
-export const DEFAULT_TRACK_LENGTH_TIME = 4 * 60 + 4
+export const DEFAULT_DURATION = 4 * 60 + 4
 export const DEFAULT_VOLUME = 0.5
 export const DEFAULT_VOLUME_INC_STEP = 0.05
 export const DEFAULT_PLAYBACK_SPEED = 1
@@ -27,12 +27,12 @@ export const usePlayer = defineModule(() => {
     max: DEFAULT_PLAYBACK_SPEED_RANGE[1],
   })
 
-  const trackLengthTime = shallowRef(DEFAULT_TRACK_LENGTH_TIME)
+  const duration = shallowRef(DEFAULT_DURATION)
   const currentTime = shallowRef(DEFAULT_PLAYBACK_SPEED)
   const currentTimeChange = useIncrementable(currentTime, {
     step: 5,
     min: 0,
-    max: trackLengthTime.value,
+    max: duration.value,
   })
 
   const [isPlaying, togglePlaying] = useToggle()
@@ -40,7 +40,7 @@ export const usePlayer = defineModule(() => {
   const [isMuted, toggleMuted] = useToggle()
 
   const currentTimeSetByPercent = (percent: number) => {
-    currentTime.value = Math.round(trackLengthTime.value * percent)
+    currentTime.value = Math.round(duration.value * percent)
   }
 
   const setCurrentMedia = (media: IContentMedia) => {
@@ -64,7 +64,7 @@ export const usePlayer = defineModule(() => {
     currentTime,
     currentTimeChange,
     currentTimeSetByPercent,
-    trackLengthTime,
+    duration,
   }
 })
 

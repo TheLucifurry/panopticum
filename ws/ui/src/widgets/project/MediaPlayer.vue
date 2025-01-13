@@ -35,7 +35,7 @@ useEventListener(videoEl, 'canplay', () => {
 
 // Outcome bind
 function onLoadedMetaData() {
-  player.trackLengthTime = videoEl.value?.duration ?? player.trackLengthTime
+  player.duration = videoEl.value?.duration ?? player.duration
 }
 function onTimeupdate() {
   ignoringWatchExternal(() => {

@@ -16,7 +16,7 @@ const player = usePlayer()
     class="controls"
     @focus.capture="(el: FocusEvent) => (el.target as HTMLElement | null)?.blur()"
   >
-    <Progress :model-value="player.currentTime" :max="player.trackLengthTime" />
+    <Progress :model-value="player.currentTime" :max="player.duration" />
     <div class="panel">
       <Group>
         <!-- <SkipBack /> -->
@@ -32,7 +32,7 @@ const player = usePlayer()
         <div class="tw:text-sm">
           <span>{{ toDurationStringFromSeconds(player.currentTime) }}</span>
           {{ ' / ' }}
-          <span>{{ toDurationStringFromSeconds(player.trackLengthTime) }}</span>
+          <span>{{ toDurationStringFromSeconds(player.duration) }}</span>
         </div>
       </Group>
       <div class="panel__spacer" />
