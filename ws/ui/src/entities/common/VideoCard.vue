@@ -1,50 +1,31 @@
-<script lang="ts">
-import type { IMedia } from '@/shared/repositories'
-import type { PropType } from 'vue'
+<script setup lang="ts">
+import type { IContentMedia } from '@panopticum/schemas'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { useTimeAgo } from '@vueuse/core'
-import { defineComponent } from 'vue'
 
-export default defineComponent({
-  name: 'VideoCard',
-  props: {
-    media: {
-      type: Object as PropType<IMedia>,
-      required: true,
-    },
-    thumbnail: {
-      type: String,
-      required: true,
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    channelName: {
-      type: String,
-      required: true,
-    },
-    channelAvatar: {
-      type: String,
-      required: true,
-    },
-    views: {
-      type: String,
-      required: true,
-    },
-  },
-  setup(props) {
-    return {
-      toDurationStringFromSeconds,
-      uploaded: useTimeAgo(() => new Date(props.media.createdAt)),
-    }
-  },
-})
+// Define props
+const {
+  media,
+  thumbnail,
+  title,
+  channelName,
+  channelAvatar,
+  views,
+} = defineProps<{
+  media: IContentMedia
+  thumbnail: string
+  title: string
+  channelName?: string
+  channelAvatar?: string
+  views?: string
+}>()
+
+// Define computed or reactive values
+const uploaded = useTimeAgo(() => new Date(media.createdAt))
 </script>
 
 <template>
   <div class="group relative flex flex-col w-full cursor-pointer">
-    <!-- Thumbnail -->
     <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-gray-300 transition-transform duration-300 group-hover:scale-105">
       <img
         :src="thumbnail"
@@ -56,30 +37,24 @@ export default defineComponent({
       </span>
     </div>
 
-    <!-- Video Details -->
-    <div class="mt-3 flex">
-      <!-- Avatar -->
+    <div class="mt-3 flex gap-3">
       <img
+        v-if="channelAvatar"
         :src="channelAvatar"
         :alt="channelName"
         class="h-10 w-10 rounded-full object-cover"
       >
-      <!-- Info -->
-      <div class="ml-3">
-        <h3 class="text-sm font-medium text-gray-900 line-clamp-2">
+      <div class="max-w-full">
+        <h3 class="w-full text-sm font-medium text-gray-900 line-clamp-2 text-ellipsis" :title="title">
           {{ title }}
         </h3>
         <p class="mt-1 text-sm text-gray-600">
           {{ channelName }}
         </p>
-        <p class="text-xs text-gray-500">
+        <p v-if="views && uploaded" class="text-xs text-gray-500">
           {{ views }} • {{ uploaded }}
         </p>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Custom styles if needed */
-</style>
