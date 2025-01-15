@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/utils/shadcn'
 import { useEventListener, useMediaQuery, useVModel } from '@vueuse/core'
 import { TooltipProvider } from 'radix-vue'
 import { computed, type HTMLAttributes, type Ref, ref } from 'vue'

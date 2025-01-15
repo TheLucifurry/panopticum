@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn, useDelegatedProps } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 import {
   ProgressIndicator,
   ProgressRoot,

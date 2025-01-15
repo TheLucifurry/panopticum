@@ -13,6 +13,6 @@
   "framework": "vite",
   "aliases": {
     "components": "@/shared/components",
-    "utils": "@/shared/utils"
+    "utils": "@/shared/utils/shadcn.ts"
   }
 }

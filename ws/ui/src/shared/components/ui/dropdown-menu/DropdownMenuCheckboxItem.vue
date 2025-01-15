@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from 'vue'
-import { cn, useDelegatedProps } from '@/shared/utils'
+import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 import { CheckIcon } from '@radix-icons/vue'
 import {
   DropdownMenuCheckboxItem,

@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from 'vue'
 import Sheet from '@/shared/components/ui/sheet/Sheet.vue'
 import SheetContent from '@/shared/components/ui/sheet/SheetContent.vue'
-import { cn } from '@/shared/utils'
+import { cn } from '@/shared/utils/shadcn'
 import { SIDEBAR_WIDTH_MOBILE, useSidebar } from './utils'
 
 const props = withDefaults(defineProps<{
