@@ -2,10 +2,10 @@
 import { Volume } from '@/entities/common/inputs'
 import { MenuButtonSettingsPlayer } from '@/features/player'
 import { Group } from '@/shared/components/custom'
-import Progress from '@/shared/components/ui/progress/Progress.vue'
 import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
 import { Maximize, Minimize, PauseIcon, PlayIcon } from 'lucide-vue-next'
+import ControlsTrack from './ControlsTrack.vue'
 
 const uis = useUiState()
 const player = usePlayer()
@@ -16,7 +16,7 @@ const player = usePlayer()
     class="controls"
     @focus.capture="(el: FocusEvent) => (el.target as HTMLElement | null)?.blur()"
   >
-    <Progress :model-value="player.currentTime" :max="player.duration" />
+    <ControlsTrack v-model="player.currentTime" :max="player.duration" />
     <div class="panel">
       <Group>
         <!-- <SkipBack /> -->
