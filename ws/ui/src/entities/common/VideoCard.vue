@@ -1,39 +1,37 @@
 <script setup lang="ts">
 import type { IContentMedia } from '@panopticum/schemas'
+import { Img } from '@/shared/components/custom'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
-import { useTimeAgo } from '@vueuse/core'
+import { formatTimeAgo } from '@vueuse/core'
 
-// Define props
 const {
-  media,
+  data,
   thumbnail,
   title,
   channelName,
   channelAvatar,
   views,
 } = defineProps<{
-  media: IContentMedia
+  data: IContentMedia
   thumbnail: string
   title: string
   channelName?: string
   channelAvatar?: string
   views?: string
 }>()
-
-// Define computed or reactive values
-const uploaded = useTimeAgo(() => new Date(media.createdAt))
 </script>
 
 <template>
   <div class="group relative flex flex-col w-full cursor-pointer">
     <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-gray-300 transition-transform duration-300 group-hover:scale-105">
-      <img
+      <Img
         :src="thumbnail"
+        src-fallback="/empty_thumbnail_audio.png"
         :alt="title"
         class="h-full w-full object-cover"
-      >
-      <span v-if="media.duration" class="absolute bottom-2 right-2 px-1.5 py-0.5 text-xs bg-black text-white rounded">
-        {{ toDurationStringFromSeconds(media.duration) }}
+      />
+      <span v-if="data.duration" class="absolute bottom-2 right-2 px-1.5 py-0.5 text-xs bg-black text-white rounded">
+        {{ toDurationStringFromSeconds(data.duration) }}
       </span>
     </div>
 
@@ -51,8 +49,10 @@ const uploaded = useTimeAgo(() => new Date(media.createdAt))
         <p class="mt-1 text-sm text-gray-600">
           {{ channelName }}
         </p>
-        <p v-if="views && uploaded" class="text-xs text-gray-500">
-          {{ views }} • {{ uploaded }}
+        <p v-if="views || data.createdAt" class="text-xs text-gray-500">
+          <span v-if="views">{{ views }}</span>
+          {{ views && data.createdAt ? '•' : '' }}
+          <span v-if="data.createdAt">{{ formatTimeAgo(new Date(data.createdAt)) }}</span>
         </p>
       </div>
     </div>

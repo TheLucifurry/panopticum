@@ -27,7 +27,7 @@ const medias = useAsync(mediaRepo.getAllMediaLocal, [])
       <VideoCard
         v-for="(media, index) in medias.value"
         :key="index"
-        :media="media"
+        :data="media"
         :title="media.name"
         :thumbnail="media.thumbnailPath ? convertFileSrc(media.thumbnailPath) : ''"
         @click="onMediaClick(media)"
