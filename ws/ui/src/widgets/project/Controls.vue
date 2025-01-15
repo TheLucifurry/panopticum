@@ -20,7 +20,7 @@ const player = usePlayer()
     <div class="panel">
       <Group>
         <!-- <SkipBack /> -->
-        <div @click="player.togglePlaying()">
+        <div class="cursor-pointer" @click="player.togglePlaying()">
           <PlayIcon v-if="!player.isPlaying" />
           <PauseIcon v-else />
         </div>
@@ -38,7 +38,7 @@ const player = usePlayer()
       <div class="panel__spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
-        <div @click="uis.toggleFullscreen">
+        <div class="cursor-pointer" @click="uis.toggleFullscreen">
           <Minimize v-if="uis.isFullscreen" />
           <Maximize v-else />
         </div>

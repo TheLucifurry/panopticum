@@ -5,14 +5,12 @@ import { Volume, Volume1, Volume2, VolumeOff } from 'lucide-vue-next'
 const value = defineModel<number>({
   default: 0,
 })
-const isMuted = defineModel<boolean>('mute', {
-  default: false,
-})
+const isMuted = defineModel<boolean>('mute')
 </script>
 
 <template>
   <div class="volume">
-    <div @click="isMuted = !isMuted">
+    <div class="cursor-pointer" @click="isMuted = !isMuted">
       <VolumeOff v-if="isMuted" />
       <Volume v-else-if="value === 0" />
       <Volume1 v-else-if="value < 0.5" />
