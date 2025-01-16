@@ -1,8 +1,17 @@
-use std::{path::Path, process::Command};
+use std::{fs, path::{Path, PathBuf}, process::Command};
+use md5;
 
 use panopticum_schemas::MediaType;
 
 use crate::consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
+
+pub fn create_dir_if_not_exist(path: &PathBuf) {
+    fs::create_dir_all(path).expect(&format!("Failed to create dir {}", &path.display()).to_string());
+}
+
+pub fn encode_path_to_filename(file_path: &str) -> String {
+    format!("{:x}", md5::compute(file_path))
+}
 
 pub fn check_file_exists(file_path: &String) -> bool {
     Path::new(&file_path).exists()

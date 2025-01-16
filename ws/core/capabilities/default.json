@@ -21,6 +21,8 @@
     "fs:allow-audio-write-recursive",
     "fs:allow-video-read-recursive",
     "fs:allow-video-write-recursive",
+    "fs:allow-appcache-read-recursive",
+    "fs:allow-appcache-write-recursive",
     {
       "identifier": "shell:allow-execute",
       "allow": [
