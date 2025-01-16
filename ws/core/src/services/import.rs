@@ -1,20 +1,24 @@
 use std::{
-    path::{Path, PathBuf}, time::SystemTime
+    path::{Path, PathBuf},
+    time::SystemTime,
 };
 
 use crate::utils::fs::{
-    change_file_name_in_path, check_file_exists, create_dir_if_not_exist, encode_path_to_filename, extract_file_extension, extract_file_media_time_length, extract_file_name, generate_thumbnail, get_media_type_by_ext, path_to_string
+    check_file_exists, create_dir_if_not_exist, encode_path_to_filename, extract_file_extension,
+    extract_file_media_time_length, extract_file_name, generate_thumbnail, get_media_type_by_ext,
+    path_to_string,
 };
 use chrono::{DateTime, Utc};
 use panopticum_schemas::{IContentMedia, MediaType};
 use tauri::{command, AppHandle, Manager, Runtime};
 use walkdir::WalkDir;
 
-fn get_all<R: Runtime>(
-    app: &AppHandle<R>,
-    dir_path: &PathBuf
-) -> Vec<IContentMedia> {
-    let cache_dir_path_buf = app.app_handle().path().app_cache_dir().expect("Failed to get app cache directory");
+fn get_all<R: Runtime>(app: &AppHandle<R>, dir_path: &PathBuf) -> Vec<IContentMedia> {
+    let cache_dir_path_buf = app
+        .app_handle()
+        .path()
+        .app_cache_dir()
+        .expect("Failed to get app cache directory");
     let mut thumbnail_dir_path_buf = cache_dir_path_buf.clone();
     thumbnail_dir_path_buf.push("t");
 
@@ -23,7 +27,6 @@ fn get_all<R: Runtime>(
     WalkDir::new(dir_path)
         .into_iter()
         .filter_map(|entry| {
-            let thumbnail_dir: &Path = thumbnail_dir_path_buf.as_path();
             if entry.is_err() {
                 log::warn!(
                     "Failed to get file by path: {}",
@@ -46,13 +49,23 @@ fn get_all<R: Runtime>(
                     .to_string();
             let size = metadata.len().to_string();
             let name = extract_file_name(&path.to_owned());
-            let thumbnail_name = format!("{}{}", encode_path_to_filename(&file_path.to_str()?), ".png");
-            let thumbnail_path = change_file_name_in_path(&thumbnail_dir, &thumbnail_name);
             let ext = extract_file_extension(&path.to_owned());
+
+            let mut thumbnail_dir = thumbnail_dir_path_buf.clone();
+            let thumbnail_name = format!(
+                "{}{}",
+                encode_path_to_filename(&file_path.to_str()?),
+                ".png"
+            );
+            thumbnail_dir.push(thumbnail_name);
+            let thumbnail_path = path_to_string(thumbnail_dir.as_path());
 
             let maybe_media_type = get_media_type_by_ext(&ext);
             if maybe_media_type.is_none() {
-                log::warn!("Detected unhandled media type by path: {}", &dir.clone().path().display());
+                log::warn!(
+                    "Detected unhandled media type by path: {}",
+                    &dir.clone().path().display()
+                );
                 return None;
             }
             let media_type = maybe_media_type.unwrap();
@@ -60,7 +73,7 @@ fn get_all<R: Runtime>(
 
             match media_type {
                 MediaType::Video => {
-                    let thumbnail_path_string = thumbnail_path.clone().unwrap();
+                    let thumbnail_path_string = thumbnail_path.clone();
                     let maybe_duration = extract_file_media_time_length(&path);
                     if maybe_duration.is_ok() {
                         duration = maybe_duration.unwrap();
@@ -80,7 +93,7 @@ fn get_all<R: Runtime>(
                 name,
                 path,
                 duration,
-                thumbnail_path,
+                thumbnail_path: Some(thumbnail_path),
                 created_at,
                 is_local: true,
                 media_type: media_type as u8,

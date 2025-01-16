@@ -1,12 +1,17 @@
-use std::{fs, path::{Path, PathBuf}, process::Command};
 use md5;
+use std::{
+    fs,
+    path::{Path, PathBuf},
+    process::Command,
+};
 
 use panopticum_schemas::MediaType;
 
 use crate::consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS};
 
 pub fn create_dir_if_not_exist(path: &PathBuf) {
-    fs::create_dir_all(path).expect(&format!("Failed to create dir {}", &path.display()).to_string());
+    fs::create_dir_all(path)
+        .expect(&format!("Failed to create dir {}", &path.display()).to_string());
 }
 
 pub fn encode_path_to_filename(file_path: &str) -> String {
@@ -125,6 +130,8 @@ pub fn generate_thumbnail(file_path: &Path, output_path: &Path) -> Result<(), St
             "00:00:05", // Extract at the 5-second mark
             "-vframes",
             "1", // Capture a single frame
+            "-vf",
+            "scale=356:200",
             "-q:v",
             "2", // Quality level (lower is better)
             output_path.to_str().ok_or("Invalid output path")?,
