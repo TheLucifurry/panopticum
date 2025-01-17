@@ -13,6 +13,6 @@
     "generate_icons": "pnpm tauri icon ../ui/public/icon.png"
   },
   "devDependencies": {
-    "@tauri-apps/cli": "^2.2.2"
+    "@tauri-apps/cli": "^2.2.4"
   }
 }
