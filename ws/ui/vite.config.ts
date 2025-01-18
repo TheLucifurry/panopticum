@@ -36,8 +36,8 @@ export default defineConfig({
     VueRouter({
       root: 'src',
       routeBlockLang: 'yaml',
-      routesFolder: 'pages/routes',
-      dts: 'pages/typed-router.d.ts',
+      routesFolder: 'pages',
+      dts: 'app/typed-router.d.ts',
     }),
     Vue(),
   ],

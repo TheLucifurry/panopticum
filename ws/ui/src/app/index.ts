@@ -1,7 +1,7 @@
-import Router from '@/pages'
 import { createApp } from 'vue'
 import { debug } from './debug'
 import App from './index.vue'
+import Router from './router'
 // import './styles/index.scss'
 import './styles/global.css'
 

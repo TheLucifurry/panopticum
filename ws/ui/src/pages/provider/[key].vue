@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import PageProviderLocal from '@/pages/components/PageProviderLocal.vue'
 import { useInteraction } from '@/shared/modules'
+import { ProviderViewMain } from '@/widgets/provider'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -16,6 +16,6 @@ i10.page.defineTitle(providerKey)
 
 <template>
   <div>
-    <PageProviderLocal v-if="providerKey === 'local'" />
+    <ProviderViewMain v-if="providerKey === 'local'" />
   </div>
 </template>
