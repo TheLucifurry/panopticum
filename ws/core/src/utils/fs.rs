@@ -1,4 +1,4 @@
-use md5;
+use blake3;
 use std::{
     fs,
     path::{Path, PathBuf},
@@ -15,7 +15,7 @@ pub fn create_dir_if_not_exist(path: &PathBuf) {
 }
 
 pub fn encode_path_to_filename(file_path: &str) -> String {
-    format!("{:x}", md5::compute(file_path))
+    blake3::hash(file_path.as_bytes()).to_hex().to_string()
 }
 
 pub fn check_file_exists(file_path: &String) -> bool {
