@@ -10,10 +10,26 @@ pub enum MediaType {
 }
 
 #[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
+#[serde(rename_all = "lowercase")]
+pub enum ContentProviderViewKey {
+    Main,
+    Search,
+}
+
+#[typeshare]
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct IContentProviderViews {
+    pub main: String,
+    pub search: Option<String>,
+}
+
+#[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct IContentProvider {
     pub key: String,
     pub name: String,
+    pub views: IContentProviderViews,
 }
 
 #[typeshare]
@@ -32,25 +48,17 @@ pub struct IContentMedia {
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
-#[serde(rename_all = "camelCase")]
-pub enum NodeType {
-    Media,
-    List,
-}
-
-#[typeshare]
-#[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct IContentList {
     pub id: String,
     pub title: String,
     pub description: Option<String>,
-    pub items: Vec<IContentNode>,
+    pub items: Vec<ContentNode>,
 }
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 #[serde(tag = "type", content = "body", rename_all = "camelCase")]
-pub enum IContentNode {
+pub enum ContentNode {
     Media(IContentMedia),
     List(IContentList),
 }
