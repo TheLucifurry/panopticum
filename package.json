@@ -12,8 +12,8 @@
     "dev": "pnpm -r dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "deps:check_updates": "ncu && ncu -ws && cd ws/core && cargo update --dry-run",
-    "deps:upgrade": "ncu -u && ncu -ws -u && pnpm i && cd ws/core && cargo update"
+    "deps:check_updates": "ncu && ncu -ws && cargo update -w --dry-run",
+    "deps:upgrade": "ncu -u && ncu -ws -u && pnpm i && cargo update -w"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.14.0",
