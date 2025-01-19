@@ -9,6 +9,8 @@ pub struct Modules {
     pub content_service: Arc<ContentService>,
 }
 
+pub type M<'a> = State<'a, Modules>;
+
 impl Modules {
     pub fn new(app: &mut App) -> Self {
         let content_service = Arc::new(ContentService::new());

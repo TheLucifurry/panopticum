@@ -1,9 +1,9 @@
-use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::Modules};
+use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::M};
 use panopticum_schemas::{IContentMedia, MediaType};
-use tauri::{AppHandle, Manager, Runtime, State};
+use tauri::{AppHandle, Manager, Runtime};
 
 #[tauri::command]
-pub fn content_get_all<R: Runtime>(modules: State<Modules>, app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
+pub fn content_get_all<R: Runtime>(modules: M, app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
     let service = modules.content_service.clone();
     let path_module = &app.app_handle().path();
     let file_paths = vec![
@@ -28,7 +28,7 @@ pub fn content_get_all<R: Runtime>(modules: State<Modules>, app: AppHandle<R>) -
 }
 
 #[tauri::command]
-pub fn search_audio_files<R: Runtime>(modules: State<Modules>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
+pub fn search_audio_files<R: Runtime>(modules: M, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
     let service = modules.content_service.clone();
     let dir_path = app.app_handle().path().audio_dir().expect("Failed to get audio directory");
 
@@ -36,7 +36,7 @@ pub fn search_audio_files<R: Runtime>(modules: State<Modules>, app: AppHandle<R>
 }
 
 #[tauri::command]
-pub fn search_video_files<R: Runtime>(modules: State<Modules>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
+pub fn search_video_files<R: Runtime>(modules: M, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
     let service = modules.content_service.clone();
     let dir_path = app.app_handle().path().video_dir().expect("Failed to get video directory");
 
