@@ -21,7 +21,7 @@ pub struct ContentService;
 
 impl ContentService {
     pub fn new() -> Self {
-        ContentService
+        Self
     }
 
     pub fn login(&self, username: &str) -> String {

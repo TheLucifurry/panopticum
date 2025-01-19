@@ -1,16 +1,16 @@
-use tauri::{ipc, Wry};
+use tauri::{ipc, App, Wry};
 use std::sync::Arc;
 use content::{commands, services::ContentService};
 
 mod content;
 
 #[derive(Clone)]
-pub struct AppState {
+pub struct Modules {
     pub content_service: Arc<ContentService>,
 }
 
-impl AppState {
-    pub fn new() -> Self {
+impl Modules {
+    pub fn new(app: &mut App) -> Self {
         let content_service = Arc::new(ContentService::new());
 
         Self {

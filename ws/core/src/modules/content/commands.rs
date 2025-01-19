@@ -1,10 +1,10 @@
-use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::AppState};
+use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::Modules};
 use panopticum_schemas::{IContentMedia, MediaType};
 use tauri::{AppHandle, Manager, Runtime, State};
 
 #[tauri::command]
-pub fn content_get_all<R: Runtime>(state: State<AppState>, app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
-    let service = state.content_service.clone();
+pub fn content_get_all<R: Runtime>(modules: State<Modules>, app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
+    let service = modules.content_service.clone();
     let path_module = &app.app_handle().path();
     let file_paths = vec![
         service.get_all(
@@ -28,16 +28,16 @@ pub fn content_get_all<R: Runtime>(state: State<AppState>, app: AppHandle<R>) ->
 }
 
 #[tauri::command]
-pub fn search_audio_files<R: Runtime>(state: State<AppState>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
-    let service = state.content_service.clone();
+pub fn search_audio_files<R: Runtime>(modules: State<Modules>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
+    let service = modules.content_service.clone();
     let dir_path = app.app_handle().path().audio_dir().expect("Failed to get audio directory");
 
     return service.search_files(dir_path, search_input, ACCEPTABLE_AUDIO_FORMATS, MediaType::Audio);
 }
 
 #[tauri::command]
-pub fn search_video_files<R: Runtime>(state: State<AppState>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
-    let service = state.content_service.clone();
+pub fn search_video_files<R: Runtime>(modules: State<Modules>, app: AppHandle<R>, search_input: String) -> Result<Vec<IContentMedia>, String> {
+    let service = modules.content_service.clone();
     let dir_path = app.app_handle().path().video_dir().expect("Failed to get video directory");
 
     return service.search_files(dir_path, search_input, ACCEPTABLE_VIDEO_FORMATS, MediaType::Video);
