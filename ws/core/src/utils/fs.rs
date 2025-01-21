@@ -29,6 +29,12 @@ pub fn change_file_name_in_path(original_path: &Path, new_file_name: &str) -> Op
     new_path.to_str().map(|s| s.to_string())
 }
 
+pub fn path_buf_join(path_buf: PathBuf, path_str: &str) -> PathBuf {
+    let mut mut_path_buf = path_buf.clone();
+    mut_path_buf.push(path_str);
+    mut_path_buf
+}
+
 pub fn path_to_string(path: &Path) -> String {
     path.to_str()
         .expect("Failed to convert String to Path")

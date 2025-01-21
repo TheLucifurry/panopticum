@@ -1,12 +1,16 @@
 use std::{
     path::{Path, PathBuf},
+    sync::Arc,
     time::SystemTime,
 };
 
-use crate::utils::fs::{
-    check_file_exists, create_dir_if_not_exist, encode_path_to_filename, extract_file_extension,
-    extract_file_media_time_length, extract_file_name, generate_thumbnail, get_media_type_by_ext,
-    path_to_string,
+use crate::{
+    modules::cache::services::FileCacheService,
+    utils::fs::{
+        check_file_exists, create_dir_if_not_exist, encode_path_to_filename,
+        extract_file_extension, extract_file_media_time_length, extract_file_name,
+        generate_thumbnail, get_media_type_by_ext, path_to_string,
+    },
 };
 use chrono::{DateTime, Utc};
 use panopticum_schemas::{IContentMedia, MediaType};
@@ -17,15 +21,15 @@ use rust_search::SearchBuilder;
 
 use crate::consts::ConstVecString;
 
-pub struct ContentService;
+pub struct ContentService {
+    file_cache_thumbnail_service: Arc<FileCacheService>,
+}
 
 impl ContentService {
-    pub fn new() -> Self {
-        Self
-    }
-
-    pub fn login(&self, username: &str) -> String {
-        format!("Welcome, {}!", username)
+    pub fn new(file_cache_thumbnail_service: Arc<FileCacheService>) -> Self {
+        Self {
+            file_cache_thumbnail_service,
+        }
     }
 
     pub fn get_all<R: Runtime>(
