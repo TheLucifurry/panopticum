@@ -7,13 +7,13 @@
   "license": "ISC",
   "keywords": [],
   "exports": {
-    "types": "./dist/index.ts",
-    "default": "./dist/index.ts"
+    "types": "./src/index.ts",
+    "default": "./src/index.ts"
   },
-  "main": "./dist/index.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "dev": "nodemon --watch src --ext rs --exec \"npm run build\"",
-    "build": "typeshare ./src --lang=typescript --output-file=./dist/index.ts"
+    "build": "typeshare ./src --lang=typescript --output-file=./src/gen.ts"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
