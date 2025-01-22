@@ -127,11 +127,11 @@ pub fn get_video_duration(file_path: &Path) -> Result<f64, String> {
     Ok(duration)
 }
 
-pub fn generate_thumbnail(file_path: &Path, output_path: &Path) -> Result<(), String> {
+pub fn generate_thumbnail(video_file_path: &Path, output_path: &Path) -> Result<(), String> {
     let status = Command::new("ffmpeg")
         .args(&[
             "-i",
-            file_path.to_str().ok_or("Invalid file path")?,
+            video_file_path.to_str().ok_or("Invalid file path")?,
             "-ss",
             "00:00:05", // Extract at the 5-second mark
             "-vframes",
