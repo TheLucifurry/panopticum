@@ -8,7 +8,7 @@ use crate::{
     },
 };
 use chrono::{DateTime, Utc};
-use panopticum_schemas::{IContentMedia, MediaType};
+use panopticum_schemas::{ContentNode, IContentMedia, MediaType};
 use walkdir::WalkDir;
 
 use rust_search::SearchBuilder;
@@ -26,7 +26,7 @@ impl ContentService {
         }
     }
 
-    pub fn get_all(&self, dir_path: &PathBuf) -> Vec<IContentMedia> {
+    pub fn get_all(&self, dir_path: &PathBuf) -> Vec<ContentNode> {
         WalkDir::new(dir_path)
             .into_iter()
             .filter_map(|entry| {
@@ -80,7 +80,7 @@ impl ContentService {
                     _ => {}
                 }
 
-                return Some(IContentMedia {
+                return Some(ContentNode::Media(IContentMedia {
                     name,
                     path,
                     duration,
@@ -89,7 +89,7 @@ impl ContentService {
                     is_local: true,
                     media_type: media_type as u8,
                     size: Some(size),
-                });
+                }));
             })
             .collect()
     }

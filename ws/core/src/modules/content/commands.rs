@@ -1,9 +1,9 @@
 use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::M};
-use panopticum_schemas::{IContentMedia, MediaType};
+use panopticum_schemas::{ContentNode, IContentMedia, MediaType};
 use tauri::{AppHandle, Manager, Runtime};
 
 #[tauri::command]
-pub fn content_get_all<R: Runtime>(modules: M, app: AppHandle<R>) -> Result<Vec<IContentMedia>, String> {
+pub fn content_get_all<R: Runtime>(modules: M, app: AppHandle<R>) -> Result<Vec<ContentNode>, String> {
     let service = modules.content_service.clone();
     let path_module = &app.app_handle().path();
     let file_paths = vec![
