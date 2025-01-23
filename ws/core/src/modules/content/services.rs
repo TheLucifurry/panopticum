@@ -8,7 +8,7 @@ use crate::{
     },
 };
 use chrono::{DateTime, Utc};
-use panopticum_schemas::{ContentNode, IContentMedia, MediaType};
+use panopticum_schemas::{ContentNode, IContentList, IContentMedia, MediaType};
 use walkdir::WalkDir;
 
 use rust_search::SearchBuilder;
@@ -40,7 +40,15 @@ impl ContentService {
 
                 let dir = entry.unwrap();
                 if !dir.file_type().is_file() {
-                    return None;
+                    if !dir.file_type().is_dir() {
+                        return None;
+                    }
+                    return Some(ContentNode::List(IContentList {
+                        title: String::from("asd"),
+                        description: None,
+                        id: String::from("vxc"),
+                        items: vec![],
+                    }));
                 }
 
                 let file_path = &dir.path();
