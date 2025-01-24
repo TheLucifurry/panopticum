@@ -7,20 +7,17 @@ pub fn content_get_all<R: Runtime>(modules: M, app: AppHandle<R>) -> Result<Vec<
     let service = modules.content_service.clone();
     let path_module = &app.app_handle().path();
     let file_paths = vec![
-        service.get_all(
+        service.get_dir_node(
             &path_module
                 .video_dir()
                 .expect("Failed to get videos directory"),
         ),
-        service.get_all(
+        service.get_dir_node(
             &path_module
                 .audio_dir()
                 .expect("Failed to get audios directory"),
         ),
-    ]
-    .into_iter()
-    .flatten()
-    .collect();
+    ];
 
     Ok(file_paths)
 }
