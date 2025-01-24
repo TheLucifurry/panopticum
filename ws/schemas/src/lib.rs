@@ -38,7 +38,7 @@ pub struct IContentProvider {
 pub struct IContentMedia {
     pub name: String,
     pub path: String,
-    pub duration: u32,
+    pub duration: Option<u32>,
     pub thumbnail_path: Option<String>,
     pub media_type: u8,
     pub created_at: String,
@@ -49,9 +49,7 @@ pub struct IContentMedia {
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct IContentList {
-    pub id: String,
-    pub title: String,
-    pub description: Option<String>,
+    pub name: String,
     pub items: Vec<ContentNode>,
 }
 

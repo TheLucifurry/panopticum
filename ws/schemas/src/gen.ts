@@ -7,16 +7,14 @@ export type ContentNode =
 	| { type: "list", body: IContentList };
 
 export interface IContentList {
-	id: string;
-	title: string;
-	description?: string;
+	name: string;
 	items: ContentNode[];
 }
 
 export interface IContentMedia {
 	name: string;
 	path: string;
-	duration: number;
+	duration?: number;
 	thumbnailPath?: string;
 	mediaType: number;
 	createdAt: string;

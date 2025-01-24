@@ -13,4 +13,4 @@ export interface ContentNodeWithList {
 }
 
 export const isContentNodeWithMedia = (v: ContentNode): v is ContentNodeWithMedia => v.type === 'media'
-export const isContentNodeWithList = (v: ContentNode): v is ContentNodeWithList => v.type === 'media'
+export const isContentNodeWithList = (v: ContentNode): v is ContentNodeWithList => v.type === 'list'
