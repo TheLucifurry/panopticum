@@ -18,7 +18,7 @@ const i10 = useInteraction()
             {{ i10.page.title }}
           </h4>
         </WindowBar>
-        <main>
+        <main class="desktop__main">
           <router-view />
         </main>
         <Controls />
@@ -38,6 +38,10 @@ const i10 = useInteraction()
     height: 100%;
     display: grid;
     grid-template: 100% / max-content 1fr;
+  }
+
+  &__main {
+    overflow: auto;
   }
 
   &__content {

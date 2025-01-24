@@ -1,10 +1,11 @@
-<script setup lang="ts">
+<script lang="tsx">
 import type { IContentMedia } from '@panopticum/schemas'
-import VideoCard from '@/entities/common/VideoCard.vue'
+import { renderContentNodeCard } from '@/entities/content'
+import { PageGrid } from '@/shared/components/custom'
 import { usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
-import { convertFileSrc } from '@tauri-apps/api/core'
 import { useAsync } from '@webshrine/vue/src/composables/useAsync'
+import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 const player = usePlayer()
@@ -17,25 +18,20 @@ function onMediaClick(media: IContentMedia) {
   player.togglePlaying(true)
 }
 
-const medias = useAsync(mediaRepo.getAllMediaLocal, [])
-</script>
+const contentNodes = useAsync(mediaRepo.getAllMediaLocal, [])
 
-<template>
-  <div class="page-home p-6">
-    <!-- Videos -->
-    <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
-      <VideoCard
-        v-for="(media, index) in medias.value"
-        :key="index"
-        :data="media"
-        :title="media.name"
-        :thumbnail="media.thumbnailPath ? convertFileSrc(media.thumbnailPath) : ''"
-        @click="onMediaClick(media)"
-      />
-      <!-- Add more VideoCard instances as needed -->
-    </div>
-  </div>
-</template>
+export default defineComponent({
+  setup() {
+    return () => (
+      <div class="page-home p-6">
+        <PageGrid>
+          { contentNodes.value.map(n => renderContentNodeCard(n)) }
+        </PageGrid>
+      </div>
+    )
+  },
+})
+</script>
 
 <style lang="scss">
 .page-home {
