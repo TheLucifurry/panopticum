@@ -2,12 +2,19 @@ use modules::Modules;
 use tauri::Manager;
 
 pub mod consts;
-pub mod utils;
 pub mod modules;
+pub mod utils;
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
-    tauri::Builder::default()
+    let mut builder = tauri::Builder::default();
+
+    #[cfg(debug_assertions)]
+    {
+        builder = builder.plugin(tauri_plugin_devtools::init());
+    }
+
+    builder
         .setup(|app| {
             let modules = Modules::new(app);
             app.manage(modules);
