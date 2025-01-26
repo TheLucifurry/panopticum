@@ -1,5 +1,6 @@
 use cache::services::FileCacheService;
 use content::{commands, services::ContentService};
+use ffmpeg::services::FfmpegService;
 use std::sync::Arc;
 use tauri::{ipc, App, Manager, State, Wry};
 
@@ -7,10 +8,12 @@ use crate::utils::fs::path_buf_join;
 
 mod cache;
 mod content;
+mod ffmpeg;
 
 #[derive(Clone)]
 pub struct Modules {
     pub content_service: Arc<ContentService>,
+    pub ffmpeg_service: Arc<FfmpegService>,
 }
 
 pub type M<'a> = State<'a, Modules>;
@@ -23,11 +26,13 @@ impl Modules {
             .expect("Failed to get app cache directory");
         let thumbnail_dir_path_buf = path_buf_join(cache_dir_path_buf, "t");
 
-        let file_cache_thumbnails_service = Arc::new(FileCacheService::new(thumbnail_dir_path_buf));
+        let ffmpeg_service = Arc::new(FfmpegService::new());
+        let file_cache_thumbnails_service = Arc::new(FileCacheService::new(ffmpeg_service.clone(), thumbnail_dir_path_buf));
         let content_service = Arc::new(ContentService::new(file_cache_thumbnails_service.clone()));
 
         Self {
-            content_service
+            content_service,
+            ffmpeg_service,
         }
     }
 }

@@ -126,28 +126,3 @@ pub fn get_video_duration(file_path: &Path) -> Result<f64, String> {
 
     Ok(duration)
 }
-
-pub fn generate_thumbnail(video_file_path: &Path, output_path: &Path) -> Result<(), String> {
-    let status = Command::new("ffmpeg")
-        .args(&[
-            "-i",
-            video_file_path.to_str().ok_or("Invalid file path")?,
-            "-ss",
-            "00:00:05", // Extract at the 5-second mark
-            "-vframes",
-            "1", // Capture a single frame
-            "-vf",
-            "scale=356:200",
-            "-q:v",
-            "2", // Quality level (lower is better)
-            output_path.to_str().ok_or("Invalid output path")?,
-        ])
-        .status()
-        .map_err(|e| format!("Failed to execute ffmpeg: {}", e))?;
-
-    if !status.success() {
-        return Err("ffmpeg command failed".to_string());
-    }
-
-    Ok(())
-}

@@ -1,16 +1,20 @@
-use std::path::{Path, PathBuf};
+use std::{path::{Path, PathBuf}, sync::Arc};
 
-use crate::utils::fs::{check_file_exists, create_dir_if_not_exist, encode_path_to_filename, generate_thumbnail, path_to_string};
+use crate::{modules::ffmpeg::services::FfmpegService, utils::fs::{check_file_exists, create_dir_if_not_exist, encode_path_to_filename, path_to_string}};
 
 pub struct FileCacheService {
+    ffmpeg_service: Arc<FfmpegService>,
     base_path: PathBuf,
 }
 
 impl FileCacheService {
-    pub fn new(base_path: PathBuf) -> Self {
-        println!("FileCacheService.base_path: {}", base_path.display());
+    pub fn new(ffmpeg_service: Arc<FfmpegService>, base_path: PathBuf) -> Self {
+        log::info!("FileCacheService.base_path: {}", base_path.display());
         create_dir_if_not_exist(&base_path);
-        Self { base_path }
+        Self {
+            ffmpeg_service,
+            base_path
+        }
     }
 
     pub fn get_thumbnail_path(&self, video_file_path: &Path) -> Option<String> {
@@ -25,7 +29,7 @@ impl FileCacheService {
 
         // TODO: Make operation async
         if !check_file_exists(&result) {
-            let result = generate_thumbnail(&video_file_path, Path::new(&result));
+            let result = self.ffmpeg_service.generate_thumbnail(&video_file_path, Path::new(&result));
             if result.is_err() {
                 log::error!("{:?}", result.err());
             }

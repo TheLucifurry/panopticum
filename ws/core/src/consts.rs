@@ -15,3 +15,6 @@ pub fn get_all_acceptable_file_formats() -> Vec<&'static str> {
     combined.extend_from_slice(ACCEPTABLE_VIDEO_FORMATS);
     combined
 }
+
+pub static FFMPEG_PATH: &str = "ffmpeg";
+pub static FFPROBE_PATH: &str = "ffprobe";
