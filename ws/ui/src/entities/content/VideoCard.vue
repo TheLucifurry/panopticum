@@ -19,6 +19,10 @@ const {
   channelAvatar?: string
   views?: string
 }>()
+
+defineEmits<{
+  click: []
+}>()
 </script>
 
 <template>

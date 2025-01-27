@@ -2,7 +2,7 @@
 import { shallowRef } from 'vue'
 
 interface Props {
-  src: string
+  src?: string
   srcFallback?: string
   alt?: string
 }
