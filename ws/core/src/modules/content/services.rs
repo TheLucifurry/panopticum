@@ -118,10 +118,17 @@ impl ContentService {
             .filter_map(|entry| entry.ok());
 
         for (i, entry) in entries.enumerate() {
-            items.push(ContentNode::Preview(IContentPreview {
-                r#type: ContentNodeType::Media,
-                pict: self.file_cache_thumbnail_service.get_thumbnail_path(entry.path()),
-            }));
+            if entry.file_type().is_file() {
+                items.push(ContentNode::Preview(IContentPreview {
+                    r#type: ContentNodeType::Media,
+                    pict: self.file_cache_thumbnail_service.get_thumbnail_path(entry.path()),
+                }));
+            } else if entry.file_type().is_dir() {
+                items.push(ContentNode::Preview(IContentPreview {
+                    r#type: ContentNodeType::List,
+                    pict: None,
+                }));
+            }
             if i == 2 {
                 break;
             }
@@ -161,6 +168,7 @@ impl ContentService {
 
         for (i, entry) in entries.enumerate() {
             if i > 0 && i <= count {
+
                 if entry.file_type().is_file() {
                     push_if_some(&mut items, self.get_file_content_node(&entry));
                 } else if entry.file_type().is_dir() {
