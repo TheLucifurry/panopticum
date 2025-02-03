@@ -119,9 +119,16 @@ impl ContentService {
 
         for (i, entry) in entries.enumerate() {
             if entry.file_type().is_file() {
+                let media_type = get_media_type_by_ext(&extract_file_extension(&entry.path().to_string_lossy().to_string().to_owned()));
+                let pict = if media_type == Some(MediaType::Video) {
+                    self.file_cache_thumbnail_service.get_thumbnail_path(entry.path())
+                } else {
+                    None
+                };
+
                 items.push(ContentNode::Preview(IContentPreview {
                     r#type: ContentNodeType::Media,
-                    pict: self.file_cache_thumbnail_service.get_thumbnail_path(entry.path()),
+                    pict: pict,
                 }));
             } else if entry.file_type().is_dir() {
                 items.push(ContentNode::Preview(IContentPreview {
