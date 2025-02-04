@@ -46,9 +46,12 @@ export interface IContentProviderViews {
 	search?: string;
 }
 
-export interface IContentProvider {
+export interface IContentProviderManifestV0 {
+	manifest_version: number;
 	key: string;
 	name: string;
+	icons: Record<string, string>;
+	description?: string;
 	views: IContentProviderViews;
 }
 

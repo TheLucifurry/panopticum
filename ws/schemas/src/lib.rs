@@ -2,35 +2,14 @@ use serde::{Deserialize, Serialize};
 use typeshare::typeshare;
 
 #[typeshare]
-#[derive(Clone)]
+#[derive(Clone, PartialEq)]
 #[repr(u8)]
 pub enum MediaType {
     Video = 0,
     Audio = 1,
 }
 
-#[typeshare]
-#[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
-#[serde(rename_all = "lowercase")]
-pub enum ContentProviderViewKey {
-    Main,
-    Search,
-}
-
-#[typeshare]
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct IContentProviderViews {
-    pub main: String,
-    pub search: Option<String>,
-}
-
-#[typeshare]
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct IContentProvider {
-    pub key: String,
-    pub name: String,
-    pub views: IContentProviderViews,
-}
+pub mod content_provider_manifest;
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
