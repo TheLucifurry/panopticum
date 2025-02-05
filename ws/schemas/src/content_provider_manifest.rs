@@ -24,6 +24,7 @@ pub struct IContentProviderManifestV0 {
     pub manifest_version: u8,
     pub key: String,
     pub name: String,
+    pub version: String,
     pub icons: HashMap<String, String>,
     pub description: Option<String>,
     pub views: IContentProviderViews,
@@ -32,3 +33,6 @@ pub struct IContentProviderManifestV0 {
     // pub locales: HashMap<String, HashMap<String, String>>,
     // pub permissions: HashMap<String, { required: bool }>,
 }
+
+#[typeshare]
+pub type IContentProviderManifest = IContentProviderManifestV0;
