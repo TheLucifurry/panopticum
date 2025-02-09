@@ -24,6 +24,9 @@ strip = false
 lto = false
 opt-level = 0
 
+[target.x86_64-pc-windows-msvc]
+rustflags = ["-C", "link-arg=/lld"]
+
 [build-dependencies]
 tauri-build = { version = "2", features = [] }
 
@@ -40,3 +43,5 @@ tauri-plugin-fs = "2"
 rust_search = "2.1.0"
 blake3 = "1.5.5"
 tauri-plugin-devtools = "2.0.0"
+ffmpeg-sidecar = "2.0.5"
+tokio = "1.43.0"
