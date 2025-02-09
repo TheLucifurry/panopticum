@@ -26,7 +26,7 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="group relative flex flex-col w-full cursor-pointer">
+  <div class="group relative flex flex-col w-full cursor-pointer" @click="$emit('click')">
     <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-gray-300 transition-transform duration-300 group-hover:scale-105">
       <Img
         :src="thumbnail"

@@ -1,21 +1,26 @@
 <script setup lang="ts">
-import { useInteraction } from '@/shared/modules'
+import { useContent, useInteraction } from '@/shared/modules'
 import { ProviderViewMain } from '@/widgets/provider'
 import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 
-definePage({ name: 'provider' })
+definePage({
+  name: 'provider',
+})
 
-const router = useRouter()
+const route = useRoute()
 const i10 = useInteraction()
+const content = useContent()
 
-const providerKey = computed(() => router.currentRoute.value.params.key)
+const providerKey = computed(() => route.params?.key as string)
+const provider = computed(() => content.getContentProviderData(providerKey.value))
+const providerName = computed(() => provider.value?.name || '')
 
-i10.page.defineTitle(providerKey)
+i10.page.defineTitle(providerName)
 </script>
 
 <template>
   <div>
-    <ProviderViewMain v-if="providerKey === 'local'" />
+    <ProviderViewMain v-if="providerKey === '$local_files'" />
   </div>
 </template>
