@@ -20,9 +20,7 @@ pub struct IContentProviderViews {
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct IContentProviderManifestV0 {
-    pub manifest_version: u8,
-    pub key: String,
+pub struct IContentProviderV0 {
     pub name: String,
     pub version: String,
     pub icons: HashMap<String, String>,
@@ -35,4 +33,15 @@ pub struct IContentProviderManifestV0 {
 }
 
 #[typeshare]
-pub type IContentProviderManifest = IContentProviderManifestV0;
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct IContentProviderManifestWrapper<T> {
+    pub id: String,
+    pub version: u8,
+    pub data: T,
+}
+
+#[typeshare]
+pub type IContentProviderManifestV0 = IContentProviderManifestWrapper<IContentProviderV0>;
+
+#[typeshare]
+pub type IContentProviderManifest = IContentProviderManifestV0; // Latest
