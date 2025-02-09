@@ -1,3 +1,4 @@
+export * from './content'
 export * from './interaction'
 export * from './keyboard'
 export * from './player'
