@@ -12,7 +12,7 @@ const route = useRoute()
 const i10 = useInteraction()
 const content = useContent()
 
-const providerKey = computed(() => route.params?.key as string)
+const providerKey = computed(() => route.params?.id as string)
 const provider = computed(() => content.getContentProviderData(providerKey.value))
 const providerName = computed(() => provider.value?.name || '')
 
