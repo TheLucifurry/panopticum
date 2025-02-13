@@ -1,6 +1,8 @@
 use serde::{Deserialize, Serialize};
 use typeshare::typeshare;
 
+pub mod libs;
+
 #[typeshare]
 #[derive(Clone, PartialEq)]
 #[repr(u8)]
@@ -8,8 +10,6 @@ pub enum MediaType {
     Video = 0,
     Audio = 1,
 }
-
-pub mod content_provider_manifest;
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
