@@ -1,7 +1,7 @@
 import type { ContentNode, IContentList, IContentMedia, IContentPreview } from './gen'
 
 export * from './gen'
-export * from './libs/common'
+export * from './libs'
 
 export interface ContentNodeWithMedia {
   type: 'media'
