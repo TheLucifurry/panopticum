@@ -26,7 +26,6 @@ pub struct IContentProviderV0 {
     pub icons: HashMap<String, String>,
     pub description: Option<String>,
     pub views: IContentProviderViews,
-
     // TODO: Implement on demand.
     // pub locales: HashMap<String, HashMap<String, String>>,
     // pub permissions: HashMap<String, { required: bool }>,
