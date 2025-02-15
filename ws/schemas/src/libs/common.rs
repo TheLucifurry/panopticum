@@ -8,17 +8,21 @@ pub struct ValueLabelPair(pub String, pub String);
 #[derive(Serialize, Deserialize, Debug, PartialEq)]
 #[serde(untagged)]
 pub enum PathNode {
-    // Variant for a single string
     String(String),
-    // Variant for a pair of strings
     Pair(ValueLabelPair),
 }
 
 impl PathNode {
-    pub fn as_str(&self) -> &str {
+    pub fn as_value(&self) -> &str {
         match self {
             PathNode::String(s) => s.as_str(),
-            PathNode::Pair(ValueLabelPair(first, _)) => first.as_str(),
+            PathNode::Pair(ValueLabelPair(value, _)) => value.as_str(),
+        }
+    }
+    pub fn as_label(&self) -> &str {
+        match self {
+            PathNode::String(s) => s.as_str(),
+            PathNode::Pair(ValueLabelPair(_, label)) => label.as_str(),
         }
     }
 }
