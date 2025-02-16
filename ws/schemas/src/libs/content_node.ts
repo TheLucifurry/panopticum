@@ -1,18 +1,10 @@
 import type { ContentNode, IContentList, IContentMedia, IContentPreview } from '../gen'
 
-export interface ContentNodeWithMedia {
-  type: 'media'
-  body: IContentMedia
-}
+interface ContentNodeWrapper<T, D> { type: T, data: D }
 
-export interface ContentNodeWithList {
-  type: 'list'
-  body: IContentList
-}
-export interface ContentNodeWithPreview {
-  type: 'preview'
-  body: IContentPreview
-}
+export type ContentNodeWithMedia = ContentNodeWrapper<'media', IContentMedia>
+export type ContentNodeWithList = ContentNodeWrapper<'list', IContentList>
+export type ContentNodeWithPreview = ContentNodeWrapper<'preview', IContentPreview>
 
 export const isContentNodeWithMedia = (v: ContentNode): v is ContentNodeWithMedia => v.type === 'media'
 export const isContentNodeWithList = (v: ContentNode): v is ContentNodeWithList => v.type === 'list'

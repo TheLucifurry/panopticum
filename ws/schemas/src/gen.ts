@@ -32,9 +32,9 @@ export interface IPaginated {
 }
 
 export type ContentNode = 
-	| { type: "media", body: IContentMedia }
-	| { type: "list", body: IContentList }
-	| { type: "preview", body: IContentPreview };
+	| { type: "list", data: IContentList }
+	| { type: "media", data: IContentMedia }
+	| { type: "preview", data: IContentPreview };
 
 export interface IContentList {
 	name: string;
@@ -54,8 +54,8 @@ export interface IContentMedia {
 }
 
 export enum ContentNodeType {
-	Media = "media",
 	List = "list",
+	Media = "media",
 	Preview = "preview",
 }
 

@@ -1,7 +1,7 @@
 use serde::{Deserialize, Serialize};
 use typeshare::typeshare;
 
-use super::common::IPaginated;
+use super::common::Paginated;
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -21,7 +21,7 @@ pub struct IContentMedia {
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct IContentList {
     pub name: String,
-    pub page: IPaginated,
+    pub page: Paginated,
     pub items: Vec<ContentNode>,
 }
 
@@ -36,16 +36,27 @@ pub struct IContentPreview {
 #[derive(Serialize, Deserialize, Debug, Clone, PartialEq, Eq, Hash)]
 #[serde(rename_all = "lowercase")]
 pub enum ContentNodeType {
-    Media,
     List,
+    Media,
     Preview,
 }
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
-#[serde(tag = "type", content = "body", rename_all = "camelCase")]
+#[serde(tag = "type", content = "data", rename_all = "camelCase")]
 pub enum ContentNode {
-    Media(IContentMedia),
     List(IContentList),
+    Media(IContentMedia),
     Preview(IContentPreview),
+}
+
+impl ContentNode {
+    pub fn from_items(items: Vec<ContentNode>, page: Option<Paginated>, name: Option<String>) -> ContentNode {
+        let count = items.iter().count();
+        ContentNode::List(IContentList {
+            name: name.unwrap_or(String::from("")),
+            page: page.unwrap_or(Paginated::new().size(count)),
+            items,
+        })
+    }
 }
