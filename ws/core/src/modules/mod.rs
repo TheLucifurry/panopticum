@@ -39,7 +39,7 @@ impl Modules {
 
 pub fn invoke_handler(invoke: ipc::Invoke<Wry>) -> bool {
     const HANDLER: fn(ipc::Invoke<Wry>) -> bool = tauri::generate_handler![
-        commands::content_get_all,
+        commands::content_get_dir_node,
         commands::search_audio_files,
         commands::search_video_files,
     ];

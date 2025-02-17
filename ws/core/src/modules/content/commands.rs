@@ -1,23 +1,45 @@
-use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::M};
-use panopticum_schemas::{ContentNode, IContentMedia, MediaType};
+use crate::{consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS}, modules::M, utils::schemas::path_nodes_to_path_buf};
+use panopticum_schemas::{ContentNode, IContentMedia, MediaType, PathNodes};
 use tauri::{AppHandle, Manager, Runtime};
 
 #[tauri::command]
-pub fn content_get_all<R: Runtime>(modules: M, app: AppHandle<R>) -> Result<Vec<ContentNode>, String> {
+pub fn content_get_dir_node<R: Runtime>(modules: M, app: AppHandle<R>, location: Option<PathNodes>) -> Result<ContentNode, String> {
     let service = modules.content_service.clone();
     let path_module = &app.app_handle().path();
-    let file_paths = vec![
-        service.get_dir_node(
-            &path_module
-                .video_dir()
-                .expect("Failed to get videos directory"),
-        ),
-        service.get_dir_node(
-            &path_module
-                .audio_dir()
-                .expect("Failed to get audios directory"),
-        ),
-    ];
+
+    let file_paths = match location {
+        Some(mut loc) => {
+            let first_node = loc.remove(0);
+            let path = path_nodes_to_path_buf(&loc);
+            let base_path = match first_node.as_value() {
+                "Video" => {
+                    &path_module
+                        .video_dir()
+                        .expect("Failed to get videos directory")
+                }
+                &_ => todo!()
+            };
+            let full_path = base_path.join(&path);
+            log::debug!("full_path: {:?}", full_path.display());
+
+            // return Err(string!("FAIL"));
+            service.get_dir_node_root(&full_path)
+        }
+        None => {
+            ContentNode::from_items(vec![
+                service.get_dir_node(
+                    &path_module
+                        .video_dir()
+                        .expect("Failed to get videos directory")
+                ),
+                service.get_dir_node(
+                    &path_module
+                        .audio_dir()
+                        .expect("Failed to get audios directory")
+                ),
+            ], None, None)
+        }
+    };
 
     Ok(file_paths)
 }

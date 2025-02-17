@@ -6,15 +6,13 @@ use std::{
 };
 
 use crate::{
-    consts::get_all_acceptable_file_formats,
-    modules::cache::services::FileCacheService,
-    utils::{fs::{
+    consts::get_all_acceptable_file_formats, modules::cache::services::FileCacheService, s, utils::{fs::{
         extract_file_extension, extract_file_media_time_length, extract_file_name,
         get_media_type_by_ext, path_to_string,
-    }, std_helpers::push_if_some},
+    }, std_helpers::push_if_some}
 };
 use chrono::{DateTime, Utc};
-use panopticum_schemas::{ContentNode, ContentNodeType, IContentList, IContentMedia, IContentPreview, IPaginated, MediaType};
+use panopticum_schemas::{ContentNode, ContentNodeType, IContentList, IContentMedia, IContentPreview, Paginated, MediaType};
 use walkdir::{DirEntry, WalkDir};
 
 use rust_search::SearchBuilder;
@@ -151,15 +149,42 @@ impl ContentService {
             return None;
         }
 
-        Some(ContentNode::List(IContentList {
-            name: get_entry_name(&entry),
-            page: IPaginated {
-                current: 0,
-                size: 3,
-                total: media_count,
-            },
-            items: self.get_dir_files_previews(&entry),
-        }))
+        Some(ContentNode::from_items(
+            self.get_dir_files_previews(&entry),
+            Some(Paginated::new().size(3).total(media_count)),
+            Some(get_entry_name(&entry)),
+        ))
+    }
+
+    pub fn get_dir_node_root(&self, dir_path: &PathBuf) -> ContentNode {
+        let entries = WalkDir::new(dir_path)
+            .max_depth(1) // Only process one level
+            .into_iter()
+            .filter_map(|entry| entry.ok()); // Filter out errors
+        let media_count = self.count_files_in_dir(&dir_path.as_path());
+
+        let mut items: Vec<ContentNode> = Vec::new();
+        let mut target_dir: Option<DirEntry> = None;
+
+        for (i, entry) in entries.enumerate() {
+            if i > 0  {
+                if entry.file_type().is_file() {
+                    push_if_some(&mut items, self.get_file_content_node(&entry));
+                } else if entry.file_type().is_dir() {
+                    let dir_node = self.get_dir_node(&entry.path().to_path_buf());
+                    push_if_some(&mut items, Some(dir_node));
+                }
+            } else if i == 0 {
+                target_dir = Some(entry);
+            }
+        }
+
+        let size = items.len();
+        ContentNode::from_items(
+            items,
+            Some(Paginated::new().size(size).total(media_count)),
+            Some(get_entry_name(&target_dir.expect("Failed to read target directory"))),
+        )
     }
 
     pub fn get_dir_node(&self, dir_path: &PathBuf) -> ContentNode {
@@ -188,15 +213,12 @@ impl ContentService {
             }
         }
 
-        ContentNode::List(IContentList {
-            name: get_entry_name(&target_dir.expect("Failed to read target directory")),
-            page: IPaginated {
-                current: 0,
-                size: items.len(),
-                total: media_count,
-            },
+        let size = items.len();
+        ContentNode::from_items(
             items,
-        })
+            Some(Paginated::new().size(size).total(media_count)),
+            Some(get_entry_name(&target_dir.expect("Failed to read target directory"))),
+        )
     }
 
     pub fn search_files(
@@ -225,8 +247,8 @@ impl ContentService {
                 path,
                 size: None,
                 duration: Some(0),
-                thumbnail_path: Some(String::from("")),
-                created_at: String::from(""),
+                thumbnail_path: Some(s!()),
+                created_at: s!(),
                 is_local: true,
                 media_type: match media_type {
                     MediaType::Video => 0,
