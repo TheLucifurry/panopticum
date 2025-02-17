@@ -27,12 +27,8 @@ impl FileCacheService {
         thumbnail_dir.push(thumbnail_name);
         let result = path_to_string(thumbnail_dir.as_path());
 
-        // TODO: Make operation async
         if !check_file_exists(&result) {
-            let result = self.ffmpeg_service.generate_thumbnail(&video_file_path, Path::new(&result));
-            if result.is_err() {
-                log::error!("{:?}", result.err());
-            }
+            let _ = self.ffmpeg_service.generate_thumbnail(&video_file_path, Path::new(&result));
         }
 
         Some(result)
