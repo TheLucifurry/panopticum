@@ -6,13 +6,21 @@ use std::{
 };
 
 use crate::{
-    consts::get_all_acceptable_file_formats, modules::cache::services::FileCacheService, s, utils::{fs::{
-        extract_file_extension, extract_file_media_time_length, extract_file_name,
-        get_media_type_by_ext, path_to_string,
-    }, std_helpers::push_if_some}
+    consts::get_all_acceptable_file_formats,
+    modules::cache::services::FileCacheService,
+    s,
+    utils::{
+        fs::{
+            extract_file_extension, extract_file_media_time_length, extract_file_name,
+            get_media_type_by_ext, path_to_string,
+        },
+        std_helpers::push_if_some,
+    },
 };
 use chrono::{DateTime, Utc};
-use panopticum_schemas::{ContentNode, ContentNodeType, IContentList, IContentMedia, IContentPreview, Paginated, MediaType};
+use panopticum_schemas::{
+    ContentNode, ContentNodeType, IContentMedia, IContentPreview, MediaType, Paginated,
+};
 use walkdir::{DirEntry, WalkDir};
 
 use rust_search::SearchBuilder;
@@ -117,9 +125,12 @@ impl ContentService {
 
         for (i, entry) in entries.enumerate() {
             if entry.file_type().is_file() {
-                let media_type = get_media_type_by_ext(&extract_file_extension(&entry.path().to_string_lossy().to_string().to_owned()));
+                let media_type = get_media_type_by_ext(&extract_file_extension(
+                    &entry.path().to_string_lossy().to_string().to_owned(),
+                ));
                 let pict = if media_type == Some(MediaType::Video) {
-                    self.file_cache_thumbnail_service.get_thumbnail_path(entry.path())
+                    self.file_cache_thumbnail_service
+                        .get_thumbnail_path(entry.path())
                 } else {
                     None
                 };
@@ -167,7 +178,7 @@ impl ContentService {
         let mut target_dir: Option<DirEntry> = None;
 
         for (i, entry) in entries.enumerate() {
-            if i > 0  {
+            if i > 0 {
                 if entry.file_type().is_file() {
                     push_if_some(&mut items, self.get_file_content_node(&entry));
                 } else if entry.file_type().is_dir() {
@@ -183,7 +194,9 @@ impl ContentService {
         ContentNode::from_items(
             items,
             Some(Paginated::new().size(size).total(media_count)),
-            Some(get_entry_name(&target_dir.expect("Failed to read target directory"))),
+            Some(get_entry_name(
+                &target_dir.expect("Failed to read target directory"),
+            )),
         )
     }
 
@@ -200,7 +213,6 @@ impl ContentService {
 
         for (i, entry) in entries.enumerate() {
             if i > 0 && i <= count {
-
                 if entry.file_type().is_file() {
                     push_if_some(&mut items, self.get_file_content_node(&entry));
                 } else if entry.file_type().is_dir() {
@@ -217,7 +229,9 @@ impl ContentService {
         ContentNode::from_items(
             items,
             Some(Paginated::new().size(size).total(media_count)),
-            Some(get_entry_name(&target_dir.expect("Failed to read target directory"))),
+            Some(get_entry_name(
+                &target_dir.expect("Failed to read target directory"),
+            )),
         )
     }
 
