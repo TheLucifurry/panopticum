@@ -119,6 +119,7 @@ impl ContentService {
         let mut items: Vec<ContentNode> = Vec::new();
 
         let entries = WalkDir::new(entry.path())
+            .min_depth(1)
             .max_depth(1)
             .into_iter()
             .filter_map(|entry| entry.ok());
@@ -128,16 +129,17 @@ impl ContentService {
                 let media_type = get_media_type_by_ext(&extract_file_extension(
                     &entry.path().to_string_lossy().to_string().to_owned(),
                 ));
-                let pict = if media_type == Some(MediaType::Video) {
-                    self.file_cache_thumbnail_service
-                        .get_thumbnail_path(entry.path())
-                } else {
-                    None
+                let pict = match media_type {
+                    Some(MediaType::Video) => {
+                        self.file_cache_thumbnail_service
+                            .get_thumbnail_path(entry.path())
+                    }
+                    _ => None,
                 };
 
                 items.push(ContentNode::Preview(IContentPreview {
                     r#type: ContentNodeType::Media,
-                    pict: pict,
+                    pict,
                 }));
             } else if entry.file_type().is_dir() {
                 items.push(ContentNode::Preview(IContentPreview {
@@ -167,7 +169,7 @@ impl ContentService {
         ))
     }
 
-    pub fn get_dir_node_root(&self, dir_path: &PathBuf) -> ContentNode {
+    pub fn get_dir_node_root(&self, dir_path: &PathBuf) -> Result<ContentNode, String> {
         let entries = WalkDir::new(dir_path)
             .max_depth(1) // Only process one level
             .into_iter()
@@ -183,7 +185,7 @@ impl ContentService {
                     push_if_some(&mut items, self.get_file_content_node(&entry));
                 } else if entry.file_type().is_dir() {
                     let dir_node = self.get_dir_node(&entry.path().to_path_buf());
-                    push_if_some(&mut items, Some(dir_node));
+                    push_if_some(&mut items, Some(dir_node?));
                 }
             } else if i == 0 {
                 target_dir = Some(entry);
@@ -191,16 +193,16 @@ impl ContentService {
         }
 
         let size = items.len();
-        ContentNode::from_items(
+        Ok(ContentNode::from_items(
             items,
             Some(Paginated::new().size(size).total(media_count)),
             Some(get_entry_name(
                 &target_dir.expect("Failed to read target directory"),
             )),
-        )
+        ))
     }
 
-    pub fn get_dir_node(&self, dir_path: &PathBuf) -> ContentNode {
+    pub fn get_dir_node(&self, dir_path: &PathBuf) -> Result<ContentNode, String> {
         let count: usize = 5;
         let entries = WalkDir::new(dir_path)
             .max_depth(1) // Only process one level
@@ -226,13 +228,13 @@ impl ContentService {
         }
 
         let size = items.len();
-        ContentNode::from_items(
+        Ok(ContentNode::from_items(
             items,
             Some(Paginated::new().size(size).total(media_count)),
             Some(get_entry_name(
                 &target_dir.expect("Failed to read target directory"),
             )),
-        )
+        ))
     }
 
     pub fn search_files(

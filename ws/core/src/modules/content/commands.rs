@@ -1,6 +1,7 @@
 use crate::{
     consts::{ACCEPTABLE_AUDIO_FORMATS, ACCEPTABLE_VIDEO_FORMATS},
     modules::M,
+    s,
     utils::schemas::path_nodes_to_path_buf,
 };
 use panopticum_schemas::{ContentNode, IContentMedia, MediaType, PathNodes};
@@ -23,12 +24,12 @@ pub fn content_get_dir_node<R: Runtime>(
                 "Video" => &path_module
                     .video_dir()
                     .expect("Failed to get videos directory"),
-                &_ => todo!(),
+                &_ => return Err(s!("Path not handled")),
             };
             let full_path = base_path.join(&path);
             log::debug!("full_path: {:?}", full_path.display());
 
-            service.get_dir_node_root(&full_path)
+            service.get_dir_node_root(&full_path)?
         }
         None => ContentNode::from_items(
             vec![
@@ -36,12 +37,12 @@ pub fn content_get_dir_node<R: Runtime>(
                     &path_module
                         .video_dir()
                         .expect("Failed to get videos directory"),
-                ),
+                )?,
                 service.get_dir_node(
                     &path_module
                         .audio_dir()
                         .expect("Failed to get audios directory"),
-                ),
+                )?,
             ],
             None,
             None,

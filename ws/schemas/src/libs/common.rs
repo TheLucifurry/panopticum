@@ -65,7 +65,7 @@ impl Paginated {
 }
 
 #[typeshare]
-#[derive(Clone, PartialEq)]
+#[derive(Clone, PartialEq, Debug)]
 #[repr(u8)]
 pub enum MediaType {
     Video = 0,
