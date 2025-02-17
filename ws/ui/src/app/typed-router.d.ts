@@ -21,6 +21,6 @@ declare module 'vue-router/auto-routes' {
     'player': RouteRecordInfo<'player', '/', Record<never, never>, Record<never, never>>,
     '404': RouteRecordInfo<'404', '/:all(.*)', { all: ParamValue<true> }, { all: ParamValue<false> }>,
     'home': RouteRecordInfo<'home', '/home', Record<never, never>, Record<never, never>>,
-    'provider': RouteRecordInfo<'provider', '/provider/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
+    'provider': RouteRecordInfo<'provider', '/p/:id', { id: ParamValue<true> }, { id: ParamValue<false> }>,
   }
 }

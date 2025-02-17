@@ -1,34 +1,37 @@
 <script lang="tsx">
-import type { ContentNode } from '@panopticum/schemas'
 import { renderContentNodeCard } from '@/entities/content'
 import { PageGrid } from '@/shared/components/custom'
 import { usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
-import { isContentNodeWithMedia } from '@panopticum/schemas'
+import { ContentNode } from '@panopticum/schemas'
 import { useAsync } from '@webshrine/vue'
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 export default defineComponent({
-  setup() {
+  emits: ['goLocation'],
+  setup(_, { emit }) {
     const router = useRouter()
     const player = usePlayer()
     const mediaRepo = useMediaRepository()
 
     function onCardClick(node: ContentNode) {
-      if (isContentNodeWithMedia(node)) {
-        player.setCurrentMedia(node.body)
+      if (ContentNode.isWithMedia(node)) {
+        player.setCurrentMedia(node.data)
         router.push({ name: 'player' })
         player.togglePlaying(true)
       }
+      if (ContentNode.isWithList(node)) {
+        emit('goLocation', [node.data.name])
+      }
     }
 
-    const contentNodes = useAsync(mediaRepo.getAllMediaLocal, [])
+    const contentNodes = useAsync(() => mediaRepo.getAllMediaLocal(['Video']), { data: { items: [] } })
 
     return () => (
       <div class="page-home p-6">
         <PageGrid>
-          { contentNodes.value.map(n => renderContentNodeCard(n, { onCardClick })) }
+          { contentNodes.value.data.items.map(n => renderContentNodeCard(n, { onCardClick })) }
         </PageGrid>
       </div>
     )

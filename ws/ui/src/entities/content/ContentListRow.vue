@@ -10,7 +10,7 @@ const {
 </script>
 
 <template>
-  <div class="group relative flex flex-col w-full col-span-full">
+  <div class="relative flex flex-col w-full col-span-full">
     <span class="text-xl font-semibold text-gray-900">{{ data.name }}</span>
     <PageGrid>
       <slot />

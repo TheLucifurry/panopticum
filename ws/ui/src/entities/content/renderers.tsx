@@ -1,6 +1,5 @@
-import type { ContentNode } from '@panopticum/schemas'
 import type { Component, VNode } from 'vue'
-import { isContentNodeWithList, isContentNodeWithMedia } from '@panopticum/schemas'
+import { ContentNode } from '@panopticum/schemas'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { h } from 'vue'
 import { noop } from 'webshrine'
@@ -22,24 +21,24 @@ export function renderContentNodeCard(node: ContentNode, properties: IRenderCont
 
   const handleClick = () => props.onCardClick(node)
 
-  if (isContentNodeWithMedia(node)) {
-    const body = node.body
+  if (ContentNode.isWithMedia(node)) {
+    const data = node.data
     return (
       <VideoCard
-        data={body}
-        title={body.name}
-        thumbnail={body.thumbnailPath ? convertFileSrc(body.thumbnailPath) : ''}
+        data={data}
+        title={data.name}
+        thumbnail={data.thumbnailPath ? convertFileSrc(data.thumbnailPath) : ''}
         onClick={handleClick}
       />
     )
   }
 
-  if (isContentNodeWithList(node)) {
-    const body = node.body
+  if (ContentNode.isWithList(node)) {
+    const data = node.data
     return h(
       props.rendererChildren,
-      { data: body },
-      () => body.items.map(i => renderContentNodeCard(i, { ...props, rendererChildren: ContentListCard })),
+      { data, onclick: handleClick },
+      () => data.items.map(i => renderContentNodeCard(i, { ...props, rendererChildren: ContentListCard })),
     )
   }
 
