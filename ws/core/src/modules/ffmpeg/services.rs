@@ -91,6 +91,7 @@ impl FfmpegService {
             ffmpeg.create_no_window();
 
             let mut ffmpeg_runner = ffmpeg
+                .input(&in_path)
                 .args(&[
                     "-vframes",
                     "1", // Capture a single frame
@@ -99,7 +100,6 @@ impl FfmpegService {
                     "-q:v",
                     "2", // Set quality level
                 ])
-                .input(&in_path)
                 .output(&out_path)
                 .seek("00:00:05") // Extract at the 5-second mark
                 .spawn()
