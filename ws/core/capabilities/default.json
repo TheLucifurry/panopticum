@@ -37,11 +37,6 @@
           "name": "bin/ffprobe/ffprobe",
           "args": true,
           "sidecar": true
-        },
-        {
-          "name": "bin/ytdlp/ytdlp",
-          "args": true,
-          "sidecar": true
         }
       ]
     }
