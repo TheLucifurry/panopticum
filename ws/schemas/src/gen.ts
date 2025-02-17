@@ -25,7 +25,7 @@ export type IContentProviderManifestV0 = IContentProviderManifestWrapper<IConten
 
 export type IContentProviderManifest = IContentProviderManifestV0;
 
-export interface IPaginated {
+export interface Paginated {
 	current: number;
 	size: number;
 	total: number;
@@ -38,7 +38,7 @@ export type ContentNode =
 
 export interface IContentList {
 	name: string;
-	page: IPaginated;
+	page: Paginated;
 	items: ContentNode[];
 }
 
