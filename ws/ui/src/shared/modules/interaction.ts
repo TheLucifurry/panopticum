@@ -1,5 +1,6 @@
 import type { BezelProvider } from '@/shared/components/custom'
 import type { MaybeRef, Ref } from 'vue'
+import { useToast } from '@/shared/components/ui/toast'
 import { whenever } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { isRef, onBeforeUnmount, onScopeDispose, shallowRef, toValue, watch } from 'vue'
@@ -22,10 +23,28 @@ function usePage() {
   }
 }
 
+function useNotify() {
+  const { toast } = useToast()
+
+  function toastError(error: any) {
+    toast({
+      duration: 3000,
+      variant: 'destructive',
+      description: typeof error === 'string' ? error : error?.message || 'Unknown error',
+    })
+  }
+
+  return {
+    notify: toast,
+    notifyError: toastError,
+  }
+}
+
 export const useInteraction = defineModule(() => {
   const bezel = shallowRef(null) as Ref<InstanceType<typeof BezelProvider> | null>
 
   return {
+    ...useNotify(),
     page: usePage(),
     bezel: {
       connect(ref: Ref<InstanceType<typeof BezelProvider> | null>) {

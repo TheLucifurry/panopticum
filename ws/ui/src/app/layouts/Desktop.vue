@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { SidebarProvider } from '@/shared/components/ui/sidebar'
+import { Toaster } from '@/shared/components/ui/toast'
 import { useInteraction, useUiState } from '@/shared/modules'
 import { AppSidebar, WindowBar } from '@/widgets/common'
 import { Controls } from '@/widgets/project'
@@ -24,6 +25,8 @@ const i10 = useInteraction()
         <Controls />
       </div>
     </SidebarProvider>
+
+    <Toaster />
   </div>
 </template>
 
