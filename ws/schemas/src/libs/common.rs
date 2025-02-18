@@ -1,4 +1,5 @@
 use serde::{Deserialize, Serialize};
+use typed_builder::TypedBuilder;
 use typeshare::typeshare;
 
 // Cant be converted by typeshare
@@ -31,37 +32,19 @@ pub type PathNodes = Vec<PathNode>;
 
 #[typeshare]
 #[derive(Serialize, Deserialize, Debug, Clone)]
+#[derive(TypedBuilder)]
 pub struct Paginated {
     #[typeshare(serialized_as = "number")]
+    #[builder(default=0)]
     pub current: usize, // Whether there is a next page
+
     #[typeshare(serialized_as = "number")]
+    #[builder(default=0)]
     pub size: usize, // Items per page
+
     #[typeshare(serialized_as = "number")]
+    #[builder(default=0)]
     pub total: usize, // Total number of items
-}
-
-impl Paginated {
-    pub fn new() -> Self {
-        Self {
-            current: 0,
-            size: 0,
-            total: 0,
-        }
-    }
-
-    pub fn build(self) -> Self {
-        self
-    }
-
-    pub fn size(mut self, value: usize) -> Self {
-        self.size = value;
-        self
-    }
-
-    pub fn total(mut self, value: usize) -> Self {
-        self.total = value;
-        self
-    }
 }
 
 #[typeshare]

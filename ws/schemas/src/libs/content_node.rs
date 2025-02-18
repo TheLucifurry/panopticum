@@ -55,7 +55,7 @@ impl ContentNode {
         let count = items.iter().count();
         ContentNode::List(IContentList {
             name: name.unwrap_or(String::new()),
-            page: page.unwrap_or(Paginated::new().size(count)),
+            page: page.unwrap_or(Paginated::builder().size(count).build()),
             items,
         })
     }

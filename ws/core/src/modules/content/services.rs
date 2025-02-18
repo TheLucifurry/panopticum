@@ -164,7 +164,7 @@ impl ContentService {
 
         Some(ContentNode::from_items(
             self.get_dir_files_previews(&entry),
-            Some(Paginated::new().size(3).total(media_count)),
+            Some(Paginated::builder().size(3).total(media_count).build()),
             Some(get_entry_name(&entry)),
         ))
     }
@@ -195,7 +195,7 @@ impl ContentService {
         let size = items.len();
         Ok(ContentNode::from_items(
             items,
-            Some(Paginated::new().size(size).total(media_count)),
+            Some(Paginated::builder().size(size).total(media_count).build()),
             Some(get_entry_name(
                 &target_dir.expect("Failed to read target directory"),
             )),
@@ -230,7 +230,7 @@ impl ContentService {
         let size = items.len();
         Ok(ContentNode::from_items(
             items,
-            Some(Paginated::new().size(size).total(media_count)),
+            Some(Paginated::builder().size(size).total(media_count).build()),
             Some(get_entry_name(
                 &target_dir.expect("Failed to read target directory"),
             )),
