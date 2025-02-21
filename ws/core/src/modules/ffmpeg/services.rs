@@ -3,6 +3,7 @@ use std::{
     path::{Path, PathBuf},
 };
 
+
 use ffmpeg_sidecar::{command::FfmpegCommand, event::FfmpegEvent};
 
 use crate::{consts::FFMPEG_PATH, utils::cmd::is_command_available};
