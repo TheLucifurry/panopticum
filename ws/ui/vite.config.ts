@@ -1,9 +1,10 @@
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
 import Vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
+import VueJsx from '@vitejs/plugin-vue-jsx'
 import autoprefixer from 'autoprefixer'
 import tailwind from 'tailwindcss'
+import VueMacros from 'unplugin-vue-macros/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
 // https://github.com/vbenjs/vite-plugin-html
@@ -30,16 +31,19 @@ export default defineConfig({
         ],
       },
     }),
-    vueJsx({
-      // options are passed on to @vue/babel-plugin-jsx
+    VueMacros({
+      plugins: {
+        vue: Vue(),
+        vueJsx: VueJsx(),
+        vueRouter: VueRouter({
+          root: 'src',
+          routeBlockLang: 'yaml',
+          routesFolder: 'pages',
+          dts: 'app/typed-router.d.ts',
+          extensions: ['.vue', '.setup.tsx'],
+        }),
+      },
     }),
-    VueRouter({
-      root: 'src',
-      routeBlockLang: 'yaml',
-      routesFolder: 'pages',
-      dts: 'app/typed-router.d.ts',
-    }),
-    Vue(),
   ],
 
   // Custom
