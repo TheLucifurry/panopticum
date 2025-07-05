@@ -1,9 +1,9 @@
 import process from 'node:process'
 import { fileURLToPath, URL } from 'node:url'
+import tailwindcss from '@tailwindcss/vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
 import autoprefixer from 'autoprefixer'
-import tailwind from 'tailwindcss'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
@@ -12,7 +12,11 @@ import { createHtmlPlugin as Html } from 'vite-plugin-html'
 
 import { MetaCSP, SELF } from './vite.utils'
 
-const host = process.env.TAURI_DEV_HOST
+const ENV = {
+  host: process.env.TAURI_DEV_HOST,
+  isWindowsTarget: process.env.TAURI_ENV_PLATFORM === 'windows',
+  isDebug: !!process.env.TAURI_ENV_DEBUG,
+} as const
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -44,6 +48,7 @@ export default defineConfig({
         }),
       },
     }),
+    tailwindcss(),
   ],
 
   // Custom
@@ -60,23 +65,34 @@ export default defineConfig({
   server: {
     port: 1420,
     strictPort: true,
-    host: host || false,
-    hmr: host
+    host: ENV.host || false,
+    hmr: ENV.host
       ? {
           protocol: 'ws',
-          host,
+          host: ENV.host,
           port: 1421,
         }
       : undefined,
+    watch: {
+      ignored: ['**/core/src/**'],
+    },
   },
+  envPrefix: ['VITE_', 'TAURI_ENV_*'],
   css: {
     postcss: {
-      plugins: [tailwind(), autoprefixer()],
+      plugins: [
+        autoprefixer(),
+      ],
     },
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler',
+        // api: 'modern-compiler',
       },
     },
+  },
+  build: {
+    target: ENV.isWindowsTarget ? 'chrome105' : 'safari13', // Tauri uses Chromium on Windows and WebKit on macOS and Linux
+    minify: ENV.isDebug ? false : 'esbuild',
+    sourcemap: ENV.isDebug,
   },
 })
