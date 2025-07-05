@@ -1,16 +1,23 @@
 <script lang="tsx">
+import type { PathNodes } from '@panopticum/schemas'
+import type { PropType } from 'vue'
+import { ContentNode } from '@panopticum/schemas'
+import { useAsync } from '@webshrine/vue'
+import { defineComponent, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { renderContentNodeCard } from '@/entities/content'
 import { PageGrid } from '@/shared/components/custom'
 import { usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
-import { ContentNode } from '@panopticum/schemas'
-import { useAsync } from '@webshrine/vue'
-import { defineComponent } from 'vue'
-import { useRouter } from 'vue-router'
 
 export default defineComponent({
+  props: {
+    locationPath: {
+      type: Object as PropType<PathNodes>,
+    },
+  },
   emits: ['goLocation'],
-  setup(_, { emit }) {
+  setup(props, { emit }) {
     const router = useRouter()
     const player = usePlayer()
     const mediaRepo = useMediaRepository()
@@ -26,10 +33,17 @@ export default defineComponent({
       }
     }
 
-    const contentNodes = useAsync(() => mediaRepo.getAllMediaLocal(['Video']), { data: { items: [] } })
+    const contentNodes = useAsync(() => mediaRepo.getAllMediaLocal(props.locationPath), { data: { items: [] } })
+
+    watch(() => props.locationPath, () => contentNodes.execute())
 
     return () => (
       <div class="page-home p-6">
+        {contentNodes.error.value
+          ? (
+              <div> Error</div>
+            )
+          : null}
         <PageGrid>
           { contentNodes.value.data.items.map(n => renderContentNodeCard(n, { onCardClick })) }
         </PageGrid>

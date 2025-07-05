@@ -1,10 +1,10 @@
-import type { BezelProvider } from '@/shared/components/custom'
 import type { MaybeRef, Ref } from 'vue'
-import { useToast } from '@/shared/components/ui/toast'
+import type { BezelProvider } from '@/shared/components/custom'
 import { whenever } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { isRef, onBeforeUnmount, onScopeDispose, shallowRef, toValue, watch } from 'vue'
 import { noop } from 'webshrine'
+import { useToast } from '@/shared/components/ui/toast'
 
 function usePage() {
   const title = shallowRef('')

@@ -18,6 +18,7 @@ const i10 = useInteraction()
           <h4 v-if="i10.page.title" class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
             {{ i10.page.title }}
           </h4>
+          <div id="app__subtitle" />
         </WindowBar>
         <main class="desktop__main">
           <router-view />
