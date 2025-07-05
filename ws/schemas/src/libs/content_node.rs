@@ -54,8 +54,8 @@ impl ContentNode {
     pub fn from_items(items: Vec<ContentNode>, page: Option<Paginated>, name: Option<String>) -> ContentNode {
         let count = items.iter().count();
         ContentNode::List(IContentList {
-            name: name.unwrap_or(String::new()),
-            page: page.unwrap_or(Paginated::builder().size(count).build()),
+            name: name.unwrap_or_default(),
+            page: page.unwrap_or_else(|| Paginated::builder().size(count).build()),
             items,
         })
     }

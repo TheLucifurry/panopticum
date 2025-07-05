@@ -36,15 +36,15 @@ pub type PathNodes = Vec<PathNode>;
 pub struct Paginated {
     #[typeshare(serialized_as = "number")]
     #[builder(default=0)]
-    pub current: usize, // Whether there is a next page
+    pub current: usize,
 
     #[typeshare(serialized_as = "number")]
     #[builder(default=0)]
-    pub size: usize, // Items per page
+    pub size: usize,
 
     #[typeshare(serialized_as = "number")]
     #[builder(default=0)]
-    pub total: usize, // Total number of items
+    pub total: usize,
 }
 
 #[typeshare]

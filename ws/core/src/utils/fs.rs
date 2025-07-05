@@ -75,7 +75,7 @@ pub fn extract_file_name(path: &String) -> String {
     Path::new(&path)
         .file_stem()
         .and_then(|os_str| os_str.to_str())
-        .unwrap_or("")
+        .unwrap_or_default()
         .to_string()
 }
 
@@ -83,7 +83,7 @@ pub fn extract_file_extension(path: &String) -> String {
     Path::new(&path)
         .extension()
         .and_then(|os_str| os_str.to_str())
-        .unwrap_or("")
+        .unwrap_or_default()
         .to_string()
 }
 

@@ -10,14 +10,15 @@ use crate::{consts::FFMPEG_PATH, utils::cmd::is_command_available};
 
 pub struct FfmpegService {
     ffmpeg_path: PathBuf,
-    ffmpeg: FfmpegCommand,
+    // ffmpeg: FfmpegCommand,
 }
 
 pub fn resolve_ffmpeg_path() -> PathBuf {
-    let current_path = env::current_exe().unwrap();
-    let parent_dir = current_path.parent().unwrap();
-    let ffmpeg_path = parent_dir.join(FFMPEG_PATH);
-    ffmpeg_path
+    env::current_exe()
+        .expect("[resolve_ffmpeg_path] Can't get current_exe")
+        .parent()
+        .expect("[resolve_ffmpeg_path] Can't get parent directory of current_exe")
+        .join(FFMPEG_PATH)
 }
 
 // fn create_json_message(msg_type: &str, data: &str, level: Option<LogLevel>) -> Value {

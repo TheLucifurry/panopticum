@@ -51,8 +51,8 @@ impl ContentService {
     fn count_files_in_dir<P: AsRef<Path>>(&self, dir: P) -> usize {
         if let Ok(entries) = fs::read_dir(dir) {
             entries
-                .filter_map(|entry| entry.ok()) // Filter out invalid entries
-                .filter(|entry| entry.file_type().map(|ft| ft.is_file()).unwrap_or(false)) // Ensure it's a file
+                .filter_map(|entry| entry.ok())
+                .filter(|entry| entry.file_type().map(|ft| ft.is_file()).unwrap_or_default())
                 .filter(|entry| {
                     if let Some(ext) = entry.path().extension().and_then(|ext| ext.to_str()) {
                         return self.acceptable_exts.contains(&ext);
@@ -77,15 +77,7 @@ impl ContentService {
         let size = metadata.len().to_string();
         let ext = extract_file_extension(&path.to_owned());
 
-        let maybe_media_type = get_media_type_by_ext(&ext);
-        if maybe_media_type.is_none() {
-            log::warn!(
-                "Detected unhandled media type by path: {}",
-                &entry.clone().path().display()
-            );
-            return None;
-        }
-        let media_type = maybe_media_type.unwrap();
+        let media_type = get_media_type_by_ext(&ext).expect("unhandled media type");
         let mut duration: Option<u32> = None;
         let mut thumbnail_path: Option<String> = None;
 

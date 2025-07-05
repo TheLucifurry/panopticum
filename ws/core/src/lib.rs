@@ -1,6 +1,7 @@
 use modules::Modules;
 use tauri::Manager;
 
+pub mod prelude;
 pub mod consts;
 pub mod modules;
 pub mod utils;
