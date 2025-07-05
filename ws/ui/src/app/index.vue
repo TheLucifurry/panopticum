@@ -1,8 +1,8 @@
 <script lang="ts">
-import Desktop from '@/app/layouts/Desktop.vue'
-import { useUiState } from '@/shared/modules'
 import { useColorMode } from '@vueuse/core'
 import { defineAsyncComponent, defineComponent, h, watch } from 'vue'
+import Desktop from '@/app/layouts/Desktop.vue'
+import { useUiState } from '@/shared/modules'
 import { useKeyboard } from '../shared/modules/keyboard'
 
 useKeyboard().init()

@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import type { PathNodes } from '@panopticum/schemas'
+import { PathNode } from '@panopticum/schemas'
+import { computed, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/shared/components/ui/breadcrumb'
 import { useQueryParam } from '@/shared/composables'
 import { useContent, useInteraction } from '@/shared/modules'
 import { ProviderViewMain } from '@/widgets/provider'
-import { PathNode } from '@panopticum/schemas'
-import { computed, watch } from 'vue'
-import { useRoute } from 'vue-router'
 
 definePage({
   name: 'provider',

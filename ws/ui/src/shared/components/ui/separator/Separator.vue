@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { SeparatorProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
+import { Separator } from 'radix-vue'
 import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
-import { Separator, type SeparatorProps } from 'radix-vue'
 
 const props = defineProps<
   SeparatorProps & { class?: HTMLAttributes['class'], label?: string }

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { off, on, once } from '@/shared/utils/dom'
 import { onBeforeUnmount, ref, watch } from 'vue'
 import { clampNumber, cope } from 'webshrine'
+import { off, on, once } from '@/shared/utils/dom'
 
 interface Props {
-  max: number | undefined
+  max?: number
 }
 
 const props = withDefaults(defineProps<Props>(), {

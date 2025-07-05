@@ -1,9 +1,9 @@
 import type { IContentMedia } from '@panopticum/schemas'
-import { registerPlayerKeybindings } from '@/features/player'
-import { useIncrementable } from '@/shared/composables'
 import { useToggle } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
+import { registerPlayerKeybindings } from '@/features/player'
+import { useIncrementable } from '@/shared/composables'
 
 export const DEFAULT_DURATION = 4 * 60 + 4
 export const DEFAULT_VOLUME = 0.5

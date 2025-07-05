@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { ToastViewportProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/utils/shadcn.ts'
 import { ToastViewport } from 'radix-vue'
 import { computed } from 'vue'
+import { cn } from '@/shared/utils/shadcn.ts'
 
 const props = defineProps<ToastViewportProps & { class?: HTMLAttributes['class'] }>()
 

@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import type { DropdownMenuSeparatorProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 import {
   DropdownMenuSeparator,
-  type DropdownMenuSeparatorProps,
+
 } from 'radix-vue'
+import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 
 const props = defineProps<DropdownMenuSeparatorProps & {
   class?: HTMLAttributes['class']

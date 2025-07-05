@@ -6,7 +6,7 @@ import { Bezel } from '..'
 
 const BEZEL_LIFE_TIME = 1000
 
-let lifetimeTimer: NodeJS.Timeout | undefined;
+let lifetimeTimer: NodeJS.Timeout | undefined
 const cont = shallowRef<VNode | string | Nullish>(undefined)
 
 function show(content: VNode | string | Nullish) {

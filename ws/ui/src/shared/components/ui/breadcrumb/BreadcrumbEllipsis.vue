@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/utils/shadcn.ts'
 import { DotsHorizontalIcon } from '@radix-icons/vue'
+import { cn } from '@/shared/utils/shadcn.ts'
 
 const props = defineProps<{
   class?: HTMLAttributes['class']

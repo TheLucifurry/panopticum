@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { IContentList } from '@panopticum/schemas'
-import { Img } from '@/shared/components/custom'
 import { ContentNode } from '@panopticum/schemas'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { computed } from 'vue'
 import { maxNumber } from 'webshrine'
+import { Img } from '@/shared/components/custom'
 
 const {
   data,

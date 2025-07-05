@@ -1,6 +1,6 @@
 import type { usePlayer } from '@/shared/modules'
-import { useKeyboard } from '@/shared/modules'
 import { timesMap } from 'webshrine'
+import { useKeyboard } from '@/shared/modules'
 
 export function registerPlayerKeybindings(player: ReturnType<typeof usePlayer>) {
   const keyboard = useKeyboard()

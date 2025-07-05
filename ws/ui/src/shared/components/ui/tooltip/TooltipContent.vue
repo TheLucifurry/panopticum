@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { TooltipContentEmits, TooltipContentProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
+import { TooltipContent, TooltipPortal, useForwardPropsEmits } from 'radix-vue'
 import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
-import { TooltipContent, type TooltipContentEmits, type TooltipContentProps, TooltipPortal, useForwardPropsEmits } from 'radix-vue'
 
 defineOptions({
   inheritAttrs: false,

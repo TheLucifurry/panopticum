@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import type { DropdownMenuContentEmits, DropdownMenuContentProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 import {
   DropdownMenuContent,
-  type DropdownMenuContentEmits,
-  type DropdownMenuContentProps,
+
   DropdownMenuPortal,
   useForwardPropsEmits,
 } from 'radix-vue'
+import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 
 const props = withDefaults(
   defineProps<DropdownMenuContentProps & { class?: HTMLAttributes['class'] }>(),

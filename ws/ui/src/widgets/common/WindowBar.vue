@@ -12,7 +12,7 @@ export default defineComponent({
   setup(_, ctx) {
     const renderButton = (callback: Fn, content: FunctionalComponent) => (
       <div class="window-bar__button" onClick={callback}>
-        {h(content, {size: 16})}
+        {h(content, { size: 16 })}
       </div>
     )
 

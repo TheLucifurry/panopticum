@@ -1,9 +1,9 @@
-import { registerUiStateKeybindings } from '@/features/ui'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { useToggle } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
 import { cope, debounce } from 'webshrine'
+import { registerUiStateKeybindings } from '@/features/ui'
 
 export const useUiState = defineModule(() => {
   const [appWindow] = cope(getCurrentWindow)

@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import type { DialogTitleProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
+import { DialogTitle } from 'radix-vue'
 import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
-import { DialogTitle, type DialogTitleProps } from 'radix-vue'
 
 const props = defineProps<DialogTitleProps & { class?: HTMLAttributes['class'] }>()
 

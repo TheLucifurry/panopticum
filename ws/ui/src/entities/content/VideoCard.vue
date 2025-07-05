@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { IContentMedia } from '@panopticum/schemas'
+import { formatTimeAgo } from '@vueuse/core'
 import { Img } from '@/shared/components/custom'
 import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
-import { formatTimeAgo } from '@vueuse/core'
 
 const {
   data,

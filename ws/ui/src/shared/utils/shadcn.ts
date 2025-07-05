@@ -1,5 +1,6 @@
+import type { ClassValue } from 'clsx'
 import type { AnyObject } from 'webshrine'
-import { type ClassValue, clsx } from 'clsx'
+import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
 import { computed } from 'vue'
 import { omit } from 'webshrine'

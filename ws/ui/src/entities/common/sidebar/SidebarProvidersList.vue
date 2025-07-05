@@ -1,10 +1,10 @@
 <script setup lang="tsx">
 import type { IContentProviderManifest } from '@panopticum/schemas'
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/components/ui/sidebar'
-import { CONTENT_PROVIDER_LIST } from '@/shared/content/contentProviders'
 import { ArrowUpIcon, BathIcon, FoldersIcon, PlayCircleIcon, Youtube } from 'lucide-vue-next'
 import { h } from 'vue'
 import { useRouter } from 'vue-router'
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/components/ui/sidebar'
+import { CONTENT_PROVIDER_LIST } from '@/shared/content/contentProviders'
 
 const PROVIDERS = CONTENT_PROVIDER_LIST
 

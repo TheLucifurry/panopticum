@@ -1,11 +1,11 @@
 <script setup lang="ts">
+import { convertFileSrc } from '@tauri-apps/api/core'
+import { useEventListener, watchIgnorable } from '@vueuse/core'
+import { computed, shallowRef, watch } from 'vue'
 import { Video } from '@/entities/common'
 import { BezelProvider } from '@/shared/components/custom'
 import { useInteraction } from '@/shared/modules/interaction'
 import { usePlayer } from '@/shared/modules/player'
-import { convertFileSrc } from '@tauri-apps/api/core'
-import { useEventListener, watchIgnorable } from '@vueuse/core'
-import { computed, shallowRef, watch } from 'vue'
 
 const player = usePlayer()
 const i10 = useInteraction()

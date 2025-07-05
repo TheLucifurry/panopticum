@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import type { SliderRootEmits, SliderRootProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from 'radix-vue'
+import { cn, useDelegatedProps } from '@/shared/utils/shadcn'
 
 const props = defineProps<SliderRootProps & { class?: HTMLAttributes['class'] }>()
 const emits = defineEmits<SliderRootEmits>()

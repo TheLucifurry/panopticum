@@ -1,8 +1,8 @@
 <script lang="ts" setup>
 import type { PrimitiveProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/utils/shadcn.ts'
 import { Primitive } from 'radix-vue'
+import { cn } from '@/shared/utils/shadcn.ts'
 
 const props = withDefaults(defineProps<PrimitiveProps & { class?: HTMLAttributes['class'] }>(), {
   as: 'a',

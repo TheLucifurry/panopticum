@@ -1,4 +1,7 @@
 <script lang="tsx">
+import { Settings } from 'lucide-vue-next'
+import { DropdownMenuPortal } from 'radix-vue'
+import { defineComponent } from 'vue'
 import { DropdownMenuSeparator } from '@/shared/components/ui/dropdown-menu'
 import DropdownMenu from '@/shared/components/ui/dropdown-menu/DropdownMenu.vue'
 import DropdownMenuContent from '@/shared/components/ui/dropdown-menu/DropdownMenuContent.vue'
@@ -9,9 +12,6 @@ import DropdownMenuSubTrigger from '@/shared/components/ui/dropdown-menu/Dropdow
 import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
 import { Slider } from '@/shared/components/ui/slider'
 import { DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE, usePlayer } from '@/shared/modules/player'
-import { Settings } from 'lucide-vue-next'
-import { DropdownMenuPortal } from 'radix-vue'
-import { defineComponent } from 'vue'
 
 export default defineComponent({
   setup() {

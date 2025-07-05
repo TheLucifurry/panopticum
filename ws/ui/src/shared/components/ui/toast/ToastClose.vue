@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import type { ToastCloseProps } from 'radix-vue'
 import type { HTMLAttributes } from 'vue'
-import { cn } from '@/shared/utils/shadcn.ts'
 import { Cross2Icon } from '@radix-icons/vue'
 import { ToastClose } from 'radix-vue'
 import { computed } from 'vue'
+import { cn } from '@/shared/utils/shadcn.ts'
 
 const props = defineProps<ToastCloseProps & {
   class?: HTMLAttributes['class']

@@ -1,8 +1,8 @@
-import { useInteraction } from '@/shared/modules/interaction'
 import { tryOnScopeDispose } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import keyboardJS from 'keyboardjs'
 import { noop, pipe } from 'webshrine'
+import { useInteraction } from '@/shared/modules/interaction'
 
 type KeyCombo = string
 interface KeyboardBindOptions {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import { onUnmounted, watch } from 'vue'
 import { useInteraction, usePlayer } from '@/shared/modules'
 import { MediaPlayer } from '@/widgets/project'
-import { onUnmounted, watch } from 'vue'
 
 definePage({ name: 'player' })
 

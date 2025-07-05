@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Slider from '@/shared/components/ui/slider/Slider.vue'
 import { Volume, Volume1, Volume2, VolumeOff } from 'lucide-vue-next'
+import Slider from '@/shared/components/ui/slider/Slider.vue'
 
 const value = defineModel<number>({
   default: 0,
