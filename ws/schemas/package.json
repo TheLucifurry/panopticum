@@ -16,6 +16,6 @@
     "build": "typeshare ./src --lang=typescript --output-file=./src/gen.ts"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "nodemon": "^3.1.10"
   }
 }
