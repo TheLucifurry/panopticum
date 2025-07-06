@@ -15,7 +15,7 @@ const i10 = useInteraction()
       <AppSidebar />
       <div class="desktop__content">
         <WindowBar>
-          <h4 v-if="i10.page.title" class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
+          <h4 v-if="i10.page.title" class="t:pl-4 t:scroll-m-20 t:text-xl t:font-semibold t:tracking-tight">
             {{ i10.page.title }}
           </h4>
           <div id="app__subtitle" />

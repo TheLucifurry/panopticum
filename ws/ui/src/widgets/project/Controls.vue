@@ -29,7 +29,7 @@ const player = usePlayer()
           v-model="player.volume"
           v-model:mute="player.isMuted"
         />
-        <div class="tw:text-sm">
+        <div class="t:text-sm">
           <span>{{ toDurationStringFromSeconds(player.currentTime) }}</span>
           {{ ' / ' }}
           <span>{{ toDurationStringFromSeconds(player.duration) }}</span>

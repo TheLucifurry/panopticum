@@ -12,8 +12,8 @@ const props = defineProps<{
     data-slot="sidebar-menu-sub"
     data-sidebar="menu-badge"
     :class="cn(
-      't_:border-sidebar-border t_:mx-3.5 t_:flex t_:min-w-0 t_:translate-x-px t_:flex-col t_:gap-1 t_:border-l t_:px-2.5 t_:py-0.5',
-      't_:group-data-[collapsible=icon]:hidden',
+      't:border-sidebar-border t:mx-3.5 t:flex t:min-w-0 t:translate-x-px t:flex-col t:gap-1 t:border-l t:px-2.5 t:py-0.5',
+      't:group-data-[collapsible=icon]:hidden',
       props.class,
     )"
   >

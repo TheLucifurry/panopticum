@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <li
     data-slot="breadcrumb-item"
-    :class="cn('t_:inline-flex t_:items-center t_:gap-1.5', props.class)"
+    :class="cn('t:inline-flex t:items-center t:gap-1.5', props.class)"
   >
     <slot />
   </li>

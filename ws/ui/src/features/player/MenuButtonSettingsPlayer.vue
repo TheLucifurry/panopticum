@@ -27,9 +27,9 @@ export default defineComponent({
           Playback speed
         </DropdownMenuSubTrigger>
         <DropdownMenuPortal>
-          <DropdownMenuSubContent class="w-40">
+          <DropdownMenuSubContent class="t:w-40">
             <DropdownMenuItem>
-              <div class="w-10">
+              <div class="t:w-10">
                 {player.rate}
               </div>
               <Slider
@@ -56,7 +56,7 @@ export default defineComponent({
         <DropdownMenuTrigger>
           <Settings />
         </DropdownMenuTrigger>
-        <DropdownMenuContent class="w-56">
+        <DropdownMenuContent class="t:w-56">
           <DropdownMenuItem>Autoplay</DropdownMenuItem>
           {renderItemPlaybackSpeed()}
         </DropdownMenuContent>

@@ -24,11 +24,11 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <TooltipContent
       data-slot="tooltip-content"
       v-bind="{ ...forwarded, ...$attrs }"
-      :class="cn('t_:bg-primary t_:text-primary-foreground t_:animate-in t_:fade-in-0 t_:zoom-in-95 t_:data-[state=closed]:animate-out t_:data-[state=closed]:fade-out-0 t_:data-[state=closed]:zoom-out-95 t_:data-[side=bottom]:slide-in-from-top-2 t_:data-[side=left]:slide-in-from-right-2 t_:data-[side=right]:slide-in-from-left-2 t_:data-[side=top]:slide-in-from-bottom-2 t_:z-50 t_:w-fit t_:rounded-md t_:px-3 t_:py-1.5 t_:text-xs t_:text-balance', props.class)"
+      :class="cn('t:bg-primary t:text-primary-foreground t:animate-in t:fade-in-0 t:zoom-in-95 t:data-[state=closed]:animate-out t:data-[state=closed]:fade-out-0 t:data-[state=closed]:zoom-out-95 t:data-[side=bottom]:slide-in-from-top-2 t:data-[side=left]:slide-in-from-right-2 t:data-[side=right]:slide-in-from-left-2 t:data-[side=top]:slide-in-from-bottom-2 t:z-50 t:w-fit t:rounded-md t:px-3 t:py-1.5 t:text-xs t:text-balance', props.class)"
     >
       <slot />
 
-      <TooltipArrow class="t_:bg-primary t_:fill-primary t_:z-50 t_:size-2.5 t_:translate-y-[calc(-50%_-_2px)] t_:rotate-45 t_:rounded-[2px]" />
+      <TooltipArrow class="t:bg-primary t:fill-primary t:z-50 t:size-2.5 t:translate-y-[calc(-50%_-_2px)] t:rotate-45 t:rounded-[2px]" />
     </TooltipContent>
   </TooltipPortal>
 </template>

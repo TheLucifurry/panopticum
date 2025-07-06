@@ -11,7 +11,7 @@ const isMuted = defineModel<boolean>('mute')
 
 <template>
   <div class="volume">
-    <div class="cursor-pointer" @click="isMuted = !isMuted">
+    <div class="t:cursor-pointer" @click="isMuted = !isMuted">
       <VolumeOff v-if="isMuted" />
       <Volume v-else-if="value === 0" />
       <Volume1 v-else-if="value < 0.5" />

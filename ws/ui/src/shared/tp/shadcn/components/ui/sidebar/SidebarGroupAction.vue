@@ -16,9 +16,9 @@ const props = defineProps<PrimitiveProps & {
     :as="as"
     :as-child="asChild"
     :class="cn(
-      't_:text-sidebar-foreground t_:ring-sidebar-ring t_:hover:bg-sidebar-accent t_:hover:text-sidebar-accent-foreground t_:absolute t_:top-3.5 t_:right-3 t_:flex t_:aspect-square t_:w-5 t_:items-center t_:justify-center t_:rounded-md t_:p-0 t_:outline-hidden t_:transition-transform t_:focus-visible:ring-2 t_:[&>svg]:size-4 t_:[&>svg]:shrink-0',
-      't_:after:absolute t_:after:-inset-2 t_:md:after:hidden',
-      't_:group-data-[collapsible=icon]:hidden',
+      't:text-sidebar-foreground t:ring-sidebar-ring t:hover:bg-sidebar-accent t:hover:text-sidebar-accent-foreground t:absolute t:top-3.5 t:right-3 t:flex t:aspect-square t:w-5 t:items-center t:justify-center t:rounded-md t:p-0 t:outline-hidden t:transition-transform t:focus-visible:ring-2 t:[&>svg]:size-4 t:[&>svg]:shrink-0',
+      't:after:absolute t:after:-inset-2 t:md:after:hidden',
+      't:group-data-[collapsible=icon]:hidden',
       props.class,
     )"
   >

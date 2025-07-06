@@ -11,7 +11,7 @@ const props = defineProps<{
   <li
     data-slot="sidebar-menu-sub-item"
     data-sidebar="menu-sub-item"
-    :class="cn('t_:group/menu-sub-item t_:relative', props.class)"
+    :class="cn('t:group/menu-sub-item t:relative', props.class)"
   >
     <slot />
   </li>

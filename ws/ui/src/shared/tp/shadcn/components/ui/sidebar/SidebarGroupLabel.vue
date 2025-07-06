@@ -16,8 +16,8 @@ const props = defineProps<PrimitiveProps & {
     :as="as"
     :as-child="asChild"
     :class="cn(
-      't_:text-sidebar-foreground/70 t_:ring-sidebar-ring t_:flex t_:h-8 t_:shrink-0 t_:items-center t_:rounded-md t_:px-2 t_:text-xs t_:font-medium t_:outline-hidden t_:transition-[margin,opacity] t_:duration-200 t_:ease-linear t_:focus-visible:ring-2 t_:[&>svg]:size-4 t_:[&>svg]:shrink-0',
-      't_:group-data-[collapsible=icon]:-mt-8 t_:group-data-[collapsible=icon]:opacity-0',
+      't:text-sidebar-foreground/70 t:ring-sidebar-ring t:flex t:h-8 t:shrink-0 t:items-center t:rounded-md t:px-2 t:text-xs t:font-medium t:outline-hidden t:transition-[margin,opacity] t:duration-200 t:ease-linear t:focus-visible:ring-2 t:[&>svg]:size-4 t:[&>svg]:shrink-0',
+      't:group-data-[collapsible=icon]:-mt-8 t:group-data-[collapsible=icon]:opacity-0',
       props.class)"
   >
     <slot />

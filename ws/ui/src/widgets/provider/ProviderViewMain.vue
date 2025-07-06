@@ -38,7 +38,7 @@ export default defineComponent({
     watch(() => props.locationPath, () => contentNodes.execute())
 
     return () => (
-      <div class="page-home p-6">
+      <div class="page-home t:p-6">
         {contentNodes.error.value
           ? (
               <div> Error</div>

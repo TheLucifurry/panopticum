@@ -24,9 +24,9 @@ const modelValue = useVModel(props, 'modelValue', emits, {
     v-model="modelValue"
     data-slot="input"
     :class="cn(
-      't_:file:text-foreground t_:placeholder:text-muted-foreground t_:selection:bg-primary t_:selection:text-primary-foreground t_:dark:bg-input/30 t_:border-input t_:flex t_:h-9 t_:w-full t_:min-w-0 t_:rounded-md t_:border t_:bg-transparent t_:px-3 t_:py-1 t_:text-base t_:shadow-xs t_:transition-[color,box-shadow] t_:outline-none t_:file:inline-flex t_:file:h-7 t_:file:border-0 t_:file:bg-transparent t_:file:text-sm t_:file:font-medium t_:disabled:pointer-events-none t_:disabled:cursor-not-allowed t_:disabled:opacity-50 t_:md:text-sm',
-      't_:focus-visible:border-ring t_:focus-visible:ring-ring/50 t_:focus-visible:ring-[3px]',
-      't_:aria-invalid:ring-destructive/20 t_:dark:aria-invalid:ring-destructive/40 t_:aria-invalid:border-destructive',
+      't:file:text-foreground t:placeholder:text-muted-foreground t:selection:bg-primary t:selection:text-primary-foreground t:dark:bg-input/30 t:border-input t:flex t:h-9 t:w-full t:min-w-0 t:rounded-md t:border t:bg-transparent t:px-3 t:py-1 t:text-base t:shadow-xs t:transition-[color,box-shadow] t:outline-none t:file:inline-flex t:file:h-7 t:file:border-0 t:file:bg-transparent t:file:text-sm t:file:font-medium t:disabled:pointer-events-none t:disabled:cursor-not-allowed t:disabled:opacity-50 t:md:text-sm',
+      't:focus-visible:border-ring t:focus-visible:ring-ring/50 t:focus-visible:ring-[3px]',
+      't:aria-invalid:ring-destructive/20 t:dark:aria-invalid:ring-destructive/40 t:aria-invalid:border-destructive',
       props.class,
     )"
   >

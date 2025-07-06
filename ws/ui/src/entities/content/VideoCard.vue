@@ -26,34 +26,34 @@ defineEmits<{
 </script>
 
 <template>
-  <div class="group relative flex flex-col w-full cursor-pointer" @click="$emit('click')">
-    <div class="relative w-full aspect-video overflow-hidden rounded-lg bg-gray-300 transition-transform duration-300 group-hover:scale-105">
+  <div class="t:group t:relative t:flex t:flex-col t:w-full t:cursor-pointer" @click="$emit('click')">
+    <div class="t:relative t:w-full t:aspect-video t:overflow-hidden t:rounded-lg t:bg-gray-300 t:transition-transform t:duration-300 t:group-hover:scale-105">
       <Img
         :src="thumbnail"
         src-fallback="/empty_thumbnail_audio.png"
         :alt="title"
-        class="h-full w-full object-cover"
+        class="t:h-full t:w-full t:object-cover"
       />
-      <span v-if="data.duration" class="absolute bottom-2 right-2 px-1.5 py-0.5 text-xs bg-black text-white rounded">
+      <span v-if="data.duration" class="t:absolute t:bottom-2 t:right-2 t:px-1.5 t:py-0.5 t:text-xs t:bg-black t:text-white t:rounded">
         {{ toDurationStringFromSeconds(data.duration) }}
       </span>
     </div>
 
-    <div class="mt-3 flex gap-3">
+    <div class="t:mt-3 t:flex t:gap-3">
       <img
         v-if="channelAvatar"
         :src="channelAvatar"
         :alt="channelName"
-        class="h-10 w-10 rounded-full object-cover"
+        class="t:h-10 t:w-10 t:rounded-full t:object-cover"
       >
-      <div class="max-w-full">
-        <h3 class="w-full text-sm font-medium text-gray-900 line-clamp-2 text-ellipsis" :title="title">
+      <div class="t:max-w-full">
+        <h3 class="t:w-full t:text-sm t:font-medium t:text-gray-900 t:line-clamp-2 t:text-ellipsis" :title="title">
           {{ title }}
         </h3>
-        <p class="mt-1 text-sm text-gray-600">
+        <p class="t:mt-1 t:text-sm t:text-gray-600">
           {{ channelName }}
         </p>
-        <p v-if="views || data.createdAt" class="text-xs text-gray-500">
+        <p v-if="views || data.createdAt" class="t:text-xs t:text-gray-500">
           <span v-if="views">{{ views }}</span>
           {{ views && data.createdAt ? '•' : '' }}
           <span v-if="data.createdAt">{{ formatTimeAgo(new Date(data.createdAt)) }}</span>

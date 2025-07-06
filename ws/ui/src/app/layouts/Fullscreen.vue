@@ -23,7 +23,7 @@ const isInactive = computed(() => idle.idle.value && !isTopPanelHovered.value &&
     <MediaPlayer />
     <Panel ref="topPanelRef" :model-value="!isInactive">
       <WindowBar>
-        <h4 v-if="i10.page.title" class="pl-4 scroll-m-20 text-xl font-semibold tracking-tight">
+        <h4 v-if="i10.page.title" class="t:pl-4 t:scroll-m-20 t:text-xl t:font-semibold t:tracking-tight">
           {{ i10.page.title }}
         </h4>
       </WindowBar>

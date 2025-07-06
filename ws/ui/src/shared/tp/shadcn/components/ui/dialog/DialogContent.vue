@@ -29,17 +29,17 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       v-bind="forwarded"
       :class="
         cn(
-          't_:bg-background t_:data-[state=open]:animate-in t_:data-[state=closed]:animate-out t_:data-[state=closed]:fade-out-0 t_:data-[state=open]:fade-in-0 t_:data-[state=closed]:zoom-out-95 t_:data-[state=open]:zoom-in-95 t_:fixed t_:top-[50%] t_:left-[50%] t_:z-50 t_:grid t_:w-full t_:max-w-[calc(100%-2rem)] t_:translate-x-[-50%] t_:translate-y-[-50%] t_:gap-4 t_:rounded-lg t_:border t_:p-6 t_:shadow-lg t_:duration-200 t_:sm:max-w-lg',
+          't:bg-background t:data-[state=open]:animate-in t:data-[state=closed]:animate-out t:data-[state=closed]:fade-out-0 t:data-[state=open]:fade-in-0 t:data-[state=closed]:zoom-out-95 t:data-[state=open]:zoom-in-95 t:fixed t:top-[50%] t:left-[50%] t:z-50 t:grid t:w-full t:max-w-[calc(100%-2rem)] t:translate-x-[-50%] t:translate-y-[-50%] t:gap-4 t:rounded-lg t:border t:p-6 t:shadow-lg t:duration-200 t:sm:max-w-lg',
           props.class,
         )"
     >
       <slot />
 
       <DialogClose
-        class="t_:ring-offset-background t_:focus:ring-ring t_:data-[state=open]:bg-accent t_:data-[state=open]:text-muted-foreground t_:absolute t_:top-4 t_:right-4 t_:rounded-xs t_:opacity-70 t_:transition-opacity t_:hover:opacity-100 t_:focus:ring-2 t_:focus:ring-offset-2 t_:focus:outline-hidden t_:disabled:pointer-events-none t_:[&_svg]:pointer-events-none t_:[&_svg]:shrink-0 t_:[&_svg:not([class*='size-'])]:size-4"
+        class="t:ring-offset-background t:focus:ring-ring t:data-[state=open]:bg-accent t:data-[state=open]:text-muted-foreground t:absolute t:top-4 t:right-4 t:rounded-xs t:opacity-70 t:transition-opacity t:hover:opacity-100 t:focus:ring-2 t:focus:ring-offset-2 t:focus:outline-hidden t:disabled:pointer-events-none t:[&_svg]:pointer-events-none t:[&_svg]:shrink-0 t:[&_svg:not([class*='size-'])]:size-4"
       >
         <X />
-        <span class="t_:sr-only">Close</span>
+        <span class="t:sr-only">Close</span>
       </DialogClose>
     </DialogContent>
   </DialogPortal>

@@ -24,12 +24,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 <template>
   <DialogPortal>
     <DialogOverlay
-      class="t_:fixed t_:inset-0 t_:z-50 t_:grid t_:place-items-center t_:overflow-y-auto t_:bg-black/80 t_: t_:data-[state=open]:animate-in t_:data-[state=closed]:animate-out t_:data-[state=closed]:fade-out-0 t_:data-[state=open]:fade-in-0"
+      class="t:fixed t:inset-0 t:z-50 t:grid t:place-items-center t:overflow-y-auto t:bg-black/80 t: t:data-[state=open]:animate-in t:data-[state=closed]:animate-out t:data-[state=closed]:fade-out-0 t:data-[state=open]:fade-in-0"
     >
       <DialogContent
         :class="
           cn(
-            't_:relative t_:z-50 t_:grid t_:w-full t_:max-w-lg t_:my-8 t_:gap-4 t_:border t_:border-border t_:bg-background t_:p-6 t_:shadow-lg t_:duration-200 t_:sm:rounded-lg t_:md:w-full',
+            't:relative t:z-50 t:grid t:w-full t:max-w-lg t:my-8 t:gap-4 t:border t:border-border t:bg-background t:p-6 t:shadow-lg t:duration-200 t:sm:rounded-lg t:md:w-full',
             props.class,
           )
         "
@@ -45,10 +45,10 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         <slot />
 
         <DialogClose
-          class="t_:absolute t_:top-4 t_:right-4 t_:p-0.5 t_:transition-colors t_:rounded-md t_:hover:bg-secondary"
+          class="t:absolute t:top-4 t:right-4 t:p-0.5 t:transition-colors t:rounded-md t:hover:bg-secondary"
         >
-          <X class="t_:w-4 t_:h-4" />
-          <span class="t_:sr-only">Close</span>
+          <X class="t:w-4 t:h-4" />
+          <span class="t:sr-only">Close</span>
         </DialogClose>
       </DialogContent>
     </DialogOverlay>

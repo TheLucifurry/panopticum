@@ -23,11 +23,11 @@ const props = withDefaults(defineProps<PrimitiveProps & {
     :data-size="size"
     :data-active="isActive"
     :class="cn(
-      't_:text-sidebar-foreground t_:ring-sidebar-ring t_:hover:bg-sidebar-accent t_:hover:text-sidebar-accent-foreground t_:active:bg-sidebar-accent t_:active:text-sidebar-accent-foreground t_:[&>svg]:text-sidebar-accent-foreground t_:flex t_:h-7 t_:min-w-0 t_:-translate-x-px t_:items-center t_:gap-2 t_:overflow-hidden t_:rounded-md t_:px-2 t_:outline-hidden t_:focus-visible:ring-2 t_:disabled:pointer-events-none t_:disabled:opacity-50 t_:aria-disabled:pointer-events-none t_:aria-disabled:opacity-50 t_:[&>span:last-child]:truncate t_:[&>svg]:size-4 t_:[&>svg]:shrink-0',
-      't_:data-[active=true]:bg-sidebar-accent t_:data-[active=true]:text-sidebar-accent-foreground',
-      size === 't_:sm' && 't_:text-xs',
-      size === 't_:md' && 't_:text-sm',
-      't_:group-data-[collapsible=icon]:hidden',
+      't:text-sidebar-foreground t:ring-sidebar-ring t:hover:bg-sidebar-accent t:hover:text-sidebar-accent-foreground t:active:bg-sidebar-accent t:active:text-sidebar-accent-foreground t:[&>svg]:text-sidebar-accent-foreground t:flex t:h-7 t:min-w-0 t:-translate-x-px t:items-center t:gap-2 t:overflow-hidden t:rounded-md t:px-2 t:outline-hidden t:focus-visible:ring-2 t:disabled:pointer-events-none t:disabled:opacity-50 t:aria-disabled:pointer-events-none t:aria-disabled:opacity-50 t:[&>span:last-child]:truncate t:[&>svg]:size-4 t:[&>svg]:shrink-0',
+      't:data-[active=true]:bg-sidebar-accent t:data-[active=true]:text-sidebar-accent-foreground',
+      size === 't:sm' && 't:text-xs',
+      size === 't:md' && 't:text-sm',
+      't:group-data-[collapsible=icon]:hidden',
       props.class,
     )"
   >

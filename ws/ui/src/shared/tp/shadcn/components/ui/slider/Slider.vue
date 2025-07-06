@@ -18,18 +18,18 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     v-slot="{ modelValue }"
     data-slot="slider"
     :class="cn(
-      't_:relative t_:flex t_:w-full t_:touch-none t_:items-center t_:select-none t_:data-[disabled]:opacity-50 t_:data-[orientation=vertical]:h-full t_:data-[orientation=vertical]:min-h-44 t_:data-[orientation=vertical]:w-auto t_:data-[orientation=vertical]:flex-col',
+      't:relative t:flex t:w-full t:touch-none t:items-center t:select-none t:data-[disabled]:opacity-50 t:data-[orientation=vertical]:h-full t:data-[orientation=vertical]:min-h-44 t:data-[orientation=vertical]:w-auto t:data-[orientation=vertical]:flex-col',
       props.class,
     )"
     v-bind="forwarded"
   >
     <SliderTrack
       data-slot="slider-track"
-      class="t_:bg-muted t_:relative t_:grow t_:overflow-hidden t_:rounded-full t_:data-[orientation=horizontal]:h-1.5 t_:data-[orientation=horizontal]:w-full t_:data-[orientation=vertical]:h-full t_:data-[orientation=vertical]:w-1.5"
+      class="t:bg-muted t:relative t:grow t:overflow-hidden t:rounded-full t:data-[orientation=horizontal]:h-1.5 t:data-[orientation=horizontal]:w-full t:data-[orientation=vertical]:h-full t:data-[orientation=vertical]:w-1.5"
     >
       <SliderRange
         data-slot="slider-range"
-        class="t_:bg-primary t_:absolute t_:data-[orientation=horizontal]:h-full t_:data-[orientation=vertical]:w-full"
+        class="t:bg-primary t:absolute t:data-[orientation=horizontal]:h-full t:data-[orientation=vertical]:w-full"
       />
     </SliderTrack>
 
@@ -37,7 +37,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       v-for="(_, key) in modelValue"
       :key="key"
       data-slot="slider-thumb"
-      class="t_:border-primary t_:bg-background t_:ring-ring/50 t_:block t_:size-4 t_:shrink-0 t_:rounded-full t_:border t_:shadow-sm t_:transition-[color,box-shadow] t_:hover:ring-4 t_:focus-visible:ring-4 t_:focus-visible:outline-hidden t_:disabled:pointer-events-none t_:disabled:opacity-50"
+      class="t:border-primary t:bg-background t:ring-ring/50 t:block t:size-4 t:shrink-0 t:rounded-full t:border t:shadow-sm t:transition-[color,box-shadow] t:hover:ring-4 t:focus-visible:ring-4 t:focus-visible:outline-hidden t:disabled:pointer-events-none t:disabled:opacity-50"
     />
   </SliderRoot>
 </template>

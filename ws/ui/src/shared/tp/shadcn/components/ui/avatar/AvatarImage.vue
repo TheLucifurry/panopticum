@@ -9,7 +9,7 @@ const props = defineProps<AvatarImageProps>()
   <AvatarImage
     data-slot="avatar-image"
     v-bind="props"
-    class="t_:aspect-square t_:size-full"
+    class="t:aspect-square t:size-full"
   >
     <slot />
   </AvatarImage>

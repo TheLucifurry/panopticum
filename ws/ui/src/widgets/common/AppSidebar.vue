@@ -12,7 +12,7 @@ const router = useRouter()
 <template>
   <Sidebar collapsible="icon">
     <SidebarHeader>
-      <SidebarTrigger class="ml-0.5" />
+      <SidebarTrigger class="t:ml-0.5" />
     </SidebarHeader>
     <SidebarContent>
       <SidebarGroup>

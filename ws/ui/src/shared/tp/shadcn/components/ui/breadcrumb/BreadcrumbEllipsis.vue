@@ -13,11 +13,11 @@ const props = defineProps<{
     data-slot="breadcrumb-ellipsis"
     role="presentation"
     aria-hidden="true"
-    :class="cn('t_:flex t_:size-9 t_:items-center t_:justify-center', props.class)"
+    :class="cn('t:flex t:size-9 t:items-center t:justify-center', props.class)"
   >
     <slot>
-      <MoreHorizontal class="t_:size-4" />
+      <MoreHorizontal class="t:size-4" />
     </slot>
-    <span class="t_:sr-only">More</span>
+    <span class="t:sr-only">More</span>
   </span>
 </template>

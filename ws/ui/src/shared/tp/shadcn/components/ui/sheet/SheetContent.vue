@@ -38,25 +38,25 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     <DialogContent
       data-slot="sheet-content"
       :class="cn(
-        't_:bg-background t_:data-[state=open]:animate-in t_:data-[state=closed]:animate-out t_:fixed t_:z-50 t_:flex t_:flex-col t_:gap-4 t_:shadow-lg t_:transition t_:ease-in-out t_:data-[state=closed]:duration-300 t_:data-[state=open]:duration-500',
-        side === 't_:right'
-          && 't_:data-[state=closed]:slide-out-to-right t_:data-[state=open]:slide-in-from-right t_:inset-y-0 t_:right-0 t_:h-full t_:w-3/4 t_:border-l t_:sm:max-w-sm',
-        side === 't_:left'
-          && 't_:data-[state=closed]:slide-out-to-left t_:data-[state=open]:slide-in-from-left t_:inset-y-0 t_:left-0 t_:h-full t_:w-3/4 t_:border-r t_:sm:max-w-sm',
-        side === 't_:top'
-          && 't_:data-[state=closed]:slide-out-to-top t_:data-[state=open]:slide-in-from-top t_:inset-x-0 t_:top-0 t_:h-auto t_:border-b',
-        side === 't_:bottom'
-          && 't_:data-[state=closed]:slide-out-to-bottom t_:data-[state=open]:slide-in-from-bottom t_:inset-x-0 t_:bottom-0 t_:h-auto t_:border-t',
+        't:bg-background t:data-[state=open]:animate-in t:data-[state=closed]:animate-out t:fixed t:z-50 t:flex t:flex-col t:gap-4 t:shadow-lg t:transition t:ease-in-out t:data-[state=closed]:duration-300 t:data-[state=open]:duration-500',
+        side === 'right'
+          && 't:data-[state=closed]:slide-out-to-right t:data-[state=open]:slide-in-from-right t:inset-y-0 t:right-0 t:h-full t:w-3/4 t:border-l t:sm:max-w-sm',
+        side === 'left'
+          && 't:data-[state=closed]:slide-out-to-left t:data-[state=open]:slide-in-from-left t:inset-y-0 t:left-0 t:h-full t:w-3/4 t:border-r t:sm:max-w-sm',
+        side === 'top'
+          && 't:data-[state=closed]:slide-out-to-top t:data-[state=open]:slide-in-from-top t:inset-x-0 t:top-0 t:h-auto t:border-b',
+        side === 'bottom'
+          && 't:data-[state=closed]:slide-out-to-bottom t:data-[state=open]:slide-in-from-bottom t:inset-x-0 t:bottom-0 t:h-auto t:border-t',
         props.class)"
       v-bind="{ ...forwarded, ...$attrs }"
     >
       <slot />
 
       <DialogClose
-        class="t_:ring-offset-background t_:focus:ring-ring t_:data-[state=open]:bg-secondary t_:absolute t_:top-4 t_:right-4 t_:rounded-xs t_:opacity-70 t_:transition-opacity t_:hover:opacity-100 t_:focus:ring-2 t_:focus:ring-offset-2 t_:focus:outline-hidden t_:disabled:pointer-events-none"
+        class="t:ring-offset-background t:focus:ring-ring t:data-[state=open]:bg-secondary t:absolute t:top-4 t:right-4 t:rounded-xs t:opacity-70 t:transition-opacity t:hover:opacity-100 t:focus:ring-2 t:focus:ring-offset-2 t:focus:outline-hidden t:disabled:pointer-events-none"
       >
-        <X class="t_:size-4" />
-        <span class="t_:sr-only">Close</span>
+        <X class="t:size-4" />
+        <span class="t:sr-only">Close</span>
       </DialogClose>
     </DialogContent>
   </DialogPortal>

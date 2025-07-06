@@ -9,7 +9,7 @@ i10.page.defineTitle('Home')
 </script>
 
 <template>
-  <div class="page-home p-6" />
+  <div class="page-home t:p-6" />
 </template>
 
 <style lang="scss">
