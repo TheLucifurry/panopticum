@@ -1,13 +1,13 @@
 <script lang="tsx">
 import { defineComponent } from 'vue'
 import { UserAvatar } from '@/entities/user'
-import DropdownMenu from '@/shared/components/ui/dropdown-menu/DropdownMenu.vue'
-import DropdownMenuContent from '@/shared/components/ui/dropdown-menu/DropdownMenuContent.vue'
-import DropdownMenuItem from '@/shared/components/ui/dropdown-menu/DropdownMenuItem.vue'
-import DropdownMenuLabel from '@/shared/components/ui/dropdown-menu/DropdownMenuLabel.vue'
-import DropdownMenuSeparator from '@/shared/components/ui/dropdown-menu/DropdownMenuSeparator.vue'
-import DropdownMenuTrigger from '@/shared/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
 import { useUser } from '@/shared/modules'
+import DropdownMenu from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenu.vue'
+import DropdownMenuContent from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuContent.vue'
+import DropdownMenuItem from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuItem.vue'
+import DropdownMenuLabel from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuLabel.vue'
+import DropdownMenuSeparator from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuSeparator.vue'
+import DropdownMenuTrigger from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuTrigger.vue'
 
 export default defineComponent({
   setup() {

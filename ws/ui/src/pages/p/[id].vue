@@ -3,9 +3,9 @@ import type { PathNodes } from '@panopticum/schemas'
 import { PathNode } from '@panopticum/schemas'
 import { computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/shared/components/ui/breadcrumb'
 import { useQueryParam } from '@/shared/composables'
 import { useContent, useInteraction } from '@/shared/modules'
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbSeparator } from '@/shared/tp/shadcn/components/ui/breadcrumb'
 import { ProviderViewMain } from '@/widgets/provider'
 
 definePage({

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { SidebarProvider } from '@/shared/components/ui/sidebar'
-import { Toaster } from '@/shared/components/ui/toast'
 import { useInteraction, useUiState } from '@/shared/modules'
+import { SidebarProvider } from '@/shared/tp/shadcn/components/ui/sidebar'
+import { Toaster } from '@/shared/tp/shadcn/components/ui/sonner'
 import { AppSidebar, WindowBar } from '@/widgets/common'
 import { Controls } from '@/widgets/project'
 

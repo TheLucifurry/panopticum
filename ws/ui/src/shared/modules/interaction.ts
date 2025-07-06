@@ -4,7 +4,7 @@ import { whenever } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { isRef, onBeforeUnmount, onScopeDispose, shallowRef, toValue, watch } from 'vue'
 import { noop } from 'webshrine'
-import { useToast } from '@/shared/components/ui/toast'
+// import { useToast } from '@/shared/tp/shadcn/components/ui/toast'
 
 function usePage() {
   const title = shallowRef('')
@@ -24,7 +24,9 @@ function usePage() {
 }
 
 function useNotify() {
-  const { toast } = useToast()
+  // const { toast } = useToast()
+  // FIX: heal it
+  const toast = noop
 
   function toastError(error: any) {
     toast({

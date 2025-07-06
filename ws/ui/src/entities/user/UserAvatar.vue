@@ -1,7 +1,7 @@
 <script lang="tsx">
 import type { ComponentObjectPropsOptions } from 'vue'
 import { defineComponent } from 'vue'
-import Avatar from '@/shared/components/ui/avatar/Avatar.vue'
+import Avatar from '@/shared/tp/shadcn/components/ui/avatar/Avatar.vue'
 
 const props: ComponentObjectPropsOptions = {
 

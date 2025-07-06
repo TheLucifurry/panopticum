@@ -3,8 +3,8 @@ import type { IContentProviderManifest } from '@panopticum/schemas'
 import { ArrowUpIcon, BathIcon, FoldersIcon, PlayCircleIcon, Youtube } from 'lucide-vue-next'
 import { h } from 'vue'
 import { useRouter } from 'vue-router'
-import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/components/ui/sidebar'
 import { CONTENT_PROVIDER_LIST } from '@/shared/content/contentProviders'
+import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/tp/shadcn/components/ui/sidebar'
 
 const PROVIDERS = CONTENT_PROVIDER_LIST
 

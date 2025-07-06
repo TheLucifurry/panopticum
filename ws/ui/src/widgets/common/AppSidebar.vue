@@ -4,7 +4,7 @@ import { BookmarkIcon, HomeIcon } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { SidebarProvidersList } from '@/entities/common/sidebar'
 import { MenuButtonUser } from '@/features/user'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from '@/shared/components/ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from '@/shared/tp/shadcn/components/ui/sidebar'
 
 const router = useRouter()
 </script>
