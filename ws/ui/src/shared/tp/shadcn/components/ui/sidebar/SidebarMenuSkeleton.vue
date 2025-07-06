@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, type HTMLAttributes } from 'vue'
-import { cn } from '@/shared/tp/shadcn/lib/utils'
+import type { HTMLAttributes } from 'vue'
+import { computed } from 'vue'
 import { Skeleton } from '@/shared/tp/shadcn/components/ui/skeleton'
+import { cn } from '@/shared/tp/shadcn/lib/utils'
 
 const props = defineProps<{
   showIcon?: boolean
