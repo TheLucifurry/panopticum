@@ -1,2 +1,5 @@
 packages:
-  - './ws/**'
+  - ./ws/**
+
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'
