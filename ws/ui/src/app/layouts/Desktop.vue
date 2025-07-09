@@ -31,26 +31,26 @@ const i10 = useInteraction()
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .desktop {
   height: 100vh;
   width: 100vw;
   overflow: hidden;
+}
 
-  &__layout {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template: 100% / max-content 1fr;
-  }
+.desktop__layout {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template: 100% / max-content 1fr;
+}
 
-  &__main {
-    overflow: auto;
-  }
+.desktop__main {
+  overflow: auto;
+}
 
-  &__content {
-    display: grid;
-    grid-template: max-content 1fr max-content / 100%;
-  }
+.desktop__content {
+  display: grid;
+  grid-template: max-content 1fr max-content / 100%;
 }
 </style>

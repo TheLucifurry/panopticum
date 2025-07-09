@@ -11,7 +11,7 @@ const [win] = cope(getCurrentWindow)
 export default defineComponent({
   setup(_, ctx) {
     const renderButton = (callback: Fn, content: FunctionalComponent) => (
-      <div class="window-bar__button" onClick={callback}>
+      <div class="button" onClick={callback}>
         {h(content, { size: 16 })}
       </div>
     )
@@ -38,12 +38,12 @@ export default defineComponent({
 })
 </script>
 
-<style lang="scss">
-$height: 40px;
-
+<style>
 .window-bar {
+  --window-bar__height: 40px;
+
   background-color: #0001;
-  height: $height;
+  height: var(--window-bar__height);
   width: 100%;
   user-select: none;
   display: grid;
@@ -52,12 +52,12 @@ $height: 40px;
   right: 0;
   grid-template-columns: max-content 1fr max-content;
 
-  &__button {
+  .button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: $height;
-    height: $height;
+    width: var(--window-bar__height);
+    height: var(--window-bar__height);
     user-select: none;
     -webkit-user-select: none;
 

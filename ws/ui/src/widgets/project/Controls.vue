@@ -35,7 +35,7 @@ const player = usePlayer()
           <span>{{ toDurationStringFromSeconds(player.duration) }}</span>
         </div>
       </Group>
-      <div class="panel__spacer" />
+      <div class="spacer" />
       <Group>
         <MenuButtonSettingsPlayer />
         <div class="cursor-pointer" @click="uis.toggleFullscreen">
@@ -47,7 +47,7 @@ const player = usePlayer()
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .controls {
   padding: 4px;
   display: grid;
@@ -59,7 +59,7 @@ const player = usePlayer()
   display: flex;
   align-items: center;
 
-  &__spacer {
+  .spacer {
     flex-grow: 1;
   }
 }

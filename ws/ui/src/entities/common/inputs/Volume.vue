@@ -26,7 +26,7 @@ const isMuted = defineModel<boolean>('mute')
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .volume {
   display: grid;
   grid-template-columns: max-content 100px;

@@ -59,7 +59,7 @@ i10.bezel.connect(bezelProvider)
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .media-player {
   width: 100%;
   height: 100%;

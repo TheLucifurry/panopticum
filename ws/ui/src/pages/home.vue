@@ -12,7 +12,7 @@ i10.page.defineTitle('Home')
   <div class="page-home t:p-6" />
 </template>
 
-<style lang="scss">
+<style>
 .page-home {
   width: 100%;
   height: 100%;

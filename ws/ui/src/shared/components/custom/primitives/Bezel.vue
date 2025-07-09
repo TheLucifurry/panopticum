@@ -1,5 +1,5 @@
 <template>
-  <div class="z-bezel t:bg-black t:bg-opacity-05 t:py-3 t:px-5 t:text-xl t:rounded-md">
+  <div class="z-bezel t:bg-black t:bg-black/50 t:py-3 t:px-5 t:text-xl t:rounded-md">
     <slot />
   </div>
 </template>

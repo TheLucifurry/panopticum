@@ -23,7 +23,7 @@ const model = defineModel<boolean>({ default: true })
   </div>
 </template>
 
-<style lang="scss">
+<style>
 .z-panel {
   position: absolute;
   background-color: #0004;

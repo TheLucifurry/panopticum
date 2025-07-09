@@ -35,7 +35,7 @@ defineExpose({ videoElement })
       :src="src"
       class="video"
       :class="{
-        'video--vertical': isVertical,
+        vertical: isVertical,
       }"
       crossorigin="anonymous"
       :poster="poster"
@@ -46,26 +46,27 @@ defineExpose({ videoElement })
   </div>
 </template>
 
-<style lang="scss">
+<style>
+.video__wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .video {
   max-height: 100%;
   max-width: 100%;
 
   width: 100%;
   height: max-content;
-  &--vertical {
+
+  .vertical {
     height: 100%;
     width: max-content;
-  }
-
-  &__wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 }
 </style>

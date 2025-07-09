@@ -67,6 +67,6 @@ defineRender(
 )
 </script>
 
-<style lang="scss">
+<style>
 .asd {}
 </style>

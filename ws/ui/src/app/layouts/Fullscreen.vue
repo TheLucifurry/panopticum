@@ -34,7 +34,7 @@ const isInactive = computed(() => idle.idle.value && !isTopPanelHovered.value &&
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style scoped>
 .root {
   height: 100vh;
   width: 100vw;
