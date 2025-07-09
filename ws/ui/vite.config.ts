@@ -3,7 +3,6 @@ import { fileURLToPath, URL } from 'node:url'
 import tailwindcss from '@tailwindcss/vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
-import autoprefixer from 'autoprefixer'
 import VueMacros from 'unplugin-vue-macros/vite'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig } from 'vite'
@@ -78,18 +77,6 @@ export default defineConfig({
     },
   },
   envPrefix: ['VITE_', 'TAURI_ENV_*'],
-  css: {
-    postcss: {
-      plugins: [
-        autoprefixer(),
-      ],
-    },
-    preprocessorOptions: {
-      scss: {
-        // api: 'modern-compiler',
-      },
-    },
-  },
   build: {
     target: ENV.isWindowsTarget ? 'chrome105' : 'safari13', // Tauri uses Chromium on Windows and WebKit on macOS and Linux
     minify: ENV.isDebug ? false : 'esbuild',
