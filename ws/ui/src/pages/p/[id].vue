@@ -54,8 +54,8 @@ watch(providerKey, () => {
     </teleport>
     <ProviderViewMain
       v-if="providerKey === '$local_files'"
-      :location-path="locationPath || undefined"
-      @go-location="onGoLocation"
+      :locationPath="locationPath || undefined"
+      @goLocation="onGoLocation"
     />
   </div>
 </template>

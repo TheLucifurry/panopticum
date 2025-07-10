@@ -25,7 +25,7 @@ const remains = computed(() => maxNumber(data.page.total - 3, 0))
       >
         <Img
           :src="node.data.pict ? convertFileSrc(node.data.pict) : ''"
-          src-fallback="/empty_thumbnail_audio.png"
+          srcFallback="/empty_thumbnail_audio.png"
           class="t:h-full t:w-full t:object-cover t:transition-transform t:duration-300 t:hover:scale-105"
         />
       </div>

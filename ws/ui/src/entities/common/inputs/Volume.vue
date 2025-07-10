@@ -20,8 +20,8 @@ const isMuted = defineModel<boolean>('mute')
     <Slider
       :max="1"
       :step="0.01"
-      :model-value="[value]"
-      @update:model-value="v => value = v?.[0] || 0"
+      :modelValue="[value]"
+      @update:modelValue="v => value = v?.[0] || 0"
     />
   </div>
 </template>

@@ -30,7 +30,7 @@ defineEmits<{
     <div class="t:relative t:w-full t:aspect-video t:overflow-hidden t:rounded-lg t:bg-gray-300 t:transition-transform t:duration-300 t:group-hover:scale-105">
       <Img
         :src="thumbnail"
-        src-fallback="/empty_thumbnail_audio.png"
+        srcFallback="/empty_thumbnail_audio.png"
         :alt="title"
         class="t:h-full t:w-full t:object-cover"
       />

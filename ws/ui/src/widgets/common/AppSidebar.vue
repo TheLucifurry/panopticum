@@ -32,7 +32,7 @@ const router = useRouter()
               </SidebarMenuButton>
             </SidebarMenuItem>
             <SidebarMenuItem>
-              <SidebarMenuButton>
+              <SidebarMenuButton asChild>
                 <BookmarkIcon />
                 <span>Saved</span>
               </SidebarMenuButton>

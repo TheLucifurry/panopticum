@@ -21,14 +21,14 @@ const isInactive = computed(() => idle.idle.value && !isTopPanelHovered.value &&
 <template>
   <div class="root">
     <MediaPlayer />
-    <Panel ref="topPanelRef" :model-value="!isInactive">
+    <Panel ref="topPanelRef" :modelValue="!isInactive">
       <WindowBar>
         <h4 v-if="i10.page.title" class="t:pl-4 t:scroll-m-20 t:text-xl t:font-semibold t:tracking-tight">
           {{ i10.page.title }}
         </h4>
       </WindowBar>
     </Panel>
-    <Panel ref="bottomPanelRef" :model-value="!isInactive" side="bottom">
+    <Panel ref="bottomPanelRef" :modelValue="!isInactive" side="bottom">
       <Controls />
     </Panel>
   </div>
