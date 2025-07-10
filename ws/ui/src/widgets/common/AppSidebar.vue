@@ -4,7 +4,7 @@ import { BookmarkIcon, HomeIcon } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { SidebarProvidersList } from '@/entities/common/sidebar'
 import { MenuButtonUser } from '@/features/user'
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from '@/shared/tp/shadcn/components/ui/sidebar'
+import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from '@/shared/tp/shadcn/components/ui/sidebar'
 
 const router = useRouter()
 </script>
@@ -16,26 +16,29 @@ const router = useRouter()
     </SidebarHeader>
     <SidebarContent>
       <SidebarGroup>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton @click="router.push({ name: 'home' })">
-              <HomeIcon />
-              <span>Home</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton>
-              <TimerIcon />
-              <span>Watch later</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton>
-              <BookmarkIcon :size="64" />
-              <span>Saved</span>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        </SidebarMenu>
+        <SidebarGroupLabel>Application</SidebarGroupLabel>
+        <SidebarGroupContent>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton @click="router.push({ name: 'home' })">
+                <HomeIcon />
+                <span>Home</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton>
+                <TimerIcon />
+                <span>Watch later</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton>
+                <BookmarkIcon />
+                <span>Saved</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroupContent>
       </SidebarGroup>
       <SidebarProvidersList />
     </SidebarContent>

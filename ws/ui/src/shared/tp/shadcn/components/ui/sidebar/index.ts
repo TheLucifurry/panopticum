@@ -36,18 +36,18 @@ export { default as SidebarTrigger } from './SidebarTrigger.vue'
 export { useSidebar } from './utils'
 
 export const sidebarMenuButtonVariants = cva(
-  't_:peer/menu-button t_:flex t_:w-full t_:items-center t_:gap-2 t_:overflow-hidden t_:rounded-md t_:p-2 t_:text-left t_:text-sm t_:outline-hidden t_:ring-sidebar-ring t_:transition-[width,height,padding] t_:hover:bg-sidebar-accent t_:hover:text-sidebar-accent-foreground t_:focus-visible:ring-2 t_:active:bg-sidebar-accent t_:active:text-sidebar-accent-foreground t_:disabled:pointer-events-none t_:disabled:opacity-50 t_:group-has-data-[sidebar=menu-action]/menu-item:pr-8 t_:aria-disabled:pointer-events-none t_:aria-disabled:opacity-50 t_:data-[active=true]:bg-sidebar-accent t_:data-[active=true]:font-medium t_:data-[active=true]:text-sidebar-accent-foreground t_:data-[state=open]:hover:bg-sidebar-accent t_:data-[state=open]:hover:text-sidebar-accent-foreground t_:group-data-[collapsible=icon]:size-8! t_:group-data-[collapsible=icon]:p-2! t_:[&>span:last-child]:truncate t_:[&>svg]:size-4 t_:[&>svg]:shrink-0',
+  't:peer/menu-button t:flex t:w-full t:items-center t:gap-2 t:overflow-hidden t:rounded-md t:p-2 t:text-left t:text-sm t:outline-hidden t:ring-sidebar-ring t:transition-[width,height,padding] t:hover:bg-sidebar-accent t:hover:text-sidebar-accent-foreground t:focus-visible:ring-2 t:active:bg-sidebar-accent t:active:text-sidebar-accent-foreground t:disabled:pointer-events-none t:disabled:opacity-50 t:group-has-data-[sidebar=menu-action]/menu-item:pr-8 t:aria-disabled:pointer-events-none t:aria-disabled:opacity-50 t:data-[active=true]:bg-sidebar-accent t:data-[active=true]:font-medium t:data-[active=true]:text-sidebar-accent-foreground t:data-[state=open]:hover:bg-sidebar-accent t:data-[state=open]:hover:text-sidebar-accent-foreground t:group-data-[collapsible=icon]:size-8! t:group-data-[collapsible=icon]:p-2! t:[&>span:last-child]:truncate t:[&>svg]:size-4 t:[&>svg]:shrink-0',
   {
     variants: {
       variant: {
-        default: 't_:hover:bg-sidebar-accent t_:hover:text-sidebar-accent-foreground',
+        default: 't:hover:bg-sidebar-accent t:hover:text-sidebar-accent-foreground',
         outline:
-          't_:bg-background t_:shadow-[0_0_0_1px_hsl(var(--sidebar-border))] t_:hover:bg-sidebar-accent t_:hover:text-sidebar-accent-foreground t_:hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]',
+          't:bg-background t:shadow-[0_0_0_1px_hsl(var(--sidebar-border))] t:hover:bg-sidebar-accent t:hover:text-sidebar-accent-foreground t:hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]',
       },
       size: {
-        default: 't_:h-8 t_:text-sm',
-        sm: 't_:h-7 t_:text-xs',
-        lg: 't_:h-12 t_:text-sm t_:group-data-[collapsible=icon]:p-0!',
+        default: 't:h-8 t:text-sm',
+        sm: 't:h-7 t:text-xs',
+        lg: 't:h-12 t:text-sm t:group-data-[collapsible=icon]:p-0!',
       },
     },
     defaultVariants: {

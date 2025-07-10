@@ -5,6 +5,7 @@ import { h } from 'vue'
 import { useRouter } from 'vue-router'
 import { CONTENT_PROVIDER_LIST } from '@/shared/content/contentProviders'
 import { SidebarGroup, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/shared/tp/shadcn/components/ui/sidebar'
+import SidebarGroupContent from '@/shared/tp/shadcn/components/ui/sidebar/SidebarGroupContent.vue'
 
 const PROVIDERS = CONTENT_PROVIDER_LIST
 
@@ -25,7 +26,7 @@ function renderItem(item: IContentProviderManifest) {
       >
         {/* @click="router.push({ name: 'provider', params: { id: p.id } })" */}
         {h(PROVIDERS_ICONS[item.id] || PlayCircleIcon, {
-          size: 128,
+          // size: 128,
         })}
         <span>{ item.data.name }</span>
       </SidebarMenuButton>
@@ -60,13 +61,11 @@ function renderItem(item: IContentProviderManifest) {
 defineRender(
   <SidebarGroup>
     <SidebarGroupLabel>Providers</SidebarGroupLabel>
-    <SidebarMenu>
-      {PROVIDERS.map(renderItem)}
-    </SidebarMenu>
+    <SidebarGroupContent>
+      <SidebarMenu>
+        {PROVIDERS.map(renderItem)}
+      </SidebarMenu>
+    </SidebarGroupContent>
   </SidebarGroup>,
 )
 </script>
-
-<style>
-.asd {}
-</style>
