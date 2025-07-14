@@ -2,7 +2,7 @@
 import type { IContentMedia } from '@panopticum/schemas'
 import { formatTimeAgo } from '@vueuse/core'
 import { Img } from '@/shared/components/custom'
-import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
+import { toDurationStringFromSeconds } from '@/shared/utils/datetime'
 
 const {
   data,

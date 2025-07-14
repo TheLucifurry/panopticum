@@ -4,7 +4,7 @@ import { Volume } from '@/entities/common/inputs'
 import { MenuButtonSettingsPlayer } from '@/features/player'
 import { Group } from '@/shared/components/custom'
 import { usePlayer, useUiState } from '@/shared/modules'
-import { toDurationStringFromSeconds } from '@/widgets/utils/datetime'
+import { toDurationStringFromSeconds } from '@/shared/utils/datetime'
 import ControlsTrack from './ControlsTrack.vue'
 
 const uis = useUiState()
