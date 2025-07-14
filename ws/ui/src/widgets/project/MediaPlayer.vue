@@ -2,7 +2,7 @@
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { useEventListener, watchIgnorable } from '@vueuse/core'
 import { computed, shallowRef, watch } from 'vue'
-import { Video } from '@/entities/common'
+import { Video } from '@/shared/components/entities'
 import { useInteraction } from '@/modules/interaction'
 import { usePlayer } from '@/modules/player'
 import { BezelProvider } from '@/shared/components'

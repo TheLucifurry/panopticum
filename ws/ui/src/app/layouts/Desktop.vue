@@ -3,7 +3,7 @@ import { useInteraction } from '@/modules/interaction'
 import { useUiState } from '@/modules/ui'
 import { SidebarProvider } from '@/shared/tp/shadcn/components/ui/sidebar'
 import { Toaster } from '@/shared/tp/shadcn/components/ui/sonner'
-import { AppSidebar, WindowBar } from '@/widgets/common'
+import { AppSidebar, WindowBar } from '@/shared/components/widgets'
 import { Controls } from '@/widgets/project'
 
 const uis = useUiState()

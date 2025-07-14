@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Maximize, Minimize, PauseIcon, PlayIcon } from 'lucide-vue-next'
-import { Volume } from '@/entities/common/inputs'
+import { Volume } from '@/shared/components/entities/inputs'
 import { usePlayer } from '@/modules/player'
 import { MenuButtonSettingsPlayer } from '@/modules/player/components'
 import { useUiState } from '@/modules/ui'
