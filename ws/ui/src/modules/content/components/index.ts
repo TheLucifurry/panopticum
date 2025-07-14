@@ -1,4 +1,5 @@
 export { default as ContentListCard } from './ContentListCard.vue'
 export { default as ContentListRow } from './ContentListRow.vue'
+export { default as ProviderViewMain } from './ProviderViewMain.vue'
 export * from './renderers'
 export { default as VideoCard } from './VideoCard.vue'
