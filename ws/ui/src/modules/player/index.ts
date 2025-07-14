@@ -2,7 +2,8 @@ import type { IContentMedia } from '@panopticum/schemas'
 import { useToggle } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { shallowRef } from 'vue'
-import { registerPlayerKeybindings } from '@/features/player'
+import { timesMap } from 'webshrine'
+import { useKeyboard } from '@/modules/keyboard'
 import { useIncrementable } from '@/shared/composables'
 
 export const DEFAULT_DURATION = 4 * 60 + 4
@@ -68,5 +69,46 @@ export const usePlayer = defineModule(() => {
   }
 })
 
-// TODO: implement plugin system for defineModule
+export function registerPlayerKeybindings(player: ReturnType<typeof usePlayer>) {
+  const keyboard = useKeyboard()
+
+  const volumeChangeBezel = () => `${Math.ceil(player.volume * 100)}%`
+  const rateChangeBezel = () => `${player.rate}x`
+
+  keyboard.binds({
+    'm': {
+      pressed: () => player.toggleMuted(),
+      bezel: () => player.isMuted ? 'Muted' : 'Unmuted',
+    },
+    'space': () => player.togglePlaying(),
+    'up': {
+      pressed: () => player.volumeChange.inc(),
+      bezel: volumeChangeBezel,
+    },
+    'down': {
+      pressed: () => player.volumeChange.dec(),
+      bezel: volumeChangeBezel,
+    },
+    'left': {
+      pressed: () => player.currentTimeChange.dec(),
+      bezel: () => `<< ${player.currentTimeChange.step} sec`,
+    },
+    'right': {
+      pressed: () => player.currentTimeChange.inc(),
+      bezel: () => `${player.currentTimeChange.step} sec >>`,
+    },
+    'shift > .': {
+      pressed: () => player.rateChange.inc(),
+      bezel: rateChangeBezel,
+    },
+    'shift > ,': {
+      pressed: () => player.rateChange.dec(),
+      bezel: rateChangeBezel,
+    },
+    ...Object.fromEntries(
+      timesMap(10, (_, i) => [i, () => player.currentTimeSetByPercent(i / 10)]),
+    ),
+  })
+}
+
 registerPlayerKeybindings(usePlayer())

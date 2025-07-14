@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Maximize, Minimize, PauseIcon, PlayIcon } from 'lucide-vue-next'
 import { Volume } from '@/entities/common/inputs'
-import { MenuButtonSettingsPlayer } from '@/features/player'
 import { usePlayer } from '@/modules/player'
+import { MenuButtonSettingsPlayer } from '@/modules/player/components'
 import { useUiState } from '@/modules/ui'
 import { Group } from '@/shared/components/custom'
 import { toDurationStringFromSeconds } from '@/shared/utils/datetime'
