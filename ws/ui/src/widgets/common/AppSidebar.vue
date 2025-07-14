@@ -3,7 +3,7 @@ import { TimerIcon } from '@radix-icons/vue'
 import { BookmarkIcon, HomeIcon } from 'lucide-vue-next'
 import { useRouter } from 'vue-router'
 import { SidebarProvidersList } from '@/entities/common/sidebar'
-import { MenuButtonUser } from '@/features/user'
+import { MenuButtonUser } from '@/modules/user/components'
 import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarTrigger } from '@/shared/tp/shadcn/components/ui/sidebar'
 
 const router = useRouter()
