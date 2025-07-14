@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { IContentList } from '@panopticum/schemas'
-import { PageGrid } from '@/shared/components/custom'
+import { PageGrid } from '@/shared/components'
 
 const {
   data,

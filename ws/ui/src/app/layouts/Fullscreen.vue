@@ -2,7 +2,7 @@
 import { useElementHover, useIdle } from '@vueuse/core'
 import { computed, shallowRef } from 'vue'
 import { useInteraction } from '@/modules/interaction'
-import { Panel } from '@/shared/components/custom'
+import { Panel } from '@/shared/components'
 import { WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
 

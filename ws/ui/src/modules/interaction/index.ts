@@ -1,5 +1,5 @@
 import type { MaybeRef, Ref } from 'vue'
-import type { BezelProvider } from '@/shared/components/custom'
+import type { BezelProvider } from '@/shared/components'
 import { whenever } from '@vueuse/core'
 import { defineModule } from '@webshrine/vue'
 import { isRef, onBeforeUnmount, onScopeDispose, shallowRef, toValue, watch } from 'vue'

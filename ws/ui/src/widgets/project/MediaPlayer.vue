@@ -5,7 +5,7 @@ import { computed, shallowRef, watch } from 'vue'
 import { Video } from '@/entities/common'
 import { useInteraction } from '@/modules/interaction'
 import { usePlayer } from '@/modules/player'
-import { BezelProvider } from '@/shared/components/custom'
+import { BezelProvider } from '@/shared/components'
 
 const player = usePlayer()
 const i10 = useInteraction()

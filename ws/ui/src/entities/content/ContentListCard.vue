@@ -4,7 +4,7 @@ import { ContentNode } from '@panopticum/schemas'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { computed } from 'vue'
 import { maxNumber } from 'webshrine'
-import { Img } from '@/shared/components/custom'
+import { Img } from '@/shared/components'
 
 const {
   data,
