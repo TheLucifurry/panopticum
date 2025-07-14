@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useElementHover, useIdle } from '@vueuse/core'
 import { computed, shallowRef } from 'vue'
+import { useInteraction } from '@/modules'
 import { Panel } from '@/shared/components/custom'
-import { useInteraction } from '@/shared/modules'
 import { WindowBar } from '@/widgets/common'
 import { Controls, MediaPlayer } from '@/widgets/project'
 

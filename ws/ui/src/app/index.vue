@@ -2,8 +2,8 @@
 import { useColorMode } from '@vueuse/core'
 import { defineAsyncComponent, defineComponent, h, watch } from 'vue'
 import Desktop from '@/app/layouts/Desktop.vue'
-import { useUiState } from '@/shared/modules'
-import { useKeyboard } from '../shared/modules/keyboard'
+import { useUiState } from '@/modules'
+import { useKeyboard } from '../modules/keyboard'
 
 useKeyboard().init()
 

@@ -2,7 +2,7 @@
 import { Settings } from 'lucide-vue-next'
 import { DropdownMenuPortal } from 'radix-vue'
 import { defineComponent } from 'vue'
-import { DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE, usePlayer } from '@/shared/modules/player'
+import { DEFAULT_PLAYBACK_SPEED_OPTIONS, DEFAULT_PLAYBACK_SPEED_RANGE, usePlayer } from '@/modules/player'
 import { DropdownMenuSeparator } from '@/shared/tp/shadcn/components/ui/dropdown-menu'
 import DropdownMenu from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenu.vue'
 import DropdownMenuContent from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuContent.vue'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInteraction, useUiState } from '@/shared/modules'
+import { useInteraction, useUiState } from '@/modules'
 import { SidebarProvider } from '@/shared/tp/shadcn/components/ui/sidebar'
 import { Toaster } from '@/shared/tp/shadcn/components/ui/sonner'
 import { AppSidebar, WindowBar } from '@/widgets/common'

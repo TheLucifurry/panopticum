@@ -6,8 +6,8 @@ import { useAsync } from '@webshrine/vue'
 import { defineComponent, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { renderContentNodeCard } from '@/entities/content'
+import { usePlayer } from '@/modules'
 import { PageGrid } from '@/shared/components/custom'
-import { usePlayer } from '@/shared/modules'
 import { useMediaRepository } from '@/shared/repositories'
 
 export default defineComponent({

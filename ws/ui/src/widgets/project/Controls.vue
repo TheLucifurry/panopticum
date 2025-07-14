@@ -2,8 +2,8 @@
 import { Maximize, Minimize, PauseIcon, PlayIcon } from 'lucide-vue-next'
 import { Volume } from '@/entities/common/inputs'
 import { MenuButtonSettingsPlayer } from '@/features/player'
+import { usePlayer, useUiState } from '@/modules'
 import { Group } from '@/shared/components/custom'
-import { usePlayer, useUiState } from '@/shared/modules'
 import { toDurationStringFromSeconds } from '@/shared/utils/datetime'
 import ControlsTrack from './ControlsTrack.vue'
 

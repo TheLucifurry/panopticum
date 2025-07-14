@@ -1,5 +1,5 @@
-import type { useUiState } from '@/shared/modules'
-import { useKeyboard } from '@/shared/modules'
+import type { useUiState } from '@/modules'
+import { useKeyboard } from '@/modules'
 
 export function registerUiStateKeybindings(uis: ReturnType<typeof useUiState>) {
   const keyboard = useKeyboard()

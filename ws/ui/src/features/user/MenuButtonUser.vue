@@ -1,7 +1,7 @@
 <script lang="tsx">
 import { defineComponent } from 'vue'
 import { UserAvatar } from '@/entities/user'
-import { useUser } from '@/shared/modules'
+import { useUser } from '@/modules'
 import DropdownMenu from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenu.vue'
 import DropdownMenuContent from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuContent.vue'
 import DropdownMenuItem from '@/shared/tp/shadcn/components/ui/dropdown-menu/DropdownMenuItem.vue'
