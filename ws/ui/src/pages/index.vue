@@ -2,7 +2,7 @@
 import { onUnmounted, watch } from 'vue'
 import { useInteraction } from '@/modules/interaction'
 import { usePlayer } from '@/modules/player'
-import { MediaPlayer } from '@/widgets/project'
+import { MediaPlayer } from '@/modules/player/components'
 
 definePage({ name: 'player' })
 
