@@ -6,7 +6,7 @@
   ],
   "rust-analyzer.linkedProjects": [
     "ws/core/Cargo.toml",
-    "ws/schemas/Cargo.toml",
+    "ws/schemas/Cargo.toml"
   ],
 
   // UNPLUGIN VUE ROUTER

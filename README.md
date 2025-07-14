@@ -7,7 +7,7 @@
 
 ## Project anatomy
 ### Stack
-- Languages - TypeScript, Rust, SCSS
+- Languages - TypeScript, Rust
 - App core - Tauri 2
 - App UI - Vue 3, ShadcnVue, Tailwind
 - Tools - Vite, Nodemon, Typeshare
