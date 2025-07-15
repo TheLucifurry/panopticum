@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInteraction } from '@/shared/modules'
+import { useInteraction } from '@/modules/interaction'
 
 definePage({ name: 'home' })
 

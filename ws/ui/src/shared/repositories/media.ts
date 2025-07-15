@@ -1,7 +1,7 @@
 import type { ContentNode, PathNodes } from '@panopticum/schemas'
 import { invoke } from '@tauri-apps/api/core'
 import { defineModule } from '@webshrine/vue'
-import { useInteraction } from '@/shared/modules'
+import { useInteraction } from '@/modules/interaction'
 
 export const useMediaRepository = defineModule(() => {
   const i10 = useInteraction()

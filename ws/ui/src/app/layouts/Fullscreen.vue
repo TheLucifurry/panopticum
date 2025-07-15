@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { useElementHover, useIdle } from '@vueuse/core'
 import { computed, shallowRef } from 'vue'
-import { Panel } from '@/shared/components/custom'
-import { useInteraction } from '@/shared/modules'
-import { WindowBar } from '@/widgets/common'
-import { Controls, MediaPlayer } from '@/widgets/project'
+import { useInteraction } from '@/modules/interaction'
+import { Controls, MediaPlayer } from '@/modules/player/components'
+import { Panel } from '@/shared/components'
+import { WindowBar } from '@/shared/components/widgets'
 
 const PLAYER_USER_IDLE_TIMEOUT = 3000
 
