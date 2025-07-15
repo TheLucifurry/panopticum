@@ -79,9 +79,9 @@
 }
 
 @layer base {
-  * {
+  /* * { Can't apply this utility
     @apply t:border-border t:outline-ring/50;
-  }
+  } */
   body {
     @apply t:bg-background t:text-foreground;
   }

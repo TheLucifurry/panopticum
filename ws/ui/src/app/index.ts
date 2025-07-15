@@ -1,13 +1,12 @@
 import { createApp } from 'vue'
-import { debug } from './debug'
 import App from './index.vue'
 import Router from './router'
-// import './styles/index.css'
-import './styles/global.css'
+import './styles/index.css'
 
-if (import.meta.env.DEV)
-  debug()
+if (import.meta.env.DEV) {
+  import('./debug').then(({ debug }) => debug())
+}
 
 createApp(App)
   .use(Router)
-  .mount('#root')
+  .mount('#a')
